@@ -1,0 +1,1 @@
+PMTEfficiency_cc_dependencies =  ../src/PMTEfficiency.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/InstallArea/include/Geometry/PMTParamSvc.h   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PMTSim/include/PMTEfficiency.hh  $(bin)PMTSim_deps/PMTEfficiency_cc.stamp

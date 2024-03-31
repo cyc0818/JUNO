@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/EventObject"/> 
+        <import name="Context/TimeStamp.h"/>
+
+ 
+        <class name="TrackElecTruth"
+            author="Miao Yu"
+            desc="This data model reflects the content of the track truth info.
+                  ChangeLog:
+                  v1) first version. 
+                  v2) use float. "
+            version="2">
+
+            <base name="EventObject"/>
+
+            <attribute
+                 desc="track truth edepX"
+                 name="edepX"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth edepY"
+                 name="edepY"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth edepZ"
+                 name="edepZ"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth pdgid"
+                 name="pdgid"
+                 type="int"
+                 />
+            <attribute
+                 desc="track truth edep"
+                 name="edep"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth Qedep"
+                 name="Qedep"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initT"
+                 name="initT"
+                 type="double"
+                 />
+
+            <attribute
+                 desc="track truth initX"
+                 name="initX"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initY"
+                 name="initY"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initZ"
+                 name="initZ"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initPx"
+                 name="initPx"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initPy"
+                 name="initPy"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initPz"
+                 name="initPz"
+                 type="float"
+                 />
+            <attribute
+                 desc="track truth initMass"
+                 name="initMass"
+                 type="float"
+                 />
+            <attribute
+                 desc="track timestamp"
+                 name="trackTime"
+                 type="TimeStamp"
+                 />
+
+        </class>
+    </package>
+</xdd>
+
+

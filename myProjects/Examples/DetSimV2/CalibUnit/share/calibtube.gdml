@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+  </define>
+
+  <materials>
+    <material Z="1" name="Galactic0x15b48b0" state="gas">
+      <T unit="K" value="2.73"/>
+      <P unit="pascal" value="3e-18"/>
+      <D unit="g/cm3" value="1e-25"/>
+      <atom unit="g/mole" value="1.01"/>
+    </material>
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="vTube10x160d0a0" rmax="23.9" rmin="0" startphi="0" z="17300"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sTube10x160ce50" rmax="25.4" rmin="0" startphi="0" z="17300"/>
+    <ellipsoid ax="23.8238" by="23.8238" cz="6.731" lunit="mm" name="lsWindow0x160d970" zcut1="0" zcut2="6.731"/>
+    <ellipsoid ax="23.9" by="23.9" cz="6.8072" lunit="mm" name="sWindow0x160d770" zcut1="0" zcut2="6.8072"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="vTube20x160d540" rmax="23.9" rmin="0" startphi="0" z="300"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sTube20x160d2f0" rmax="25.4" rmin="0" startphi="0" z="300"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sCT0x160cca0" rmax="25.4" rmin="0" startphi="0" z="17600"/>
+    <box lunit="mm" name="dummysWorld0x15fe120" x="120000" y="120000" z="120000"/>
+  </solids>
+
+  <structure>
+    <volume name="lvTube10x160d190">
+      <materialref ref="VacuumT0x15ead00"/>
+      <solidref ref="vTube10x160d0a0"/>
+    </volume>
+    <volume name="lTube10x160cf40">
+      <materialref ref="StainlessSteel0x15d7520"/>
+      <solidref ref="sTube10x160ce50"/>
+      <physvol name="pvTube10x160d250">
+        <volumeref ref="lvTube10x160d190"/>
+      </physvol>
+    </volume>
+    <volume name="lLSWindow0x160da10">
+      <materialref ref="LS0x15bfa20"/>
+      <solidref ref="lsWindow0x160d970"/>
+    </volume>
+    <volume name="lWindow0x160d810">
+      <materialref ref="Mylar0x15d9090"/>
+      <solidref ref="sWindow0x160d770"/>
+      <physvol name="pLSWindow0x160dad0">
+        <volumeref ref="lLSWindow0x160da10"/>
+      </physvol>
+    </volume>
+    <volume name="lvTube20x160d630">
+      <materialref ref="VacuumT0x15ead00"/>
+      <solidref ref="vTube20x160d540"/>
+      <physvol name="pWindow0x160d8d0">
+        <volumeref ref="lWindow0x160d810"/>
+        <position name="pWindow0x160d8d0_pos" unit="mm" x="0" y="0" z="-150"/>
+      </physvol>
+    </volume>
+    <volume name="lTube20x160d3e0">
+      <materialref ref="Acrylic0x15d4aa0"/>
+      <solidref ref="sTube20x160d2f0"/>
+      <physvol name="pvTube20x160d6f0">
+        <volumeref ref="lvTube20x160d630"/>
+      </physvol>
+    </volume>
+    <volume name="lCT0x160cd90">
+      <materialref ref="LS0x15bfa20"/>
+      <solidref ref="sCT0x160cca0"/>
+      <physvol name="pTube10x160d000">
+        <volumeref ref="lTube10x160cf40"/>
+        <position name="pTube10x160d000_pos" unit="mm" x="0" y="0" z="150"/>
+      </physvol>
+      <physvol name="pTube20x160d4a0">
+        <volumeref ref="lTube20x160d3e0"/>
+        <position name="pTube20x160d4a0_pos" unit="mm" x="0" y="0" z="-8650"/>
+      </physvol>
+    </volume>
+    <volume name="dummylWorld0x15ff230">
+      <materialref ref="Galactic0x15b48b0"/>
+      <solidref ref="dummysWorld0x15fe120"/>
+      <physvol name="lCT_phys0x160dc50">
+        <volumeref ref="lCT0x160cd90"/>
+        <position name="lCT_phys0x160dc50_pos" unit="mm" x="0" y="0" z="8800"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="dummylWorld0x15ff230"/>
+  </setup>
+
+</gdml>

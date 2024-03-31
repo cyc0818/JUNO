@@ -1,0 +1,8 @@
+{ decls }
+namespace JM {  }
+
+[ libEDMUtil.so ]
+# List of selected classes
+class JM::TablePerTree
+class JM::UniqueIDTable
+header EDMUtil/UniqueIDTable.h

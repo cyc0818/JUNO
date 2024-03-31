@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+
+        <import name="Event/EventObject"/> 
+        <import name="Event/ElecChannel"/>
+        <import name="map" std="TRUE"/>
+
+        <class name="CdLpmtElecEvt"
+            author="fangxiao"
+            desc="">
+
+            <base name="EventObject"/>
+
+            <destructor desc="destructor">
+                <code>
+  for (auto it = m_channelData.begin(); it!=m_channelData.end(); ++it) {
+    delete it->second;
+  }
+                </code>
+            </destructor>
+
+            <attribute
+                name="channelData"
+                desc="Map between PmtId and ElecChannel"
+                type="std::map&lt;int,JM::ElecChannel*&gt;"
+                />
+
+            <method
+                name="addChannel"
+                desc="Add a PMT channel to this event"
+                argList="int pmtID"
+                type="JM::ElecChannel*">
+            <code>
+  JM::ElecChannel* channel = new JM::ElecChannel;
+  auto it = m_channelData.find(pmtID);
+  if (it == m_channelData.end()) {
+    m_channelData[pmtID] = channel;
+  }
+  else {
+    delete it->second;
+    it->second = channel;
+  }
+  return channel;
+            </code>
+            </method>
+
+            <method
+                name="addChannel"
+                desc="Add a PMT channel to this event"
+                argList="int pmtID,JM::ElecChannel* channel"
+                type="void">
+            <code>
+  auto it = m_channelData.find(pmtID);
+  if (it == m_channelData.end()) {
+    m_channelData[pmtID] = channel;
+  }
+  else {
+    delete it->second;
+    it->second = channel;
+  }
+            </code>
+            </method>
+
+            <method
+                name="getChannel"
+                desc="Get a PMT channel from this event"
+                argList="int pmtID"
+                type="JM::ElecChannel*">
+            <code>
+  auto it = m_channelData.find(pmtID);
+  if (it != m_channelData.end()) {
+    return it->second;
+  }
+  return 0;
+            </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

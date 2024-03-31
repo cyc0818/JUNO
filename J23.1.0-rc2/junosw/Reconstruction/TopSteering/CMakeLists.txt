@@ -1,0 +1,4 @@
+PKG(TopSteering
+    DEPENDS
+        EvtNavigator 
+)

@@ -1,0 +1,5 @@
+G4OpenGLXViewer::G4OpenGLXViewer couldn't open display.
+G4OpenGLStoredX::CreateViewer: error flagged by negative view id in G4OpenGLStoredXViewer creation.
+ Destroying view and returning null pointer.
+ERROR in G4VisManager::CreateViewer: null pointer during OpenGLStoredX viewer creation.
+  No action taken.

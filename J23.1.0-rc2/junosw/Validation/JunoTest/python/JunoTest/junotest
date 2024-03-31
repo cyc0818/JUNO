@@ -1,0 +1,271 @@
+#!/usr/bin/env python
+
+import argparse
+import os,sys
+
+# compatible between 2 and 3
+try:
+  import configparser
+except ImportError:
+  import ConfigParser as configparser
+
+def getParser():
+
+  argParser = argparse.ArgumentParser()
+  subparsers = argParser.add_subparsers(help='Select the sub-command', dest='runMode')
+
+  # Production
+  production_help_epilog = """
+Note: You can use Environment Variable $JUNOTESTDRIVERPATH to override driver search paths.
+Example:
+    export JUNOTESTDRIVERPATH=/path/to/driver1:/path2/to/driver2
+Assuming in both paths there are a directory called DRV, only the first one will be used.
+If no $JUNOTESTDRIVERPATH is specified, the drivers are loaded under $JUNOTESTROOT/production.
+
+Your current JUNOTESTDRIVERPATH: 
+  %s
+  """ %(os.getenv("JUNOTESTDRIVERPATH") if os.getenv("JUNOTESTDRIVERPATH") else "")
+  ProdParser = subparsers.add_parser("Production", help="production mode", epilog=production_help_epilog,formatter_class=argparse.RawDescriptionHelpFormatter)
+  ProdParser.add_argument("--batch", dest="batch", choices = ["condor", "lsf", "pbs"], default = "condor", help="Batch job backend")
+  ProdParser.add_argument("--topDir", dest="topDir", help="Top directory to do the production")
+  ProdParser.add_argument("--log", dest="log", default="log.txt", help="Log file for the production")
+  ProdParser.add_argument("--ini", dest="ini", help="ini file for the production")
+  ProdParser.add_argument("--test", dest="test", action="store_true", help="For testing, jobs will not be submitted")
+  ProdParser.add_argument("--daemon", dest="daemon", action="store_true", help="run as a daemon.")
+  ProdParser.add_argument("--no-daemon", dest="daemon", action="store_false", help="run as a non daemon.")
+  ProdParser.add_argument("--temp", dest="temp", action="store_true", default=True, help="Keep the temporary files")
+  ProdParser.add_argument("--no-temp", dest="temp", action="store_false", help="Do not keep the temporary files")
+  ProdParser.add_argument("--ana", dest="ana", action="store_true", default=True, help="Run the analysis step")
+  ProdParser.add_argument("--no-ana", dest="ana", action="store_false", help="Do not run the analysis step")
+  ProdParser.add_argument("--ignore-failure", dest="ignore", action="store_true", default=True, help="Ignore failed jobs and continue production")
+  ProdParser.add_argument("--no-ignore-failure", dest="ignore", action="store_false", help="Do not ignore failed jobs")
+  ProdParser.add_argument("--benchmark", action="store_true", help="running benchmark on specific machines")
+  ProdParser.add_argument("name", help="Production name to be done (all, list)", nargs="+")
+  # Trigger for production
+  ProdParser.add_argument("--prod", dest="pord", action="store_true", default=True, help="Run the production step")
+  ProdParser.add_argument("--no-prod", dest="prod", action="store_false", help="Do not run the production step")
+  # Trigger for comparison
+  ProdParser.add_argument("--cmp", dest="cmp", action="store_true", default=True, help="Run the comparison step")
+  ProdParser.add_argument("--no-cmp", dest="cmp", action="store_false", help="Do not run the comparison step")
+
+  ProdParser.add_argument("--econf", dest="extra_conf",help="Extra configuration file for ini file")
+  ProdParser.add_argument("--maxTime", dest="maxTime", default=-1, help="Time limitation (s) for batch jobs. -1 means no limitation.")
+  ProdParser.add_argument("--walltime=", dest="walltime", default='72:00:00', help="Time limitation (hh:mm:ss) for PBS batch jobs.")
+# Unittest
+  UnitParser = subparsers.add_parser("UnitTest", help="production mode")
+  UnitParser.add_argument("name", help="Package name (all, list)", nargs="+")
+
+  return argParser
+
+def run_prod(args):
+  # TODO decide the production-dir
+  top_dir = os.getenv('JUNOTESTROOT') + '/' + 'production'
+
+  # allow user to override the path
+  # JUNOTESTDRIVERPATH /path/one:/path/two
+  user_extra_dir = []
+  user_extra_dir_str = os.getenv("JUNOTESTDRIVERPATH")
+  if user_extra_dir_str:
+    user_extra_dir.extend( user_extra_dir_str.split(":") )
+  user_extra_dir.append(top_dir)
+
+  # Get the productions list
+  def get_productions():
+    for dd in user_extra_dir:
+      # check directory exists or not 
+      if not os.path.exists(dd):
+        print("WARN: %s does not exist"%dd)
+        continue
+      if not os.path.isdir(dd):
+        print("WARN: %s is not a directory"%dd)
+        continue
+      # get the contents of dd
+      for d in os.listdir(dd):
+        path = os.path.join(dd, d)
+        if not os.path.isdir(path): continue
+        # d is driver
+        # TODO: should we check the driver already exists?
+        #       or allow scripts override?
+        # OK, let's skip the driver, if it already exists
+        if d in productions: 
+          print("WARN: %s (%s) already exists, skip %s"%(d, str(productions[d]), path))
+          continue
+
+        # if the script is already in PathA, use it.
+        scripts = productions.get(d, [])
+        scripts_base = {os.path.basename(f):f for f in scripts}
+        for f in os.listdir(path):
+          # only match prod_*
+          if not f.startswith('prod_'): continue
+          # if the script is already added, skip it.
+          if f in scripts_base: continue
+          scripts.append(os.path.join(path, f))
+          #print('element:%s add script %s'%(d,os.path.join(path,f)))
+        if len(scripts):
+          productions[d] = scripts
+
+  productions = {}
+  get_productions()
+  ##########################################
+  # we also support the names defined in ini file
+  if args.ini:
+    # check ini existance
+    if not os.path.exists(args.ini):
+      print("ERROR: %s does not exist" % args.ini)
+      sys.exit(-1)
+
+    iniReader = configparser.RawConfigParser()
+    iniReader.read(args.ini) 
+    real_dir = list(productions.keys())
+    for sec in iniReader.sections():
+        if sec in ('all',):
+            continue
+        elif sec.startswith("@"):
+            # this is an analysis script
+            continue
+        elif not iniReader.has_option(sec, "driver") and sec not in real_dir:
+            # if section name is not a driver name, and also it does not have a driver option.
+            continue
+
+        # OK, if the section name is the same name in JUNOTESTDRIVERPATH,
+        # we need to tell users.
+
+        if sec in productions and iniReader.get(sec, "driver") != sec:
+            print('WARNING: by default [%s] is a driver name, but it is specified with another driver named %s.'%(sec, iniReader.get(sec, "driver")))
+
+        # get the driver
+        driver = iniReader.get(sec, "driver")
+        if not driver:
+            print("missing driver option for [%s]"%sec)
+            continue
+        # get the scripts to run
+        scripts = []
+        if iniReader.has_option(sec, "scripts"):
+            # Example: prod_Chain_uniform.py
+            scripts = iniReader.get(sec, "scripts")
+            # Convert to list
+            if scripts:
+                scripts = scripts.split()
+            d = {os.path.basename(f):f for f in productions[driver]}
+            #print('driver=%s, scripts=%s'%(driver,d))
+            scripts = [d[b] for b in scripts]
+            print(('scripts: %s'%scripts))
+        if not scripts:
+            scripts = productions[driver]
+        # load the command 
+        productions[sec] = scripts
+
+  ##########################################
+
+  if 'list' in args.name:
+    print('Currently Supported Production List:')
+    for p in list(productions.keys()):
+      print(p)
+    sys.exit(0)
+  
+  else:
+    arguments = ''
+    if args.topDir:  arguments += ' --topDir %s ' % args.topDir
+    if os.path.exists(args.log):
+      os.remove(args.log)
+    arguments += ' --log %s ' % args.log
+    arguments += ' --batch %s ' % args.batch
+    if args.prod : arguments += ' --prod '
+    else: arguments += ' --no-prod '
+    if args.cmp: arguments += ' --cmp '
+    else: arguments += ' --no-cmp'
+    if args.test : arguments += ' --test '
+    if args.ini: arguments += ' --ini %s ' % args.ini
+    if args.daemon: arguments += ' --daemon '
+    else: arguments += ' --no-daemon '
+    if args.temp: arguments += ' --temp '
+    else: arguments += ' --no-temp '
+    if args.ana: arguments += ' --ana '
+    else: arguments += ' --no-ana '
+    if args.ignore: arguments += ' --ignore-failure '
+    else: arguments += ' --no-ignore-failure '
+    if args.benchmark: arguments += ' --benchmark '
+    if args.extra_conf: arguments += ' --econf %s'%args.extra_conf
+    arguments += ' --maxTime %s ' % args.maxTime
+    arguments += ' --walltime=%s ' % args.walltime
+
+    if 'all' in args.name:
+      for dir, scripts in list(productions.items()):
+        for script in scripts:
+          parg = arguments + ' --name %s ' % dir
+          print('python %s %s' % (script, parg))
+          os.system('python %s %s' % (script, parg))
+    else:
+      for name in args.name:
+        if name not in productions:
+          print('Unknown production: ' + name)
+          continue
+        for script in productions[name]:
+          parg = arguments + ' --name %s ' % name
+          print('python %s %s' % (script, parg))
+          os.system('python %s %s' % (script, parg))
+
+def run_unittest(args):
+
+    # just show the list
+  #alllines = os.popen('cmt show packages $JUNOTOP/offline').readlines()
+  # alllines = os.popen('cmt show packages').readlines()
+
+  # As CMT is removed, use "env | grep 'ROOT='"
+  alllines = os.popen("env | grep 'ROOT='").readlines()
+  allPkgs = {}
+  # list(map(lambda x:allPkgs.setdefault(x.split()[0], x.split()[2] + '/' + x.split()[0]), alllines))
+  for line in alllines:
+    line = line.strip()
+    if "=" not in line:
+      continue
+    k, v = line.split("=")
+    # k: TUTORIALROOT
+    # v: /path/to/Tutorial
+    # b: Tutorial
+    b = os.path.basename(v)
+    allPkgs[b] = v
+
+  testPkgs = {}
+  for pkg, path in list(allPkgs.items()):
+    pkgtestroot = path + '/' + 'tests'
+    if os.path.isdir(pkgtestroot):
+      tests = []
+      for f in os.listdir(pkgtestroot):
+        if f.startswith('test_') and f.endswith('.py'): tests.append(pkgtestroot + '/' + f)
+      if len(tests): testPkgs[pkg] = tests
+  if 'list' in args.name:
+    print('Packages that have unittest cases:')
+    for p in list(testPkgs.keys()): print(p)
+    sys.exit(0)
+  else:
+    if 'all' in args.name:
+      for scripts in list(testPkgs.values()): 
+        for script in scripts:
+          os.chdir(os.path.dirname(script))
+          print('python %s' % script)
+          os.system('python %s' % script)
+    else:
+      for name in args.name:
+        if name not in testPkgs:
+          print('Package: %s does not exist or does not have test cases' % name)
+          continue
+        for script in testPkgs[name]:
+          os.chdir(os.path.dirname(script))
+          print('python %s' % script)
+          os.system('python %s' % script)
+
+if __name__ == '__main__':
+
+  assert os.getenv('JUNOTOP'), 'Please setup JUNO official software first!'
+  assert os.getenv('JUNOTESTROOT'), 'Can not find JunoTest package, please setup environment first!'
+  print("----start junotest----")
+
+  parser = getParser()
+  args = parser.parse_args()
+
+  if args.runMode == 'Production':
+    run_prod(args)
+
+  else:
+    run_unittest(args)

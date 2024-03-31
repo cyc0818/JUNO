@@ -1,0 +1,5 @@
+
+PKG(DetSimMT
+    DEPENDS
+        DetSimAlg
+)

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://128.30.52.100/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+  </define>
+
+  <materials>
+    <element Z="11" name="Sodium">
+     <atom unit="g/mole" value="22.98977"/>
+    </element>
+    <element Z="13" name="Aluminium">
+     <atom unit="g/mole" value="26.98"/>
+    </element>
+    <element Z="14" name="Silicon">
+     <atom unit="g/mole" value="28.09"/>
+    </element>
+    <element Z="8" name="Oxygen">
+     <atom unit="g/mole" value="16"/>
+    </element>
+    <element Z="1" name="Hydrogen">
+     <atom unit="g/mole" value="1.01"/>
+    </element>
+    <material name="Analcime" state="solid">
+     <D unit="g/cm3" value="2.3"/>
+     <fraction n="0.0769" ref="Sodium"/>
+     <fraction n="0.0769" ref="Aluminium"/>
+     <fraction n="0.1538" ref="Silicon"/>
+     <fraction n="0.5386" ref="Oxygen"/>
+     <fraction n="0.1538" ref="Hydrogen"/>
+    </material>
+  </materials>
+
+  <solids>
+    <opticalsurface finish="0" model="1" name="OpticalWeightMirror" type="0" value="0"/>
+    <box lunit="mm" name="sBox3" x="9" y="14" z="35"/>
+    <box lunit="mm" name="sBox4" x="30" y="22" z="35"/>
+    <box lunit="mm" name="sBox5" x="9" y="10" z="25"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight2" rmax="12.6" rmin="0" startphi="0" z="25"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight_Coat1" rmax="13.6" rmin="0" startphi="0" z="27"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Coat2" rmax="13.6" rmin="0" startphi="0" starttheta="0"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Coat3" rmax="13.6" rmin="0" startphi="0" starttheta="90"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sHemiSphere1" rmax="5" rmin="0" startphi="0" starttheta="0"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sHemiSphere2" rmax="5" rmin="0" startphi="0" starttheta="90"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSource" rmax="2" rmin="0" startphi="0" z="4"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSS" rmax="3" rmin="0" startphi="0" z="6"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sPipe" rmax="4" rmin="3" startphi="0" z="10"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sTubs" rmax="5" rmin="0" startphi="0" z="10"/>
+    <box lunit="mm" name="sSourceWorld" x="40" y="20" z="540"/>
+  </solids>
+
+  <structure>
+    <volume name="lBox3">
+	  <materialref ref="Teflon"/>
+	  <solidref ref="sBox3"/>
+    </volume>
+    <volume name="lBox4">
+	  <materialref ref="Teflon"/>
+	  <solidref ref="sBox4"/>
+    </volume>
+    <volume name="lBox5">
+	  <materialref ref="Steel"/>
+	  <solidref ref="sBox5"/>
+    </volume>
+    <volume name="lWeight2">
+      <materialref ref="Steel"/>
+      <solidref ref="sWeight2"/>
+    </volume>
+    <volume name="lWeight_Coat2">
+      <materialref ref="Teflon"/>
+      <solidref ref="sWeight_Coat2"/>
+    </volume>
+    <volume name="lWeight_Coat3">
+      <materialref ref="Teflon"/>
+      <solidref ref="sWeight_Coat3"/>
+    </volume>
+    <volume name="lHemiSphere1">
+      <materialref ref="Teflon"/>
+      <solidref ref="sHemiSphere1"/>
+    </volume>
+    <volume name="lHemiSphere2">
+      <materialref ref="Teflon"/>
+      <solidref ref="sHemiSphere2"/>
+    </volume>
+    <volume name="lSource">
+      <materialref ref="Analcime"/>
+      <solidref ref="sSource"/>
+    </volume>
+    <volume name="lSS">
+      <materialref ref="Steel"/>
+      <solidref ref="sSS"/>
+      <physvol name="pSource">
+        <volumeref ref="lSource"/>
+      </physvol>
+    </volume>
+	<volume name="lWeight_Coat1">
+      <materialref ref="Teflon"/>
+      <solidref ref="sWeight_Coat1"/>
+      <physvol name="pWeight2">
+       <volumeref ref="lWeight2"/>
+      </physvol>
+    </volume>
+    <volume name="lPipe">
+      <materialref ref="Steel"/>
+      <solidref ref="sPipe"/>
+    </volume>
+    <volume name="lTubs">
+      <materialref ref="Teflon"/>
+      <solidref ref="sTubs"/>
+      <physvol name="pPipe">
+        <volumeref ref="lPipe"/>
+      </physvol>
+      <physvol name="pSS">
+        <volumeref ref="lSS"/>
+      </physvol>
+    </volume>
+    <volume name="lSourceWorld">
+      <materialref ref="LS"/>
+      <solidref ref="sSourceWorld"/>
+      <physvol name="pBox3">
+        <volumeref ref="lBox3"/>
+        <position name="pBox3_pos" unit="mm" x="0" y="0" z="252.5"/>
+      </physvol>
+      <physvol name="pBox4">
+        <volumeref ref="lBox4"/>
+        <position name="pBox4_pos" unit="mm" x="0" y="0" z="217.5"/>
+      </physvol>
+      <physvol name="pBox5">
+        <volumeref ref="lBox5"/>
+        <position name="pBox5_pos" unit="mm" x="0" y="0" z="187.5"/>
+      </physvol>
+      <physvol name="pHemiSphere1">
+        <volumeref ref="lHemiSphere1"/>
+        <position name="pHemiSphere1_pos" unit="mm" x="0" y="0" z="5"/>
+      </physvol>
+      <physvol name="pHemiSphere2">
+        <volumeref ref="lHemiSphere2"/>
+        <position name="pHemiSphere2_pos" unit="mm" x="0" y="0" z="-5"/>
+      </physvol>
+      <physvol name="pTubs">
+        <volumeref ref="lTubs"/>
+      </physvol>
+      <physvol name="pWeight_Coat1">
+        <volumeref ref="lWeight_Coat1"/>
+        <position name="pWeight_Coat1_pos" unit="mm" x="0" y="0" z="-200"/>
+      </physvol>
+      <physvol name="pWeight_Coat2">
+        <volumeref ref="lWeight_Coat2"/>
+        <position name="pWeight_Coat2_pos" unit="mm" x="0" y="0" z="-186.5"/>
+      </physvol>
+      <physvol name="pWeight_Coat3">
+        <volumeref ref="lWeight_Coat3"/>
+        <position name="pWeight_Coat3_pos" unit="mm" x="0" y="0" z="-213.5"/>
+      </physvol>
+    </volume>
+
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lHemiSphere1"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lHemiSphere2"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lBox3"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lBox4"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="SSMirror">
+      <volumeref ref="lBox5"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lWeight_Coat1"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lWeight_Coat2"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lWeight_Coat3"/>
+     </skinsurface>
+     <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+       <volumeref ref="lTubs"/>
+     </skinsurface>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="lSourceWorld"/>
+  </setup>
+
+</gdml>

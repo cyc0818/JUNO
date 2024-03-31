@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SEQUENCE_LIST>
+
+    <!--
+    <SEQUENCE sequence_id="simpleRec">
+        <ESALGORITHM algorithm="SimpleRecAlg" />
+    </SEQUENCE>
+    -->
+
+    <SEQUENCE sequence_id="EVtxRec">
+        <ESALGORITHM algorithm="QCtrRecAlg" />
+    </SEQUENCE>
+
+    <SEQUENCE sequence_id="muonRec">
+        <ESALGORITHM algorithm="RecCdMuonAlg" />
+    </SEQUENCE>
+
+</SEQUENCE_LIST>

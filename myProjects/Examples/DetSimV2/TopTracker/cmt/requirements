@@ -1,0 +1,13 @@
+package TopTracker
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+use DetSimAlg       v*  Simulation/DetSimV2
+
+use Identifier      v*  Detector
+
+library TopTracker *.cc
+apply_pattern linker_library library=TopTracker
+include_dirs "$(TOPTRACKERROOT)/include"
+

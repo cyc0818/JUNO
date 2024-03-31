@@ -1,0 +1,11 @@
+PKG(HECAlg
+    DEPENDS
+    EvtNavigator
+    ElecEvent
+    CalibEvent
+    JunoTimer
+    OECData
+    OecEvent
+    OECConfigSvc
+    XercesC::XercesC
+    )

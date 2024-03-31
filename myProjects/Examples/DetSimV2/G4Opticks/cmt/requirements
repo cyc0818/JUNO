@@ -1,0 +1,13 @@
+package G4Opticks
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+use PhysiSim        v*  Simulation/DetSimV2
+use DetSimAlg       v*  Simulation/DetSimV2
+
+use Opticks         v* Simulation/DetSimV2
+
+library G4Opticks *.cc phys/*.cc
+apply_pattern linker_library library=G4Opticks
+
+include_dirs $(G4Opticks_root)/src/phys

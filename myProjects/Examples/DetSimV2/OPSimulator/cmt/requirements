@@ -1,0 +1,13 @@
+package OPSimulator
+
+use SniperRelease v*
+use DetSimPolicy  v* Simulation/DetSimV2
+
+use DetSimAlg     v* Simulation/DetSimV2
+use PhysiSim     v* Simulation/DetSimV2
+
+include_dirs "$(PHYSISIMROOT)/include"
+
+library OPSimulator *.cc
+apply_pattern linker_library library=OPSimulator
+apply_pattern install_more_includes more="OPSimulator"

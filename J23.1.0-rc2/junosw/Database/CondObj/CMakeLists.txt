@@ -1,0 +1,4 @@
+PKG(CondObj
+    DEPENDS
+        CondDB
+)

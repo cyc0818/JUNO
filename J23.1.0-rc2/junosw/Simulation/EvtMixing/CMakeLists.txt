@@ -1,0 +1,9 @@
+PKG(EvtMixing
+    DEPENDS
+        GenEvent
+        SimEvent
+        EvtNavigator
+        Identifier
+        RootIOSvc
+        BufferMemMgr
+)

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdTriggerEvt"/>
+
+        <class name="CdTriggerHeader"
+            author="Teng Li"
+            desc="">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::CdTriggerEvt"
+                            name="event"
+                            desc="SmartRef to the CD Trigger Event"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

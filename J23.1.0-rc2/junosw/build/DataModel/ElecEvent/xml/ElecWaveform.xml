@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="TObject"/> 
+        <import name="vector" std="TRUE"/>
+        <import name="cstdint" std="TRUE"/>
+
+        <class name="ElecWaveform"
+            author="Teng Li"
+            desc="Waveform informaiton of per PMT channel"
+            version="2">
+
+            <attribute
+                desc="Amplitude of Waveform"
+                name="adc"
+                type="std::vector&lt;uint16_t&gt;"
+                />
+
+            <attribute
+                desc="Time info of Waveform"
+                name="tdc" 
+                type="std::vector&lt;uint16_t&gt;"
+                getMeth="FALSE"
+                />
+
+            <attribute
+                desc="Waveform channel flag. 0: high/low range. 1-31: TBD"
+                name="channelFlag" 
+                type="uint32_t"
+                />
+
+            <!--method
+              name="swapAdc"
+              desc="swap the content"
+              argList="std::vector&lt;uint16_t&gt;&amp; adc"
+              type="void"
+              >
+              <code>
+  m_adc.swap(adc);
+              </code>
+            </method-->
+            <method
+                name="adc"
+                type="std::vector&lt;uint16_t&gt;&amp; "
+                desc=""
+                >
+                <code>
+  return m_adc;
+                </code>
+            </method>
+
+            <method
+                name="tdc"
+                type="std::vector&lt;uint16_t&gt;&amp; "
+                desc=""
+                >
+                <code>
+  if (m_tdc.size()==0 || m_tdc.size()!=m_adc.size()) {
+    m_tdc.clear();
+    m_tdc.reserve(m_adc.size());
+
+    for (size_t i = 0; i &lt; m_adc.size(); ++i) {
+      m_tdc.push_back(i);
+    }
+  }
+  return m_tdc;
+                </code>
+            </method>
+
+            <method
+                name="tdc"
+                type="const std::vector&lt;uint16_t&gt;&amp; "
+                desc=""
+                const="TRUE"
+                >
+                <code>
+  // FIXME
+  // because this function is const, we could not modify m_tdc
+  static std::vector&lt;uint16_t&gt; tdc;
+  if (tdc.size()==0 || tdc.size()!=m_adc.size()) {
+    tdc.clear();
+    tdc.reserve(m_adc.size());
+
+    for (size_t i = 0; i &lt; m_adc.size(); ++i) {
+      tdc.push_back(i);
+    }
+  }
+  return tdc;
+                </code>
+            </method>
+
+            <method
+                name="isLowRange"
+                type="bool "
+                desc="test if this channel is low range"
+                const="TRUE"
+                >
+                <code>
+  return TESTBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="isHighRange"
+                type="bool "
+                desc="test if this channel is high range"
+                const="TRUE"
+                >
+                <code>
+  return !TESTBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="setLowRange"
+                type="void "
+                desc="set this channel to be low range"
+                const="FALSE"
+                >
+                <code>
+  SETBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="setHighRange"
+                type="void "
+                desc="set this channel to be high range"
+                const="FALSE"
+                >
+                <code>
+  CLRBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

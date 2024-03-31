@@ -1,0 +1,68 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/EventObject"/>
+        <import name="Event/RecTrack"/>
+
+        <class name = "CdTrackRecEvt"
+            author = "ZHANG Kun"
+            desc = "Reconstruction Event Class ">
+
+            <base name = "EventObject"/>
+
+            <attribute
+                name="tracks"
+                setMeth="FALSE"
+                desc="The Cd tracks in this event"
+                type="std::vector&lt;JM::RecTrack*&gt;"/>
+
+            <destructor desc = "destructor">
+                <code>
+  std::vector&lt;RecTrack*&gt;::const_iterator it = m_tracks.begin();
+  std::vector&lt;RecTrack*&gt;::const_iterator end = m_tracks.end();
+  while(it!=end){
+    if(*it) delete  (*it);
+    it++;
+  }
+  m_tracks.clear();
+                </code>
+            </destructor>
+
+            <method
+                name="getTrack"
+                desc="Get a Cd track via index"
+                argList="int index"
+                const="TRUE"
+                type="const JM::RecTrack *">
+                <code>
+  return m_tracks.at(index);
+                </code>
+            </method>
+
+            <method
+                name="addTrack"
+                desc="Add a Cd track to this event"
+                argList="JM::RecTrack* track"
+                type="void">
+                <code>
+  m_tracks.push_back(track);
+                </code>
+            </method>
+
+            <method
+                name="nTracks"
+                desc="Get number of tracks"
+                const="TRUE"
+                type="int">
+                <code>
+  return m_tracks.size();;
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

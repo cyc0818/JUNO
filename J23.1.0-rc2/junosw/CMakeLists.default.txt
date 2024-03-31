@@ -1,0 +1,33 @@
+# Add packages
+## Note: in order to generate the EDM first, place the DataModel at beginning.
+add_subdirectory(XmlObjDesc)
+add_subdirectory(DataModel)
+
+add_subdirectory(Generator)
+add_subdirectory(Detector)
+
+add_subdirectory(CommonSvc)
+add_subdirectory(RootIO)
+add_subdirectory(RawDataIO)
+
+add_subdirectory(Database)
+
+add_subdirectory(Calibration)
+
+add_subdirectory(Simulation)
+add_subdirectory(Reconstruction)
+add_subdirectory(Classification)
+add_subdirectory(Utilities)
+
+add_subdirectory(EventDisplay)
+
+add_subdirectory(Validation)
+
+add_subdirectory(Examples)
+
+if (WITH_OEC)
+    add_subdirectory(OEC)
+endif()
+
+add_subdirectory(Analysis)
+add_subdirectory(IADAnalysis)

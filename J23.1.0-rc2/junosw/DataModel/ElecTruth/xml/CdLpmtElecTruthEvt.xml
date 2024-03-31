@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/EventObject"/> 
+        <import name="Event/LpmtElecTruth"/>
+        <import name="Context/TimeStamp.h"/>
+
+ 
+        <class name="CdLpmtElecTruthEvt"
+            author="Yan Zhang"
+            desc="This data model is a container of LpmtElecTruth objects">
+
+            <base name="EventObject"/>
+
+            <attribute
+                name="truths"
+                desc="Vector of LpmtElecTruth"
+                type="std::vector&lt;JM::LpmtElecTruth&gt;"/>
+            <method
+                name="AddTruth"
+                desc="add a truth to m_truths"
+                argList="JM::LpmtElecTruth value"
+                type="void">
+                <code>
+                    m_truths.push_back(value);
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

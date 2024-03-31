@@ -1,0 +1,21 @@
+2015-10-10 Tao Lin <lintao@ihep.ac.cn>
+* Add script to draw the PMT QE.
+2015-10-09 Tao Lin <lintao@ihep.ac.cn>
+* Add 1inch PMT QE (2014.06.20)
+* Add script to load the file and print the c-based code.
+** script transform_pmtqe.py 
+** input file pmt_qe_1inch_20140620.txt
+* Add water absorption length
+2015-06-16 Tao Lin <lintao@ihep.ac.cn>
+* Add the reverse mode
+* Add the energy column in the comment, so it can be read easily.
+2015-06-15 Tao Lin <lintao@ihep.ac.cn>
+* Add scripts to compare the different emission spectrum.
+* OpticalProperty_lixy.icc is the file from Xinying Li.
+* OpticalProperty_orig.icc is the original spectrum in the Simulation.
+* OpticalProperty_svn.icc is generated from transform_emi.py
+2015-06-15 Xinying Li <lixy@ihep.ac.cn>, Tao Lin <lintao@ihep.ac.cn>
+* Initial import.
+* Add the file of Emission Spectrum.
+** reemission-20150615.txt
+* Add script to convert the f(l)dl to g(e)de. The g(e) = f(l(e))*l**2/1240

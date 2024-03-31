@@ -1,0 +1,9 @@
+PKG(GenDeexTest
+	DEPENDS
+		${GEANT4_LIBRARIES}
+		GenDeex
+    APPONLY
+        GenDeexTest
+    FILES
+        src/GenDeexTest.cc
+)

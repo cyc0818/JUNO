@@ -1,0 +1,4 @@
+[ libEDMUtil.so ]
+# List of selected classes
+class JobInfo
+header EDMUtil/JobInfo.h

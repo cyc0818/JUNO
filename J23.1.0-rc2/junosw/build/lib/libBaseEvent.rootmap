@@ -1,0 +1,14 @@
+{ decls }
+namespace JM {  }
+
+[ libBaseEvent.so ]
+# List of selected classes
+class JM::EventObject
+header Event/EventObject.h
+{ decls }
+namespace JM {  }
+
+[ libBaseEvent.so ]
+# List of selected classes
+class JM::HeaderObject
+header Event/HeaderObject.h

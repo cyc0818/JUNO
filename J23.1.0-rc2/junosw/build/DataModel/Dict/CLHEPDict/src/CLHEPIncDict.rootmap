@@ -1,0 +1,49 @@
+{ decls }
+namespace CLHEP {  }
+
+[ libCLHEPDict.so ]
+# List of selected classes
+class CLHEP::Hep2Vector
+class CLHEP::Hep3RotationInterface
+class CLHEP::Hep3Vector
+class CLHEP::Hep4RotationInterface
+class CLHEP::HepAxisAngle
+class CLHEP::HepBoost
+class CLHEP::HepBoostX
+class CLHEP::HepBoostY
+class CLHEP::HepBoostZ
+class CLHEP::HepDiagMatrix
+class CLHEP::HepEulerAngles
+class CLHEP::HepGenMatrix
+class CLHEP::HepLorentzRotation
+class CLHEP::HepLorentzVector
+class CLHEP::HepMatrix
+class CLHEP::HepRep3x3
+class CLHEP::HepRep4x4
+class CLHEP::HepRep4x4Symmetric
+class CLHEP::HepRotation
+class CLHEP::HepRotationX
+class CLHEP::HepRotationY
+class CLHEP::HepRotationZ
+class CLHEP::HepSymMatrix
+class CLHEP::HepVector
+header CLHEP/Vector/TwoVector.h
+header CLHEP/Vector/RotationInterfaces.h
+header CLHEP/Vector/ThreeVector.h
+header CLHEP/Vector/AxisAngle.h
+header CLHEP/Vector/Boost.h
+header CLHEP/Vector/BoostX.h
+header CLHEP/Vector/BoostY.h
+header CLHEP/Vector/BoostZ.h
+header CLHEP/Matrix/DiagMatrix.h
+header CLHEP/Vector/EulerAngles.h
+header CLHEP/Matrix/GenMatrix.h
+header CLHEP/Vector/LorentzRotation.h
+header CLHEP/Vector/LorentzVector.h
+header CLHEP/Matrix/Matrix.h
+header CLHEP/Vector/Rotation.h
+header CLHEP/Vector/RotationX.h
+header CLHEP/Vector/RotationY.h
+header CLHEP/Vector/RotationZ.h
+header CLHEP/Matrix/SymMatrix.h
+header CLHEP/Matrix/Vector.h

@@ -1,0 +1,62 @@
+{ decls }
+namespace std {  }
+namespace HepMC {  }
+
+[ libHepMCDict.so ]
+# List of selected classes
+class HepMC::ConstGenEventParticleRange
+class HepMC::ConstGenEventVertexRange
+class HepMC::ConstGenParticleEndRange
+class HepMC::ConstGenParticleProductionRange
+class HepMC::Flow
+class HepMC::FourVector
+class HepMC::GenCrossSection
+class HepMC::GenEvent
+class HepMC::GenEventParticleRange
+class HepMC::GenEventVertexRange
+class HepMC::GenParticle
+class HepMC::GenParticleEndRange
+class HepMC::GenParticleProductionRange
+class HepMC::GenVertex
+class HepMC::GenVertexParticleRange
+class HepMC::HeavyIon
+class HepMC::IO_AsciiParticles
+class HepMC::IO_BaseClass
+class HepMC::IO_Exception
+class HepMC::IO_GenEvent
+class HepMC::PdfInfo
+class HepMC::Polarization
+class HepMC::StreamInfo
+class HepMC::TempParticleMap
+class HepMC::ThreeVector
+class HepMC::WeightContainer
+class greater<int>
+class less<int>
+class map<HepMC::GenParticle*,int>
+class map<HepMC::GenVertex const*,HepMC::GenVertex*>
+class map<const GenVertex*,GenVertex*>
+class map<const HepMC::GenVertex*,HepMC::GenVertex*>
+class map<int,HepMC::GenParticle*>
+class map<int,HepMC::GenVertex*,greater<int> >
+class map<int,HepMC::GenVertex*,std::greater<int> >
+class map<int,int>
+class pair<int,HepMC::GenParticle*>
+class pair<int,HepMC::GenVertex*>
+class pair<string,unsigned long>
+header HepMC/GenRanges.h
+header HepMC/Flow.h
+header HepMC/SimpleVector.h
+header HepMC/GenCrossSection.h
+header HepMC/GenEvent.h
+header HepMC/GenParticle.h
+header HepMC/GenVertex.h
+header HepMC/HeavyIon.h
+header HepMC/IO_AsciiParticles.h
+header HepMC/IO_BaseClass.h
+header HepMC/IO_Exception.h
+header HepMC/IO_GenEvent.h
+header HepMC/PdfInfo.h
+header HepMC/Polarization.h
+header HepMC/StreamInfo.h
+header HepMC/TempParticleMap.h
+header HepMC/WeightContainer.h

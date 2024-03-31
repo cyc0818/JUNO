@@ -1,0 +1,69 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "CalibEvent">
+
+        <import name = "Event/EventObject"/>
+        <import name = "CalibPmtChannel"/>
+        <import name = "list" std="TRUE"/>
+
+        <class name = "CdLpmtCalibEvt"
+            author="ZHANG Kun"
+            desc = "Calibration event class">
+
+            <base name = "EventObject"/>
+            <attribute 
+                name="calibPMTCol" 
+                type="std::list&lt;JM::CalibPmtChannel*&gt;"
+                desc="Collection of CalibPmtChannel in a evt"
+                />
+            <method
+                name="getCalibPmtChannel"
+                desc="Get a pmt channel via pmtid"
+                argList="unsigned int pmtid"
+                const="TRUE"
+                type="const JM::CalibPmtChannel*">
+                <code>
+  std::list&lt;JM::CalibPmtChannel*&gt;::const_iterator cpIter;
+  cpIter = m_calibPMTCol.begin();
+  while(cpIter!=m_calibPMTCol.end())
+  {
+    if((*cpIter)-&gt;pmtId()==pmtid) break;
+    cpIter++;
+  }
+  if(cpIter==m_calibPMTCol.end()) return 0;
+  return *cpIter;
+                </code>
+            </method>
+            
+            <method
+                name="addCalibPmtChannel"
+                desc="Add a Calibrate pmt channel to this event"
+                argList="unsigned int pmtid"
+                type="JM::CalibPmtChannel*">
+                <code>
+  JM::CalibPmtChannel* cp = 0;
+  if(!this-&gt;getCalibPmtChannel(pmtid)){
+    cp = new JM::CalibPmtChannel(pmtid);
+    m_calibPMTCol.push_back(cp);
+  }
+    return cp;
+                </code>
+            </method>
+
+            <destructor desc="destructor for SimPMTHeader.">
+                <code>
+  for (std::list&lt;JM::CalibPmtChannel*&gt;::iterator it = m_calibPMTCol.begin();
+      it != m_calibPMTCol.end(); ++it) {
+    if (*it) {
+      delete (*it);
+    }
+  }
+  m_calibPMTCol.clear();
+                </code>
+            </destructor>
+
+        </class>
+    </package>
+</xdd>

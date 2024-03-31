@@ -1,0 +1,3 @@
+PKG(Mn54
+    APPONLY Mn54
+)

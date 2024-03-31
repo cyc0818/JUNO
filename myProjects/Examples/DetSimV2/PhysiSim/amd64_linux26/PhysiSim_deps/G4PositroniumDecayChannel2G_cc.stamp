@@ -1,0 +1,1 @@
+G4PositroniumDecayChannel2G_cc_dependencies =  ../src/G4PositroniumDecayChannel2G.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PhysiSim/include/G4PositroniumDecayChannel2G.hh  $(bin)PhysiSim_deps/G4PositroniumDecayChannel2G_cc.stamp

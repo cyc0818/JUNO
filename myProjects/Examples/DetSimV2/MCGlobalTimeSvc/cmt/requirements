@@ -1,0 +1,11 @@
+package MCGlobalTimeSvc
+
+use SniperKernel   v*
+use ROOT  v* Externals
+use CLHEP v* Externals
+
+apply_pattern install_more_includes more="MCGlobalTimeSvc"
+apply_pattern install_python_modules
+
+library MCGlobalTimeSvc *.cc
+apply_pattern linker_library library=MCGlobalTimeSvc

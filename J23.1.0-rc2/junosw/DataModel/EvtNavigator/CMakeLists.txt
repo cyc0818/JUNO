@@ -1,0 +1,13 @@
+EDM(EvtNavigator 
+    NOXOD
+    HDRDIR
+        EvtNavigator
+    FILES
+        EvtNavigator
+    HDRS
+        NavBuffer
+        EvtNavHelper
+    DEPENDS
+        BaseEvent
+        EDMUtil
+)

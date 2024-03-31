@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CdLpmtCalibHeader
+header Event/CdLpmtCalibHeader.h

@@ -1,0 +1,90 @@
+2020-01-06 Tao Lin <lintao@ihep.ac.cn>
+    Add three flags to control the init of sub-detectors.
+    Update the JunoGeom.root.
+    The PMTs in WP are setup automatically.
+
+2017-06-20 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Add geometry for top tracker
+    Modified files:
+        src/TtGeom.cc
+        src/RecGeomSvc.cc
+        Geometry/TtGeom.h
+        Geometry/RecGeomSvc.cc
+
+2017-06-20 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Add the function of determing the geometry is composite shape or not
+    Modified files:
+        src/CdGeom.cc
+        Geometry/CdGeom.h
+
+2017-01-15 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Allow CdGeom and WpGeom to be initialized at the same time
+    Modified files:
+        src/CdGeom.cc
+        src/WpGeom.cc
+		
+2016-12-02 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Add function about control initialization.
+    Modified files:
+        src/RecGeomSvc.cc
+        Geomtery/RecGeosvc.h
+
+2016-09-24 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Add geometry for water pool,JunoGeo.root instead of the original
+    CdGeom.root,add function to get the detector geomerty information
+    Modified files:
+        src/CdGeom.cc
+        src/WpGeom.cc
+        src/RecGeomSvc.cc
+        Geometry/CdGeom.h
+        Geometry/WpGeom.h
+        Geomtery/RecGeosvc.h
+
+2015-03-17 Zhengyun You <zyou@uci.edu>
+    Add FastInit for CdGeom
+    Modified files:
+        src/RecGeomSvc.cc
+        src/CdGeom.cc
+        src/PmtGeom.cc
+        Geometry/RecGeomSvc.h
+        Geometry/CdGeom.h
+        Geometry/PmtGeom.h
+
+2015-03-08 Zhengyun You <zyou@uci.edu>
+    Add support for 3inch PMT
+    Modified files:
+        src/CdGeom.cc
+        src/PmtGeom.cc
+        Geometry/CdGeom.h
+        Geometry/PmtGeom.h
+
+2014-05-25 Zhengyun You <zyou@uci.edu>
+    Instead of hardcoded assigning PhyNode names, add functions to analyze the TGeom
+    object in root file and assign names automatically, so that geometry service can
+    handle detector designs with different structure, PMT numbers and volume names
+    without any code change 
+    Modified files:
+        src/RecGeomSvc.cc 
+        src/CdGeom.cc
+        Geometry/RecGeoSvc.h
+        Geometry/CdGeom.h
+
+2014-05-04 Zhengyun You <zyou@uci.edu>
+    Update with DetSim1 geometry change, PMT 16720->18306
+
+2013-12-24 Zhengyun You <zyou@uci.edu>
+    Update buffer thickness to 0.8m in default CdGeom
+
+2013-12-20 Zhengyun You <zyou@uci.edu>
+    Update for DetSim1
+
+2013-12-05 Zhengyun You <zyou@uci.edu>
+    share/CdGeom.root is binary file, if version incompatibility, remove it under share,
+    run a Alg calling RecGeomSvc, for example Reconstruction/QCtrRecAlg.
+    A new CdGeom.root will be written out in running directory, copy it to share/
+
+2013-11-14 Zhengyun You <zyou@uci.edu>
+    Add RecGeomSvc (Reconstruction Geometry Service).
+
+2013-10-25 Zhengyun You <zyou@uci.edu>
+    Geometry package, first implementation.

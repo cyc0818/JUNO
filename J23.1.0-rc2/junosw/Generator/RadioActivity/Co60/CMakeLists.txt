@@ -1,0 +1,3 @@
+PKG(Co60
+    APPONLY Co60
+)

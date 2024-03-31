@@ -1,0 +1,15 @@
+[
+{
+    "sequence_id": "EVtxRec",
+    "algorithms": [
+    {
+        "identifier": "readFromRecAlg"
+    }
+    ]
+},
+{
+    "sequence_id": "MuonRec",
+     "algorithms": [
+    ]
+}
+]

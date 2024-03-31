@@ -1,0 +1,16 @@
+add_subdirectory(RecMuonAlg)
+add_subdirectory(RecCdMuonAlg)
+add_subdirectory(RecWpMuonAlg)
+
+add_subdirectory(SpmtMuonRecTool)
+add_subdirectory(CdLpmtQSpecMuonRecTool)
+add_subdirectory(WPChargeClusterRec)
+add_subdirectory(BundleRecByChargeTool)
+add_subdirectory(ConeMuonRecTool)
+add_subdirectory(LsqMuonRecTool)
+add_subdirectory(PoolMuonRecTool)
+add_subdirectory(CdWpFHTMuonRecTool)
+add_subdirectory(SphMuonRecTool)
+add_subdirectory(CdWClippingMuonRecTool)
+
+add_subdirectory(MuSteering)

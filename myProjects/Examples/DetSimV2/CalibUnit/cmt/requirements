@@ -1,0 +1,10 @@
+package CalibUnit
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+use DetSimAlg       v*  Simulation/DetSimV2
+
+library CalibUnit *.cc
+apply_pattern linker_library library=CalibUnit
+include_dirs "$(CALIBUNITROOT)/include"

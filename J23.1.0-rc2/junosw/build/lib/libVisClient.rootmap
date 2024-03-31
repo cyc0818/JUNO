@@ -1,0 +1,4 @@
+[ libVisClient.so ]
+# List of selected classes
+class VisClient
+header VisClient/VisClient.h

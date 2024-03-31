@@ -1,0 +1,27 @@
+{ decls }
+namespace JM {  }
+
+[ libEDMUtil.so ]
+# List of selected classes
+class JM::FileMetaData
+class JM::TreeMetaData
+header EDMUtil/FileMetaData.h
+[ libEDMUtil.so ]
+# List of selected classes
+class JobInfo
+header EDMUtil/JobInfo.h
+{ decls }
+namespace JM {  }
+
+[ libEDMUtil.so ]
+# List of selected classes
+class JM::SmartRef
+header EDMUtil/SmartRef.h
+{ decls }
+namespace JM {  }
+
+[ libEDMUtil.so ]
+# List of selected classes
+class JM::TablePerTree
+class JM::UniqueIDTable
+header EDMUtil/UniqueIDTable.h

@@ -1,0 +1,1 @@
+Tub3inchPMTSolid_cc_dependencies =  ../src/Tub3inchPMTSolid.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PMTSim/include/Tub3inchPMTSolid.hh  $(bin)PMTSim_deps/Tub3inchPMTSolid_cc.stamp

@@ -1,0 +1,11 @@
+package Chimney 
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+use DetSimAlg       v*  Simulation/DetSimV2
+
+library Chimney *.cc
+apply_pattern linker_library library=Chimney
+include_dirs "$(CHIMNEYROOT)/include"
+

@@ -1,0 +1,1 @@
+Tub3inchPMTV3Solid_cc_dependencies =  ../src/Tub3inchPMTV3Solid.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PMTSim/include/Tub3inchPMTV3Solid.hh  $(bin)PMTSim_deps/Tub3inchPMTV3Solid_cc.stamp

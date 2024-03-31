@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://128.30.52.100/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+  </define>
+
+  <materials>
+    <element Z="11" name="Sodium">
+     <atom unit="g/mole" value="22.98977"/>
+    </element>
+    <element Z="13" name="Aluminium">
+     <atom unit="g/mole" value="26.98"/>
+    </element>
+    <element Z="14" name="Silicon">
+     <atom unit="g/mole" value="28.09"/>
+    </element>
+    <element Z="8" name="Oxygen">
+     <atom unit="g/mole" value="16"/>
+    </element>
+    <element Z="1" name="Hydrogen">
+     <atom unit="g/mole" value="1.01"/>
+    </element>
+     <material name="Analcime" state="solid">
+    <D unit="g/cm3" value="2.3"/>
+    <fraction n="0.0769" ref="Sodium"/>
+    <fraction n="0.0769" ref="Aluminium"/>
+    <fraction n="0.1538" ref="Silicon"/>
+    <fraction n="0.5386" ref="Oxygen"/>
+    <fraction n="0.1538" ref="Hydrogen"/>
+   </material>
+  </materials>
+
+  <solids>
+    <box lunit="mm" name="sQuick_Connector_Plug" x="10" y="15" z="23"/>
+    <box lunit="mm" name="sQuick_Connector_Socket1" x="30" y="22" z="34"/>
+    <trd lunit="mm" name="sQuick_Connector_Socket2" x1="30" x2="14" y1="22" y2="6" z="8"/>
+    <box lunit="mm" name="sQuick_Connector_Rod1" x="11" y="15" z="16.5"/>
+    <box lunit="mm" name="sQuick_Connector_Rod2" x="11" y="30" z="40"/>
+    <tube aunit="deg" deltaphi="180" lunit="mm" name="sQuick_Connector_Rod3" rmax="15" rmin="0" startphi="90" z="11"/>
+    <box lunit="mm" name="sUSS_Support1" x="15" y="9" z="10"/>
+    <box lunit="mm" name="sUSS_Support2" x="40" y="15" z="10"/>
+    <box lunit="mm" name="sUSS_Support3" x="10" y="30" z="30"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sUSS_Emitter" rmax="10" rmin="0" startphi="0" z="50"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sString1" rmax="0.5" rmin="0" startphi="0" z="145"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sHemiSphere1" rmax="6" rmin="0" startphi="0" starttheta="0"/>
+    <opticalsurface finish="0" model="1" name="OpticalTeflonMirror" type="0" value="0.95"/>
+    <opticalsurface finish="0" model="1" name="SSMirror" type="0" value="0.4"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sHemiSphere2" rmax="6" rmin="0" startphi="0" starttheta="90"/>
+	<tube aunit="deg" deltaphi="360" lunit="mm" name="sSource" rmax="1" rmin="0" startphi="0" z="2"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSS_0" rmax="3" rmin="1" startphi="0" z="6"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSS_1" rmax="1.5" rmin="0" startphi="0" z="1.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSS_2" rmax="1.5" rmin="0" startphi="0" z="1.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sSS_hole" rmax="0.75" rmin="0" startphi="0" z="3"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sSS_3" rmax="1.5" rmin="0" startphi="0" starttheta="0"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sSS_4" rmax="1.5" rmin="0" startphi="0" starttheta="90"/>
+    <union name="sSS_1_3">
+      <first ref="sSS_1"/>
+      <second ref="sSS_3"/>
+      <position name="sSS_1_3_pos" unit="mm" x="0" y="0" z="0.75"/>
+    </union>
+    <union name="sSS_2_4">
+      <first ref="sSS_2"/>
+      <second ref="sSS_4"/>
+      <position name="sSS_2_4_pos" unit="mm" x="0" y="0" z="-0.75"/>
+    </union>
+    <subtraction name="sSS_1_3_hole">
+      <first ref="sSS_1_3"/>
+      <second ref="sSS_hole"/>
+      <position name="sSS_1_3_hole_pos" unit="mm" x="0" y="0" z="0.75"/>
+      <rotation name="sSS_2_4_hole_rot" unit="deg" x="0" y="90" z="0"/>
+    </subtraction>
+    <subtraction name="sSS_2_4_hole">
+      <first ref="sSS_2_4"/>
+      <second ref="sSS_hole"/>
+      <position name="sSS_2_4_hole_pos" unit="mm" x="0" y="0" z="-0.75"/>
+      <rotation name="sSS_2_4_hole_rot" unit="deg" x="0" y="90" z="0"/>
+    </subtraction>
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sPTFE_Shell_0" rmax="6" rmin="3" startphi="0" z="6"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sPTFE_Shell_1" rmax="6" rmin="3" startphi="0" starttheta="0"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sPTFE_Shell_2" rmax="6" rmin="3" startphi="0" starttheta="90"/>
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sString2" rmax="0.5" rmin="0" startphi="0" z="145"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight2" rmax="12.6" rmin="0" startphi="0" z="25"/>
+	<tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight_Upper2" rmax="10.0" rmin="0" startphi="0" z="11.40"/>
+	<tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight_Lower2" rmax="8.0" rmin="0" startphi="0" z="11.40"/>
+	<sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Upper4" rmax="10.0" rmin="0" startphi="0" starttheta="0"/>
+	<sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Lower6" rmax="8.0" rmin="0" startphi="0" starttheta="90"/>
+
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="sWeight_Coat2" rmax="13.6" rmin="0" startphi="0" z="22.80"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Coat4" rmax="13.6" rmin="0" startphi="0" starttheta="0"/>
+    <sphere aunit="deg" deltaphi="360" deltatheta="90" lunit="mm" name="sWeight_Coat6" rmax="13.6" rmin="0" startphi="0" starttheta="90"/>
+    <box lunit="mm" name="sSourceWorld" x="400" y="400" z="2000"/>
+    
+  </solids>
+
+  <structure>
+    <volume name="lSS_0">
+        <materialref ref="Steel"/>
+        <solidref ref="sSS_0"/>
+    </volume>
+    <volume name="lSS_1_3_hole">
+        <materialref ref="Steel"/>
+        <solidref ref="sSS_1_3_hole"/>
+    </volume>
+    <volume name="lSS_2_4_hole">
+        <materialref ref="Steel"/>
+        <solidref ref="sSS_2_4_hole"/>
+    </volume>
+    <volume name="lPTFE_Shell_0">
+        <materialref ref="Teflon"/>
+        <solidref ref="sPTFE_Shell_0"/>
+    </volume>
+    <volume name="lPTFE_Shell_1">
+        <materialref ref="Teflon"/>
+        <solidref ref="sPTFE_Shell_1"/>
+    </volume>
+    <volume name="lPTFE_Shell_2">
+        <materialref ref="Teflon"/>
+        <solidref ref="sPTFE_Shell_2"/>
+    </volume>
+    <volume name="lSource">
+      <materialref ref="Analcime"/>
+      <solidref ref="sSource"/>
+    </volume>
+    <volume name="lWeight2">
+        <materialref ref="Steel"/>
+        <solidref ref="sWeight2"/>
+    </volume>
+    <volume name="lWeight_Upper2">
+        <materialref ref="Steel"/>
+        <solidref ref="sWeight_Upper2"/>
+    </volume>
+    <volume name="lWeight_Lower2">
+        <materialref ref="Steel"/>
+        <solidref ref="sWeight_Lower2"/>
+    </volume>
+    <volume name="lWeight_Upper4">
+        <materialref ref="Steel"/>
+        <solidref ref="sWeight_Upper4"/>
+    </volume>
+    <volume name="lWeight_Lower6">
+        <materialref ref="Steel"/>
+        <solidref ref="sWeight_Lower6"/>
+    </volume>
+    <volume name="lWeight_Coat4">
+        <materialref ref="Teflon"/>
+        <solidref ref="sWeight_Coat4"/>
+    </volume>
+    <volume name="lWeight_Coat6">
+        <materialref ref="Teflon"/>
+        <solidref ref="sWeight_Coat6"/>
+    </volume>
+	<volume name="lWeight_Coat2">
+	    <materialref ref="Teflon"/>
+		<solidref ref="sWeight_Coat2"/>
+    </volume>
+	<volume name="lQuick_Connector_Rod3">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sQuick_Connector_Rod3"/>
+	</volume>
+	<volume name="lQuick_Connector_Plug">
+	        <materialref ref="Steel"/>
+	        <solidref ref="sQuick_Connector_Plug"/>
+	</volume>
+	<volume name="lQuick_Connector_Socket1">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sQuick_Connector_Socket1"/>
+	</volume>
+	<volume name="lQuick_Connector_Socket2">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sQuick_Connector_Socket2"/>
+	</volume>
+	<volume name="lQuick_Connector_Rod1">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sQuick_Connector_Rod1"/>
+	</volume>
+	<volume name="lQuick_Connector_Rod2">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sQuick_Connector_Rod2"/>
+	</volume>
+	<volume name="lUSS_Support1">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sUSS_Support1"/>
+	</volume>
+	<volume name="lUSS_Support2">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sUSS_Support2"/>
+	</volume>
+	<volume name="lUSS_Support3">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sUSS_Support3"/>
+	</volume>
+	<volume name="lUSS_Emitter">
+	        <materialref ref="Teflon"/>
+	        <solidref ref="sUSS_Emitter"/>
+	</volume>
+	<volume name="lString1">
+		<materialref ref="Steel"/>
+		<solidref ref="sString1"/>
+	</volume>
+	<volume name="lString2">
+		<materialref ref="Steel"/>
+		<solidref ref="sString2"/>
+	</volume>
+
+	<volume name="lSourceWorld">
+		<materialref ref="LS"/>
+		<solidref ref="sSourceWorld"/>
+		<physvol name="pSource">
+          <volumeref ref="lSource"/>
+          <position name="pSource_pos" unit="mm" x="0" y="0" z="0"/>
+        </physvol>
+		<physvol name="lQuick_Connector_Plug">
+			<volumeref ref="lQuick_Connector_Plug"/>
+			<position name="lQuick_Connector_Plug" unit="mm" x="0" y="0" z="150+11.5"/>
+		</physvol>
+		<physvol name="lQuick_Connector_Socket1">
+			<volumeref ref="lQuick_Connector_Socket1"/>
+			<position name="lQuick_Connector_Socket1" unit="mm" x="0" y="0" z="150+11.5+28.5"/>
+		</physvol>
+		<physvol name="lQuick_Connector_Socket2">
+			<volumeref ref="lQuick_Connector_Socket2"/>
+			<position name="lQuick_Connector_Socket2" unit="mm" x="0" y="0" z="150+11.5+28.5+21"/>
+		</physvol>
+		<physvol name="lString1">
+			<volumeref ref="lString1"/>
+			<position name="lString1" unit="mm" x="0" y="0" z="72.5+5"/>
+		</physvol>
+		<physvol name="lString2">
+			<volumeref ref="lString2"/>
+			<position name="lString2" unit="mm" x="0" y="0" z="-72.5-5"/>
+		</physvol>
+      <physvol name="pSS_0">
+        <volumeref ref="lSS_0"/>
+        <position name="pSS_0_pos" unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol name="pSS_1_3_hole">
+        <volumeref ref="lSS_1_3_hole"/>
+        <position name="sSS_1_3_hole" unit="mm" x="0" y="0" z="3.75"/>
+      </physvol>
+      <physvol name="pSS_2_4_hole">
+        <volumeref ref="lSS_2_4_hole"/>
+        <position name="sSS_2_4_hole" unit="mm" x="0" y="0" z="-3.75"/>
+      </physvol>
+      <physvol name="pPTFE_Shell_0">
+        <volumeref ref="lPTFE_Shell_0"/>
+        <position name="pPTFE_Shell_0_pos" unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+      <physvol name="pPTFE_Shell_1">
+        <volumeref ref="lPTFE_Shell_1"/>
+        <position name="pPTFE_Shell_1_pos" unit="mm" x="0" y="0" z="3"/>
+      </physvol>
+      <physvol name="pPTFE_Shell_2">
+        <volumeref ref="lPTFE_Shell_2"/>
+        <position name="pPTFE_Shell_2_pos" unit="mm" x="0" y="0" z="-3"/>
+      </physvol>
+	  <physvol name="pWeight_Upper2">
+	    <volumeref ref="lWeight_Upper2"/>
+		<position name="pWeight_Upper2_pos" unit="mm" x="0" y="0" z="-200+25+5.7"/>
+      </physvol>
+	  <physvol name="pWeight_Lower2">
+	    <volumeref ref="lWeight_Lower2"/>
+		<position name="pWeight_Lower2_pos" unit="mm" x="0" y="0" z="-200+25-5.7"/>
+      </physvol>
+	  <physvol name="pWeight_Upper4">
+	    <volumeref ref="lWeight_Upper4"/>
+		<position name="pWeight_Upper4_pos" unit="mm" x="0" y="0" z="-200+25+5.7+5.7"/>
+      </physvol>
+	  <physvol name="pWeight_Lower6">
+	    <volumeref ref="lWeight_Lower6"/>
+		<position name="pWeight_Lower6_pos" unit="mm" x="0" y="0" z="-200+25-5.7-5.7"/>
+      </physvol>
+	  
+      <physvol name="pWeight_Coat2">
+        <volumeref ref="lWeight_Coat2"/>
+        <position name="pWeight_Coat2_pos" unit="mm" x="0" y="0" z="-200.+25"/>
+      </physvol>
+      <physvol name="pWeight_Coat4">
+        <volumeref ref="lWeight_Coat4"/>
+        <position name="pWeight_Coat4_pos" unit="mm" x="0" y="0" z="-200.+25+11.4"/>
+      </physvol>
+      <physvol name="pWeight_Coat6">
+        <volumeref ref="lWeight_Coat6"/>
+        <position name="pWeight_Coat6_pos" unit="mm" x="0" y="0" z="-200.+25-11.4"/>
+      </physvol>
+	</volume>
+    
+	<skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lQuick_Connector_Rod3"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="SSMirror">
+        <volumeref ref="lQuick_Connector_Plug"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lQuick_Connector_Socket1"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lQuick_Connector_Socket2"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lQuick_Connector_Rod1"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lQuick_Connector_Rod2"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lUSS_Support1"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lUSS_Support2"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lUSS_Support3"/>
+    </skinsurface>
+    <skinsurface name="Quick_Connector Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lUSS_Emitter"/>
+    </skinsurface>
+	<skinsurface name="PTFE_Shell_Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lPTFE_Shell_0"/>
+    </skinsurface>
+    <skinsurface name="PTFE_Shell_Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lPTFE_Shell_1"/>
+    </skinsurface>
+    <skinsurface name="PTFE_Shell_Surface" surfaceproperty="OpticalTeflonMirror">
+      <volumeref ref="lPTFE_Shell_2"/>
+    </skinsurface>
+    <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lWeight_Coat2"/>
+    </skinsurface>
+    <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lWeight_Coat4"/>
+    </skinsurface>
+    <skinsurface name="Weight Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lWeight_Coat6"/>
+    </skinsurface>
+	<skinsurface name="String1 Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lString1"/>
+    </skinsurface>
+    <skinsurface name="String2 Surface" surfaceproperty="OpticalTeflonMirror">
+        <volumeref ref="lString2"/>
+    </skinsurface>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="lSourceWorld"/>
+  </setup>
+
+</gdml>

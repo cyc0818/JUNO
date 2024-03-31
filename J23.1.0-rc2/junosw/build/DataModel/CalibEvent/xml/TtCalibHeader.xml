@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "CalibEvent">
+
+        <import name="Event/HeaderObject"/>
+	<import name="Event/TtCalibEvt"/>
+
+        <class name = "TtCalibHeader"
+            author="Teng Li"
+            desc = "Calibration header for TT">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation type = "JM::TtCalibEvt"
+                name = "event"
+                desc = "Smart pointer to the TtCalibEvt"
+                nonconstaccessor = "TRUE"/>
+        </class>
+    </package>
+</xdd>

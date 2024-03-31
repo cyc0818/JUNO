@@ -1,0 +1,28 @@
+{ decls }
+namespace JM {  }
+
+[ libClusterInfoEvent.so ]
+# List of selected classes
+class JM::ClusterInfoHeader
+header Event/ClusterInfoHeader.h
+{ decls }
+namespace JM {  }
+
+[ libClusterInfoEvent.so ]
+# List of selected classes
+class JM::ClusterInfoEvt
+header Event/ClusterInfoEvt.h
+{ decls }
+namespace JM {  }
+
+[ libClusterInfoEvent.so ]
+# List of selected classes
+class JM::ClusterHitCol
+header Event/ClusterHitCol.h
+{ decls }
+namespace JM {  }
+
+[ libClusterInfoEvent.so ]
+# List of selected classes
+class JM::ClusterHitIdx
+header Event/ClusterHitIdx.h

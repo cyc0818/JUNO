@@ -1,0 +1,424 @@
+**************************************************
+***          Welcome to SNiPER Python          ***
+**************************************************
+Running @ bwsjnws026.ihep.ac.cn on Fri Dec 18 15:54:45 2020
+
+**************************************************************
+ Geant4 version Name: geant4-10-04-patch-02 [MT]   (25-May-2018)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+Create G4SvcRunManager
+G4Svc
+DetSim0Svc
+[Task]task
+   +--[Var]EvtMax     = 10
+   +--[Var]LogLevel   = 0
+   +--[DataMemSvc]DataMemSvc
+   |     +--[Var]LogLevel   = 0
+   +--[BufferMemMgr]BufferMemMgr
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]StopTaskOpt = 0
+   |     +--[Var]TimeWindow = []
+   +--[RandomSvc]RandomSvc
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]Seed       = 42
+   |     +--[Var]SeedStatusInputFile = 
+   |     +--[Var]SeedStatusInputVector = []
+   +--[RootWriter]RootWriter
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]Output     = {SIMEVT:evt.root}
+   +--[PMTParamSvc]PMTParamSvc
+   |     +--[Var]DBType     = File
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]Path       = 
+   +--[G4Svc]G4Svc
+   |     +--[Var]LogLevel   = 0
+   +--[DetSim0Svc]DetSim0Svc
+   |     +--[Var]3inchPMTName = Tub3inchV3
+   |     +--[Var]3inchPMTPosFile = 
+   |     +--[Var]3inchPMTPosOffset = -50
+   |     +--[Var]AnaMgrList = [GenEvtInfoAnaMgr, NormalAnaMgr]
+   |     +--[Var]CDEnabled  = 1
+   |     +--[Var]CDName     = DetSim1
+   |     +--[Var]CalibUnitEnable = 1
+   |     +--[Var]CalibUnitExtras = []
+   |     +--[Var]CalibUnitName = Calib_GuideTube
+   |     +--[Var]ElecSimPMTQEScale = 1
+   |     +--[Var]FastenerMother = lWaterPool
+   |     +--[Var]FastenerName = FastenerAcrylic
+   |     +--[Var]FastenerPosFile = 
+   |     +--[Var]GdLSAbsLengthMode = 0
+   |     +--[Var]LPMTExtra  = ONE
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]LowerChinmeyEnable = 1
+   |     +--[Var]LowerChinmeyName = LowerChimney
+   |     +--[Var]OpticksMode = 0
+   |     +--[Var]PMTMother  = lWaterPool
+   |     +--[Var]PMTName    = PMTMask
+   |     +--[Var]PMTPosFile = 
+   |     +--[Var]PMTPosMode = FileMode
+   |     +--[Var]PhysicsList = JUNO
+   |     +--[Var]SJCLSanchorPosFile = 
+   |     +--[Var]SJFixturePosFile = 
+   |     +--[Var]SJReceiverPosFile = 
+   |     +--[Var]StrutMother = lWaterPool
+   |     +--[Var]StrutName  = StrutAcrylic
+   |     +--[Var]StrutPosFile = 
+   |     +--[Var]TTEnabled  = 1
+   |     +--[Var]TTName     = 
+   |     +--[Var]TopChinmeyEnable = 1
+   |     +--[Var]TopChinmeyName = TopChimney
+   |     +--[Var]VetoPMTName = R12860OnlyFrontMask
+   |     +--[Var]VetoPMTPosMode = 
+   |     +--[Var]WPEnabled  = 1
+   |     +--[Var]XJanchorPosFile = 
+   +--[GenTools]GenTools
+   |     +--[Var]EnableGlobalTime = 0
+   |     +--[Var]EnableSNTime = 0
+   |     +--[Var]EvtID      = 0
+   |     +--[Var]GenToolNames = [gun]
+   |     +--[Var]LogLevel   = 0
+   |     +--[GtGunGenTool]gun
+   |     |     +--[Var]DirectionMode = Fix
+   |     |     +--[Var]Directions = [[0,0,-1,], [0,0,-1,], [0,0,-1,]]
+   |     |     +--[Var]LogLevel   = 0
+   |     |     +--[Var]PositionMode = FixMany
+   |     |     +--[Var]Positions  = [[0,0,15500,], [0,0,15500,], [0,0,-155,]]
+   |     |     +--[Var]particleMomentumInterp = Momentum
+   |     |     +--[Var]particleMomentumMode = Fix
+   |     |     +--[Var]particleMomentumParams = []
+   |     |     +--[Var]particleMomentums = [1.173, 1.333, 1]
+   |     |     +--[Var]particleNames = [gamma, gamma, e+]
+   +--[DetSimAlg]DetSimAlg
+   |     +--[Var]DetFactory = DetSim0Svc
+   |     +--[Var]G4Svc      = G4Svc
+   |     +--[Var]LogLevel   = 0
+   |     +--[Var]RunCmds    = []
+   |     +--[Var]RunMac     = 
+   |     +--[Var]StartEvtID = 0
+   |     +--[Var]VisMac     = vis.mac
+   |     +--[Var]isMT       = 0
+   |     +--[DetSim1Construction]DetSim1Construction
+   |     |     +--[Var]CheckOverlap = 1
+   |     |     +--[Var]IsCommissioning = 0
+   |     |     +--[Var]LogLevel   = 0
+   |     |     +--[Var]UseChimney = 1
+   |     |     +--[Var]ZbelowWater = 0
+   |     +--[LowerChimney]LowerChimney
+   |     |     +--[Var]BlockerZ   = 0.3
+   |     |     +--[Var]LogLevel   = 0
+   |     |     +--[Var]Reflectivity = 0.4
+   |     |     +--[Var]UseLowerChimney = 1
+   |     |     +--[Var]UseShutter = 0
+task.find                       WARN: Cann't find Object InputSvc
+task.find                       WARN: Cann't find Object OutputSvc
+task:BufferMemMgr.initialize   DEBUG: Initialized Sucessfully.
+task:RandomSvc.initialize      DEBUG: Initialize the SEED=42
+task:PMTParamSvc.init_file      INFO: Loading parameters from file: /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/data/Simulation/ElecSim/pmtdata.txt
+task:DetSim0Svc.initialize      INFO: Register AnaMgr GenEvtInfoAnaMgr
+task:DetSim0Svc.initialize      INFO: Register AnaMgr NormalAnaMgr
+task:gun.configure              INFO: Particle/Mass/Momentum: gamma(22)/0MeV/1.173MeV
+task:gun.configure              INFO:  + Directions: 0, 0, -1
+task:gun.configure              INFO: Particle/Mass/Momentum: gamma(22)/0MeV/1.333MeV
+task:gun.configure              INFO:  + Directions: 0, 0, -1
+task:gun.configure              INFO: Particle/Mass/Momentum: e+(-11)/0.510999MeV/1MeV
+task:gun.configure              INFO:  + Directions: 0, 0, -1
+task:GenTools.initialize       DEBUG: create and configure tool gun
+task:DetSimAlg.initialize       INFO: DetSimAlg initialized successfully
+task:DetSimAlg.initialize       INFO: DetSimAlg : Load Factory Name: DetSim0Svc
+Set PDG code for opticalphoton to 20022
+task:DetSimAlg.StartG4Vis       INFO: Start Geant4 Visual
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+ASCIITree (ATree)
+DAWNFILE (DAWNFILE)
+G4HepRep (HepRepXML)
+G4HepRepFile (HepRepFile)
+RayTracer (RayTracer)
+VRML1FILE (VRML1FILE)
+VRML2FILE (VRML2FILE)
+gMocrenFile (gMocrenFile)
+OpenGLImmediateX (OGLIX, OGLI)
+OpenGLStoredX (OGLSX, OGL, OGLS)
+RayTracerX (RayTracerX)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+task:DetSimAlg.StartG4Vis       INFO: Initialize Geant4 Vis Manager
+task:DetSimAlg.StartG4Vis       INFO: Get Geant4 UI Manager
+task:DetSimAlg.StartG4Vis       INFO: Create Geant4 UI Executive
+Available UI session types: [ GAG, tcsh, csh ]
+task:DetSimAlg.StartG4Vis       INFO: Execute Geant4 command/control/execute vis.mac
+Begin the Detector Construction
+coeff_abslen: 2.96154 (77m) 
+coeff_ceff: 1
+coeff_ceff_3inch: 1
+coeff_rayleigh: 0.642857 (27m) 
+Dynode20inch: 
+AverageMCP20inch: 
+Current LY: 11522
+Current LY: 11522
+construct [Gadolinium] from code.
+construct material LS in the code.
+LAB is constructed from the code.
+ESR is constructed from the code.
+Tyvek is constructed from the code.
+Acrylic is constructed from the code.
+DummyAcrylic is constructed from the code
+Teflon is constructed from the code
+Steel is constructed from the code
+StainlessSteel is constructed from the code
+Mylar is constructed from the code
+--- Warning from G4Material::G4Material() define a material with density=0 is not allowed. 
+ The material VacuumT will be constructed with the default minimal density: 1e-25g/cm3
+vetoWater is constructed from the code
+Water is constructed from the code
+Begin Rock and Exp Hall Construction. 
+task:TopRockConstruction.inject DEBUG: Exp Hall. LV: 0x30bb1b0
+task:TopRockConstruction.inject DEBUG: Create pExpHall Begin:
+task:TopRockConstruction.inject DEBUG: pExpHall offset : -1500
+task:TopRockConstruction.inject DEBUG: lExpHall: 0x30bb1b0
+task:TopRockConstruction.inject DEBUG: lTopRock: 0x30bad20
+task:TopRockConstruction.inject DEBUG: Create pExpHall End.
+End Rock and Exp Hall Construction. 
+&&&& Strut = StrutAcrylic  PMT_Mother = 20inchInnerWater  Strut_Mother = lWaterPool
+strut_r_acrylic= 18575
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+m_radStrut = 51
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30c2a90
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lSteel
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30c7230
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lFasteners
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30cb2b0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lUpper
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d0530
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lAddition
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d1050
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lXJanchor
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d25f0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lXJfixture
+PMT_Acrylic_Number = 0
+task:DetSim1Construction.inject DEBUG: The mother volume is lTarget
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d32b0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lSJCLSanchor
+Veto_PMT_Number = -30000
+task:DetSim1Construction.inject DEBUG: The mother volume is lTarget
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d42d0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lSJFixture
+Veto_PMT_Number = -30000
+task:DetSim1Construction.inject DEBUG: The mother volume is lTarget
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d4ff0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lSJReceiver
+Veto_PMT_Number = -30000
+task:DetSim1Construction.inject DEBUG: The mother volume is lTarget
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x30d25f0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lXJfixture
+Veto_PMT_Number = -30000
+FOUND PMTSDMgr. Now get the Sensitive Detector... 
+task:PMTSDMgr.getSD             INFO: Retrieving PMTParamSvc.
+task:PMTSDMgr.getSD             INFO: Retrieve PMTParamSvc successfully.
+task:PMTSDMgr.getSD             INFO: Retrieving PMTSimParamSvc.
+task.find                       WARN: Cann't find Object PMTSimParamSvc
+task:PMTSDMgr.getSD             INFO: Retrieve PMTSimParamSvc successfully.
+Following is the CE Function detail:
+CE Function: 0.9*[0]/(1+[1]*exp(-[2]*x))
+CE Params: 0.9194 0.504 0.08076 
+ BufferMaterial =  Material:    Water    density:  1.000 g/cm3   RadL:  36.092 cm   Nucl.Int.Length:  75.356 cm 
+                       Imean:  68.998 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =     1   A =  1.010 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance: 99.989 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:  0.011 %
+          ElmMassFraction:  11.21 %  ElmAbundance  66.67 % 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =    16   A = 16.000 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance: 99.757 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:  0.038 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:  0.205 %
+          ElmMassFraction:  88.79 %  ElmAbundance  33.33 % 
+
+../src/R12860PMTManager.cc:132
+../src/R12860_PMTSolid.cc:19
+../src/R12860_PMTSolid.cc:26
+G4Material::GetMaterial() WARNING: The material: PMT_Mirror does not exist in the table. Return NULL pointer.
+Warning: setting PMT mirror reflectivity to 0.9999 because no PMT_Mirror material properties defined
+r1t: 254.001 mm
+r4t: 77.9665 mm
+r2t: 46.999 mm
+r3t: 50.001 mm
+h1t: 176.028 mm
+h2t: 42.9725 mm
+h3t: 120.001 mm
+r1t: 254 mm
+r4t: 77.9661 mm
+r2t: 47 mm
+r3t: 50 mm
+h1t: 176.027 mm
+h2t: 42.9734 mm
+h3t: 120 mm
+r1t: 249 mm
+r4t: 75.9412 mm
+r2t: 52 mm
+r3t: 45 mm
+h1t: 171.455 mm
+h2t: 47.545 mm
+h3t: 115 mm
+ Mask = 1
+ BufferMaterial =  Material:    Water    density:  1.000 g/cm3   RadL:  36.092 cm   Nucl.Int.Length:  75.356 cm 
+                       Imean:  68.998 eV   temperature: 293.15 K  pressure:   1.00 atm
+
+   --->  Element: Hydrogen (H)   Z =  1.0   N =     1   A =  1.010 g/mole
+         --->  Isotope:    H1   Z =  1   N =   1   A =   1.01 g/mole   abundance: 99.989 %
+         --->  Isotope:    H2   Z =  1   N =   2   A =   2.01 g/mole   abundance:  0.011 %
+          ElmMassFraction:  11.21 %  ElmAbundance  66.67 % 
+
+   --->  Element: Oxygen (O)   Z =  8.0   N =    16   A = 16.000 g/mole
+         --->  Isotope:   O16   Z =  8   N =  16   A =  15.99 g/mole   abundance: 99.757 %
+         --->  Isotope:   O17   Z =  8   N =  17   A =  17.00 g/mole   abundance:  0.038 %
+         --->  Isotope:   O18   Z =  8   N =  18   A =  18.00 g/mole   abundance:  0.205 %
+          ElmMassFraction:  88.79 %  ElmAbundance  33.33 % 
+
+../src/R12860OnlyFrontPMTManager.cc:131
+../src/R12860OnlyFront_PMTSolid.cc:20
+G4Material::GetMaterial() WARNING: The material: PMT_Mirror does not exist in the table. Return NULL pointer.
+Warning: setting PMT mirror reflectivity to 0.9999 because no PMT_Mirror material properties defined
+r1t: 254.001 mm
+zft: 184.001 mm
+zbt: -10.001 mm
+r1t: 254 mm
+zft: 184 mm
+zbt: -10 mm
+r1t: 249 mm
+zft: 179 mm
+zbt: -5 mm
+ Mask = 1
+20inch PMT Position Mode: FileMode
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x33e61a0
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lMaskVirtual
+task:DetSim1Construction.inject  INFO: Retrieve PMTParamSvc successfully.
+PMT_Acrylic_Number = 0
+Current 3inch PMT Pos: 19384
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+G4Material::GetMaterial() WARNING: The material: PMT_Mirror does not exist in the table. Return NULL pointer.
+Warning: setting PMT mirror reflectivity to 0.9999 because no PMT_Mirror material properties defined
+
+   Making solids
+
+   Making logical volumes
+
+   Making physical volumes
+
+   Making optical surfaces
+
+   Fast simulation model
+
+   Visual attributes
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x33f8d50
+task:DetSim1Construction.inject DEBUG: The daughter volume name is PMT_3inch_log
+3inch PMT Number: = 0
+Injecting Top Chimney...
+Begin Upper UpperChimney Construction
+Top Chimney Position: -9300 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Injecting Lower Chimney...
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+Update Chimney without shutter box
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x3419f40
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lLowerChimney
+Lower Chimney Position: 19785 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Checking overlaps for volume lLowerChimney_phys ... OK! 
+PMT_Acrylic_Number = 1
+---- TT Name: 
+START TO construct Calibration Units. 
+ * Calib_GuideTube
+Calib/GuideTube is constructed. 
+task:DetSim1Construction.inject DEBUG: The mother volume is lInnerWater
+task:DetSim1Construction.inject DEBUG: The daughter volume ptr is 0x3405210
+task:DetSim1Construction.inject DEBUG: The daughter volume name is lSurftubeV0
+Rotate Z 0.0698132
+Checking overlaps for volume lSurftubeV0_phys ... OK! 
+PMT_Acrylic_Number = 1
+../src/LSExpDetectorConstruction.cc:421 completed construction of physiWorld  m_opticksMode 0
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5
+@@@ G4ParticleHPInelastic instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic
+@@@ G4ParticleHPInelasticData instantiated for particle neutron data directory variable is G4NEUTRONHPDATA pointing to /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 12 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Capture/CrossSection/6_nat_Carbon
+NeutronHP: /Elastic file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Elastic/CrossSection/6_nat_Carbon
+NeutronHP: /Inelastic file for Z = 6, A = 13 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic/CrossSection/6_nat_Carbon
+NeutronHP: /Capture file for Z = 8, A = 18 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Capture/CrossSection/8_17_Oxygen
+NeutronHP: /Elastic file for Z = 8, A = 18 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Elastic/CrossSection/8_17_Oxygen
+NeutronHP: /Inelastic file for Z = 8, A = 18 is not found and NeutronHP will use /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/ExternalLibs/Geant4/10.04.p02/share/Geant4-10.4.2/data/G4NDL4.5/Inelastic/CrossSection/8_17_Oxygen
+WARNING: No viewer created.
+/tracking/storeTrajectory 1
+Attributes available for modeling and filtering with
+  "/vis/modeling/trajectories/create/drawByAttribute" and
+  "/vis/filtering/trajectories/create/attributeFilter" commands:
+G4TrajectoriesModel:
+  Event ID (EventID): G4int
+  Run ID (RunID): G4int
+G4Trajectory:
+  Charge (Ch): unit: e+ (G4double)
+  Track ID (ID): G4int
+  Initial kinetic energy (IKE): G4BestUnit (G4double)
+  Initial momentum magnitude (IMag): G4BestUnit (G4double)
+  Initial momentum (IMom): G4BestUnit (G4ThreeVector)
+  No. of points (NTP): G4int
+  PDG Encoding (PDG): G4int
+  Parent ID (PID): G4int
+  Particle Name (PN): G4String
+G4TrajectoryPoint:
+  Position (Pos): G4BestUnit (G4ThreeVector)
+WARNING: Trajectory storing has been requested.  This action may be
+  reversed with "/tracking/storeTrajectory 0".
+Idle> 

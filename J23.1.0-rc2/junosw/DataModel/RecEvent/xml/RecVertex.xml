@@ -1,0 +1,85 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="TObject"/>
+        <import name="string" std="TRUE"/>
+
+        <class name = "RecVertex"
+            author = "ZHANG Kun"
+            desc = "Reconstructed vertex class.
+                    ChangeLog:
+                    v1) original version. 
+                    v2) change from double to float."
+            version = "2">
+
+            <base name = "TObject"/>
+            <attribute
+                name="PESum"
+                desc="The total number of p.e."
+                type="float"/>
+            <attribute                   
+                desc="Best estimation of deposit energy. Unit:MeV"
+                name="energy"
+                type="float"
+                />
+            <attribute                   
+                desc="Reconstructed positron energy. Unit:MeV"
+                name="eprec"
+                type="float"
+                />
+            <attribute                   
+                desc="x position. Unit:mm"
+                name="x"
+                type="float"
+                />
+            <attribute                   
+                desc="y position. Unit:mm"
+                name="y"
+                type="float"
+                />
+            <attribute                   
+                desc="z position. Unit:mm"
+                name="z"
+                type="float"
+                />
+            <attribute                   
+                desc="x direction. Unit:mm"
+                name="px"
+                type="float"
+                />
+            <attribute                   
+                desc="y direction. Unit:mm"
+                name="py"
+                type="float"
+                />
+            <attribute                   
+                desc="z direction. Unit:mm"
+                name="pz"
+                type="float"
+                />
+            <attribute                   
+                desc="start time. Unit:ns"
+                name="t0"
+                type="float"
+                />
+            <attribute
+                desc="goodness of the fit"
+                name="chisq"
+                type="float"
+                />
+            <attribute
+                desc="quality of energy recontruction"
+                name="energyQuality"
+                type="float"
+                />
+            <attribute
+                desc="quality of position recontruction"
+                name="positionQuality"
+                type="float"
+                />
+        </class>
+    </package>
+</xdd>

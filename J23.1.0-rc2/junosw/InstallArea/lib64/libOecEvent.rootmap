@@ -1,0 +1,14 @@
+{ decls }
+namespace JM {  }
+
+[ libOecEvent.so ]
+# List of selected classes
+class JM::OecEvt
+header Event/OecEvt.h
+{ decls }
+namespace JM {  }
+
+[ libOecEvent.so ]
+# List of selected classes
+class JM::OecHeader
+header Event/OecHeader.h

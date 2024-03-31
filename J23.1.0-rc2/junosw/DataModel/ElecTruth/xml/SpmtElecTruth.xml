@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/EventObject"/> 
+        <import name="Context/TimeStamp.h"/>
+
+ 
+        <class name="SpmtElecTruth"
+            author="Pietro Chimenti"
+            desc="This data model reflects the content of the Pulse class excluding time stamps.
+                  ChangeLog:
+                  v3) use float for timeWindow, amplitude and TTS"
+            version="3">
+
+            <base name="EventObject"/>
+
+            <attribute
+                 desc="Tag of det sim source from mixer"
+                 name="tagId"
+                 type="std::string"
+                 />
+
+            <attribute
+                 desc="sourse type of the pulse('tag' setting  by user, DN, AP or Unknow)"
+                 name="pulsetype"
+                 type="std::string"
+                 />
+
+
+            <attribute
+                 desc="pmt id of the pulse"
+                 name="pmtId"
+                 type="int"
+                 />
+
+            <attribute
+                 desc="photo-electron number of the pulse"
+                 name="npe"
+                 type="int"
+                 />
+
+            <attribute
+                 desc="hit time as from detector simulation"
+                 name="hitTime"
+                 type="double"
+                 />
+
+            <attribute
+                 desc="timeWindow as from detector simulation"
+                 name="timeWindow"
+                 type="float"
+                 />
+
+
+            <attribute
+                 desc="amplitude as from PMT simulation"
+                 name="amplitude"
+                 type="float"
+                 />
+
+            <attribute
+                 desc="transit time as from PMT simulation"
+                 name="TTS"
+                 type="float"
+                 />
+
+            <attribute
+                 desc="TimeStamp of the pulse = event time stamp + transit time"
+                 name="pulseHitTime"
+                 type="TimeStamp"
+                 />
+
+            <attribute
+                 desc="TimeStamp of the event as from mixing"
+                 name="evtHitTime"
+                 type="TimeStamp"
+                 />
+
+        </class>
+    </package>
+</xdd>
+

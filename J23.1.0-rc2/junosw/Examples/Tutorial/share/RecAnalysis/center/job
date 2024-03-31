@@ -1,0 +1,53 @@
+Universe = vanilla
+Executable = sim_run.sh
+#Executable = cal_run.sh
+#Executable = rec_run.sh
+
+Requirements = Target.OpSysAndVer =?= "SL6"
+Accounting_Group = juno
+#log = test.log
+#output = output.log
+
+TOPDIR = /junofs/users/liuq/J16v1r2-validation/center
+SETUPSCRIPT = /afs/ihep.ac.cn/soft/juno/JUNO-ALL-SLC6/Release/J16v1r2/setup.sh
+SCRIPTDIR = /afs/ihep.ac.cn/soft/juno/JUNO-ALL-SLC6/Release/J16v1r2/offline/Examples/Tutorial/share/
+
+SEED = 1000
+EVTMAX = 200
+N = 100
+
+P=0
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=1.022MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=1.398
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=2.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=2.436
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=3.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=3.451
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=4.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=4.460
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=5.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=5.465
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=6.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+
+P=6.469
+environment = "SEED=$(SEED) PARTICLE=e+ ENERGY=7.0MeV P=$(P) TOPDIR=$(TOPDIR) SETUPSCRIPT=$(SETUPSCRIPT) SCRIPTDIR=$(SCRIPTDIR)"
+Arguments = $(Process) $(EVTMAX)
+Queue $(N)
+

@@ -1,0 +1,1 @@
+LocalG4Cerenkov1042_cc_dependencies =  ../src/LocalG4Cerenkov1042.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PhysiSim/include/LocalG4Cerenkov1042.hh  $(bin)PhysiSim_deps/LocalG4Cerenkov1042_cc.stamp

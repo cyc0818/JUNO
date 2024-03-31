@@ -1,0 +1,70 @@
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CdLpmtCalibHeader
+header Event/CdLpmtCalibHeader.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CdSpmtCalibHeader
+header Event/CdSpmtCalibHeader.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::WpCalibHeader
+header Event/WpCalibHeader.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::TtCalibHeader
+header Event/TtCalibHeader.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CdLpmtCalibEvt
+header Event/CdLpmtCalibEvt.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CdSpmtCalibEvt
+header Event/CdSpmtCalibEvt.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::WpCalibEvt
+header Event/WpCalibEvt.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::TtCalibEvt
+header Event/TtCalibEvt.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CalibPmtChannel
+header Event/CalibPmtChannel.h
+{ decls }
+namespace JM {  }
+
+[ libCalibEvent.so ]
+# List of selected classes
+class JM::CalibTtChannel
+header Event/CalibTtChannel.h

@@ -1,0 +1,11 @@
+serena.exe [--geom=sample_detsim.root] [--sim=sample_detsim.root] [--calib=sample_calib.root] [--rec=sample_rec.root] [--simus=sample_detsim_user_op.root]
+or 
+serena.exe 
+if using the above default file names
+
+sample_detsim.root: the output of simulation root file which has Tree "/Event/SimEvent" with "JM::SimEvent_branch"
+sample_calib.root:  the output of calibration root file which has Tree "/Event/CalibEvent" with "JM::CalibEvent_branch"
+sample_rec.root:    the output of simulation root file which has Tree "/Event/RecEvent" with "JM::RecHeader_branch"
+sample_detsim_user_op.root: the output of simulation user root file which has Tree "opsteps"
+geom.root: the geometry file with "Geometry/JunoGeom", usually the same as sample_detsim.root if generated with option --gdml in simulation
+

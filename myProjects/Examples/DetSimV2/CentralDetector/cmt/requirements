@@ -1,0 +1,12 @@
+package CentralDetector
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+use DetSimAlg       v*  Simulation/DetSimV2
+
+use Geometry        v*  Detector
+
+library CentralDetector *.cc
+apply_pattern linker_library library=CentralDetector
+include_dirs "$(CENTRALDETECTORROOT)/include"

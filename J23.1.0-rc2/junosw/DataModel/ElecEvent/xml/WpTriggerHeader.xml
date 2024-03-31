@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/WpTriggerEvt"/>
+
+        <class name="WpTriggerHeader"
+            author="Teng Li"
+            desc="">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::WpTriggerEvt"
+                            name="event"
+                            desc="SmartRef to the WP Trigger Event"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

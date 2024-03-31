@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/TrackElecTruthEvt"/>
+
+        <class name="TrackElecTruthHeader"
+            author="Miao Yu"
+            desc="Header for Elec Track Truth info">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::TrackElecTruthEvt"
+                            name="event"
+                            desc="SmartRef to the Track Truth"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

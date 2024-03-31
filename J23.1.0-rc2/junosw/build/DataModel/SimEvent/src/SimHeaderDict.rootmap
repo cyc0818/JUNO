@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libSimEvent.so ]
+# List of selected classes
+class JM::SimHeader
+header Event/SimHeader.h

@@ -1,0 +1,43 @@
+2016-12-02 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Modify the judgment function provided by JunoDetectorID
+    Modified files:
+        src/JunoDetectorID.cc
+        Identifier/JunoDetectorID.h 
+
+2016-11-15 Tao Lin <lintao@ihep.ac.cn>
+    Update numbers of PMT, 17746->17739 (Chimney is enabled by default.)
+2016-09-24 Kaijie Li <likj23@mail2.sysu.edu.cn>
+    Add WaterCherenkov Pool detector identifier
+    Modified files:
+        src/WpID.cc
+        Identifier/WpID.h
+
+2015-03-08 Zhengyun You <zyou@uci.edu>
+    Add functions to judge 20inch/3inch PMT for an identifier
+    Modified files:
+        src/CdID.cc
+        Identifier/CdID.h
+
+2015-03-08 Zhengyun You <zyou@uci.edu>
+    Add support for 3inch PMT
+    Modified files:
+        src/CdID.cc
+        Identifier/CdID.h
+
+2014-05-25 Zhengyun You <zyou@uci.edu>
+    Temporally remove "const" MOUDLE_MAX from CdId and allow it to be
+    set through geometry servec, since the geometry and PMT number 
+    keeps changing at design stage.
+    Modified files:
+        src/CdID.cc
+        Identifier/CdID.h
+
+2014-05-04 Zhengyun You <zyou@uci.edu>
+    Update with DetSim1 geometry change, PMT 16720->18306
+
+2013-12-20 Zhengyun You <zyou@uci.edu>
+    Update for DetSim1
+
+2013-10-25 Zhengyun You <zyou@uci.edu>
+    Detector Identifier definition, first implementation.
+

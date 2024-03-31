@@ -1,0 +1,4 @@
+add_subdirectory(OECTagSvc)
+add_subdirectory(OECConfigSvc)
+add_subdirectory(OECData)
+add_subdirectory(OnlineConfigManager)

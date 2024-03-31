@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/WpElecTruthEvt"/>
+
+        <class name="WpElecTruthHeader"
+            author="Tao Lin"
+            desc="Header for Elec Truth info">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::WpElecTruthEvt"
+                            name="event"
+                            desc="SmartRef to the WP PMT Truth"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

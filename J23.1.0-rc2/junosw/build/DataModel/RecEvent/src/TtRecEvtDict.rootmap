@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libRecEvent.so ]
+# List of selected classes
+class JM::TtRecEvt
+header Event/TtRecEvt.h

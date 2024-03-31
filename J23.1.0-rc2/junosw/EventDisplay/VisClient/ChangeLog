@@ -1,0 +1,43 @@
+2022-05-26 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Update Geometry root file path to data
+    Modified File:
+        src/VisClient.cc
+
+2017-02-18 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a button for pallette display switch
+
+2017-10-12 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add arguments to set window size --width=xxx --height=xxx
+
+2017-09-17 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a button to auto play next events until the last event
+    
+2017-01-27 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a button to swtich between different eveRecMode
+
+2017-01-25 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add display of Optical Photons with additonal input detsim_user_op.root
+    
+2014-11-27 Zhengyun You <zhengyunyou@gmail.com>
+    Re-organize GUI widgets
+
+2014-11-25 Zhengyun You <zhengyunyou@gmail.com>
+    Add ROOT EVE 3D display
+    Update GUI
+
+2014-06-05 Zhengyun You <zhengyunyou@gmail.com>
+    Add Q(charge) and T(Time) 2D projection display
+    Add T animation function
+    Add arguments control
+    Modified File:
+        VisClient/VisClient.h
+        src/VisClient.cc
+
+2014-05-27 Zhengyun You <zhengyunyou@gmail.com>
+    Implement event control in GUI
+
+2013-12-30 Yumei Zhang <zhangym26@mail.sysu.edu.cn>
+	Add a new button to test random fill of a histogram
+
+2013-12-24 Zhengyun You <zhengyunyou@gmail.com>
+    First implementation of VisClient with Graphic User Interface (GUI) in Root

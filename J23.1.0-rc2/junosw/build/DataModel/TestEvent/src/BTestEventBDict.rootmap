@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::BTestEventB
+header Event/BTestEventB.h

@@ -1,0 +1,12 @@
+#put your database here
+offline_db
+;
+#table name
+tablerowexample
+;
+# column name  |  type              |        description
+
+
+column_1       |  long              |  
+; 
+column_2       |  double            |

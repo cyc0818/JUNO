@@ -1,0 +1,9 @@
+The branch.dat provides branch ratio for the AmBe generator.
+The branch ratio is for:
+ground state neutron,
+first excited state neutron.
+
+NOTE1: ignore second excited state(8Be+alpha, ref DYB Chao's docdb-8985)
+
+NOTE2: The branch ratio is obtained from a simple Geant4 simualtion,
+can be tuned later on.

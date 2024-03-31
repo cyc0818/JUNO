@@ -1,0 +1,4 @@
+[ libContext.so ]
+# List of selected classes
+class TimeStamp
+header Context/TimeStamp.h

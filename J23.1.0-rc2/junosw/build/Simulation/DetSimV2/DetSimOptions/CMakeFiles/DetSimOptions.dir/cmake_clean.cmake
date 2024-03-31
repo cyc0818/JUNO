@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "../../../lib/libDetSimOptions.pdb"
+  "../../../lib/libDetSimOptions.so"
+  "CMakeFiles/DetSimOptions.dir/src/DetPrototypeSvc.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/DetPrototypeSvc.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/DetSim0Svc.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/DetSim0Svc.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/ExpHallConstruction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/ExpHallConstruction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/GlobalGeomInfo.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/GlobalGeomInfo.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpActionInitialization.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpActionInitialization.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpDetectorConstruction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpDetectorConstruction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpDetectorConstruction_Opticks.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpDetectorConstruction_Opticks.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpEventAction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpEventAction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpParticleGun.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpParticleGun.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpPhysicsList.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpPhysicsList.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpPrimaryGeneratorAction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpPrimaryGeneratorAction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpRunAction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpRunAction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpSteppingAction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpSteppingAction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpTrackingAction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/LSExpTrackingAction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/RockConstruction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/RockConstruction.cc.o.d"
+  "CMakeFiles/DetSimOptions.dir/src/WaterPoolConstruction.cc.o"
+  "CMakeFiles/DetSimOptions.dir/src/WaterPoolConstruction.cc.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/DetSimOptions.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

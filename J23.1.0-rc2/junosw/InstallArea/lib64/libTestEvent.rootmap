@@ -1,0 +1,42 @@
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::ATestEventA
+header Event/ATestEventA.h
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::ATestEventB
+header Event/ATestEventB.h
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::BTestEventA
+header Event/BTestEventA.h
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::BTestEventB
+header Event/BTestEventB.h
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::TestHeaderA
+header Event/TestHeaderA.h
+{ decls }
+namespace JM {  }
+
+[ libTestEvent.so ]
+# List of selected classes
+class JM::TestHeaderB
+header Event/TestHeaderB.h

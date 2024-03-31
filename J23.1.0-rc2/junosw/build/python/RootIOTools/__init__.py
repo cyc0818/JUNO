@@ -1,0 +1,10 @@
+import Sniper
+Sniper.loadDll("libRootIOTools.so")
+Sniper.loadDll("libEDMUtil.so")
+Sniper.loadDll("libGenEvent.so")
+Sniper.loadDll("libSimEvent.so")
+Sniper.loadDll("libCalibEvent.so")
+Sniper.loadDll("libRecEvent.so")
+Sniper.loadDll("libElecEvent.so")
+# Sniper.loadDll("libPhyEvent.so")
+Sniper.loadDll("libEvtNavigator.so")

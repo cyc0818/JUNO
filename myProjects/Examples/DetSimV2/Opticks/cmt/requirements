@@ -1,0 +1,9 @@
+package Opticks
+
+macro Opticks_home "`opticks-config --prefix`"
+
+set OPTICKSDATAROOT "$(Opticks_home)/opticksdata"
+
+macro Opticks_cppflags " `opticks-config --cflags` "
+macro Opticks_linkopts " `opticks-config --libs` "
+

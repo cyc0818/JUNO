@@ -1,0 +1,10 @@
+PKG(EvtSteering
+    DEPENDS
+    EvtNavigator
+    EvtSteerData
+    EvtDataTypes
+    EvtResult
+    OECTagSvc
+    JunoTimer
+    OecEvent
+    )

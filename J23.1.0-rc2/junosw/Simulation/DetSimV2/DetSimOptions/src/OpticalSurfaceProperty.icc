@@ -1,0 +1,31 @@
+//------------------define OpticalTeflonMirror reflectivity by Zhang Feiyang------------------------
+//the OpticalTeflonMirror used in Calibration assembly
+
+G4OpticalSurface *OpticalTeflonMirror = new G4OpticalSurface("OpticalTeflonMirror");
+OpticalTeflonMirror->SetModel(unified);
+OpticalTeflonMirror->SetType(dielectric_metal);
+OpticalTeflonMirror->SetFinish(polished);
+
+
+G4MaterialPropertiesTable *SteelMirrorMPT = new G4MaterialPropertiesTable();
+helper_mpt(SteelMirrorMPT, "REFLECTIVITY", mcgt.data(), "Material.TeflonMirror.REFLECTIVITY");
+SteelMirrorMPT->DumpTable();
+OpticalTeflonMirror->SetMaterialPropertiesTable(SteelMirrorMPT);
+
+
+G4OpticalSurface *SSMirror = new G4OpticalSurface("SSMirror");
+SSMirror->SetModel(unified);
+SSMirror->SetType(dielectric_metal);
+SSMirror->SetFinish(polished);
+
+
+G4MaterialPropertiesTable *SteelMirror = new G4MaterialPropertiesTable();
+helper_mpt(SteelMirror, "REFLECTIVITY", mcgt.data(), "Material.SSMirror.REFLECTIVITY");
+
+SteelMirror->DumpTable();
+SSMirror->SetMaterialPropertiesTable(SteelMirror);
+
+
+
+
+

@@ -1,0 +1,3 @@
+PKG(Cf252
+    APPONLY Cf252
+)

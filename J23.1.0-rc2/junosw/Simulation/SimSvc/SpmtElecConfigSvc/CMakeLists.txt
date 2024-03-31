@@ -1,0 +1,4 @@
+PKG(SpmtElecConfigSvc
+    DEPENDS
+        Context
+)

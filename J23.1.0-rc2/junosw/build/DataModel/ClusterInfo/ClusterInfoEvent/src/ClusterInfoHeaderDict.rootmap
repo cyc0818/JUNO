@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libClusterInfoEvent.so ]
+# List of selected classes
+class JM::ClusterInfoHeader
+header Event/ClusterInfoHeader.h

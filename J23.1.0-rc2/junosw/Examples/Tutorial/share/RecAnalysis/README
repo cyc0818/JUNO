@@ -1,0 +1,36 @@
+########process of simulaiton, calibration,reconstruction and result analysis#######
+
+Take POINT generation as an example:
+  a.$cd /trunk/offline/Examples/Tutorial/share/RecAnalysis/center  
+
+  b.modify parameter "TOPDIR" which means where you save data in 'gdmljob' and 'job' file. 
+
+  c.run the following commamd to get a sample_detsim.root which contains detector geometry information:
+      $condor_submit gdml.sh
+  
+  d.simulation:
+    e+ momentum 0, 1.398, 2.436, 3.451, 4.460, 5.465, 6.469, 7.471 MeV,
+    corresponding for energy:1.022, 2, 3, 4, 5, 6, 7 MeV.
+    quantity of each sample: 400 events/job * 50 jobs
+      $condor_submit job
+
+  e.calibration:
+    change "Executable = sim_run.sh" in 'job' file to "Executable = cal_run.sh" and then
+      $condor_submit job
+
+  f.reconstruction:
+    change "Executable = cal_run.sh" in 'job' file to "Executable = rec_run.sh" and then
+      $condor_submit job
+
+  g.analysis:
+    run command
+      $root -l RecAnalysis.c  
+    you will get *.png and *.eps files of vertex resolution, energy resolution,
+    vertex bias, energy uniformity and a txt file "result_center.txt" for each sample
+      $root -l draw_plot.C
+    will display plots of vertex resolution and energy resolution changes with energy
+
+For uniform generation just change directory to /trunk/offline/Examples/Tutorial/share/RecAnalysis/uniform
+and do the same operations.
+
+

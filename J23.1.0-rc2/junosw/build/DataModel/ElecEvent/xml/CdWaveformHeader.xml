@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdWaveformEvt"/>
+
+        <class name="CdWaveformHeader"
+            author="Teng Li"
+            desc="">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::CdWaveformEvt"
+                            name="event"
+                            desc="SmartRef to the CD Waveform Event"
+                            nonconstaccessor="TRUE"/>
+
+        </class>
+    </package>
+</xdd>
+

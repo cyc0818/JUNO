@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="CalibEvent">
+
+        <import name="TObject"/>
+        <import name="vector" std="TRUE"/>
+
+        <class name="CalibPmtChannel"
+            author="Kun ZHANG"
+            desc="Calibration PMT header.
+                  ChangeLog:
+                  v1) original version. 
+                  v2) change double to float for both nPE and time."
+            version="2">
+
+            <base name="TObject"/>
+
+            <attribute  
+                desc="Number of PE"
+                name="nPE"
+                init="0.0"
+                type="float"
+                />
+            <attribute                   
+                desc="Id of the pmt"
+                name="pmtId"
+                init="0"
+                type="unsigned int"
+                />
+            <attribute                   
+                desc="Time of the first hit"
+                name="firstHitTime"
+                init="0.0"
+                type="float"
+                />
+            <attribute
+                desc="Vector of charges (PE)"
+                name="charge"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                desc="Vector of times (ns)"
+                name="time"
+                type="std::vector&lt;float&gt;"/>
+	    <attribute
+	        desc="Time of rise 10% -> 90%"
+	        name="riseTime"
+	        init="0.0"
+	        type="float"
+	        />
+            <constructor 
+                desc = "constructor with pmtid"
+                argList = "unsigned int pmtid">
+                <code>
+                    m_pmtId = pmtid;
+                </code>
+            </constructor>
+
+            <method
+                name="size"
+                desc="Return size of time vector(should be the same as charge vector)"
+                type="unsigned int"
+                const="TRUE">
+                <code>
+  return m_time.size();
+                </code>
+            </method>
+
+            <method
+                name="charge"
+                desc="Return charge with a given index"
+                argList="unsigned int index"
+                type="float"
+                const="TRUE">
+                <code>
+  return index >= m_charge.size() ? 0 : m_charge[index];
+                </code>
+            </method>
+
+            <method
+                name="time"
+                desc="Return time with a given index"
+                argList="unsigned int index"
+                type="float"
+                const="TRUE">
+                <code>
+  return index >= m_time.size() ? 0 : m_time[index];
+                </code>
+            </method>
+            <method
+                name="maxChargeIndex"
+                desc="Return the max charge index for this channel"
+                type="int"
+                const="TRUE">
+                <code>
+  if( m_charge.empty() ) return 0;
+  float maxCharge = 0;
+  int maxChargeIndex = 0;
+  for(unsigned i=0; i&lt;m_charge.size(); i++) {
+    if( m_charge[i] &gt; maxCharge ) {
+      maxCharge = m_charge[i];
+      maxChargeIndex = i;
+    }
+  }
+  return maxChargeIndex;
+                </code>
+            </method>
+
+            <method
+                name="maxCharge"
+                desc="Return max charge for this channel"
+                type="float"
+                const="TRUE">
+                <code>
+  if( m_charge.empty() ) return 0;
+  return m_charge[maxChargeIndex()];
+                </code>
+            </method>
+
+            <method
+                name="sumCharge"
+                desc="Return sum of charge for this channel"
+                type="float"
+                const="TRUE">
+                <code>
+  if( m_charge.empty() ) return 0;
+  float sumCharge = 0;
+  for(unsigned i=0; i&lt;m_charge.size(); i++) {
+    sumCharge += m_charge[i];
+  }
+  return sumCharge;
+                </code>
+            </method>
+
+            <method
+                name="earliestTimeIndex"
+                desc="Return the index of earliest time in a given range; returns -1 if no hits found"
+                argList="float earlytime=-1000000, float latetime=1000000" 
+                type="int"
+                const="TRUE">
+                <code>    
+  if( m_time.empty() ) return -1;
+  float earliestTime = 1e9;
+  int earliestTimeIndex = -1;
+  for(unsigned int i=0; i&lt;m_time.size(); i++) {
+    if( m_time[i]&lt;earliestTime &amp;&amp;  m_time[i]&lt;latetime &amp;&amp; m_time[i]&gt;earlytime ) {
+      earliestTime = m_time[i];
+      earliestTimeIndex = i;
+    }
+  }
+
+  return earliestTimeIndex;
+                </code>
+            </method>
+
+            <method
+                name="earliestTime"
+                desc="Return earliest time in a given range; returns 0 if no hits are found"
+                argList="float earlytime=-1000000, float latetime=1000000 "
+                type="float"
+                const="TRUE">
+                <code>
+  if( m_time.empty() ) return 0;
+  int index=earliestTimeIndex(earlytime,latetime);
+  if(index &lt; 0) return 0;
+  else return m_time[index];
+                </code>
+            </method>
+
+            <method
+                name="earliestCharge"
+                desc="Return the earliest ADC value in a given range; returns 0 if no hits are found"
+                argList="float earlytime=-1000000, float latetime=1000000 "
+                type="float"
+                const="TRUE">
+                <code>
+  if( m_charge.empty() ) return 0;
+  int index=earliestTimeIndex(earlytime,latetime);
+  if(index &lt; 0) return 0;
+  return m_charge[index];
+                </code>
+            </method>
+
+            <method
+                name="properCharge"
+                desc="Return the charge in a certain time range"
+                argList="float earlytime, float latetime"   
+                type="float"
+                const="TRUE">
+                <code>
+  float pcharge=0;
+  for(unsigned int i=0;i &lt; m_time.size();i++){
+    if(m_time[i] &gt; earlytime &amp;&amp; m_time[i] &lt; latetime)
+      pcharge+=m_charge[i];
+    }
+  return pcharge;
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>

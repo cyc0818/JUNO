@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "CalibEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdSpmtCalibEvt"/>
+
+        <class name = "CdSpmtCalibHeader"
+            author="ZHANG Kun"
+            desc = "Calibration header for CD SPMT">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation type = "JM::CdSpmtCalibEvt"
+                name = "event"
+                desc = "Smart pointer to the CdSpmtCalibEvt"
+                nonconstaccessor = "TRUE"/>
+        </class>
+    </package>
+</xdd>

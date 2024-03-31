@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdVertexRecEvt"/>
+
+        <class name = "CdVertexRecHeader"
+            author = "ZHANG Kun"
+            desc = "Reconstruction header class for point-like event">
+
+            <base name = "HeaderObject"/>
+            <SmartRelation type = "JM::CdVertexRecEvt"
+                name = "event"
+                desc = "Smart pointer to the CdRecEvt"
+                nonconstaccessor = "TRUE"/>
+
+        </class>
+    </package>
+</xdd>

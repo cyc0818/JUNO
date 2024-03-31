@@ -1,0 +1,1 @@
+IG4Svc_cc_dependencies =  ../src/IG4Svc.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/G4Svc/G4Svc/G4SvcRunManager.h   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/G4Svc/G4Svc/IG4Svc.h  $(bin)G4Svc_deps/IG4Svc_cc.stamp

@@ -1,0 +1,110 @@
+[?1034husage: nuwa.py [-h] [-A AES_TRIM_WINDOW] [-l LOG_LEVEL] [--pyloglevel PYLOGLEVEL]
+               [-M MSG_STREAM_LEVEL] [-L FILE_LIST] [-C COLOR] [-i] [-s] [-m MODULE] [-n EXECUTIONS]
+               [-o OUTPUT] [-O OUTPUT_STREAMS] [-I INPUT_STREAMS] [-H HOSTID] [-R RUN] [-T TIME]
+               [--dbirollback DBIROLLBACK] [--dbiextracondition DBIEXTRACONDITION]
+               [--dbilevel DBILEVEL] [--dbiordercontextquery] [--dbconf DBCONF] [-N EXECUTION] [-V]
+               [-E EXTERNAL_LOOP] [-G DETECTOR] [-K] [--leak-check-method LEAK_CHECK_METHOD]
+               [--no-history] [--history HISTORY] [--daq DAQ] [--repack-rpc REPACK_RPC]
+               [--time-alignment TIME_ALIGNMENT] [--raw-load RAW_LOAD] [--random RANDOM]
+               [--output-stats OUTPUT_STATS] [--skip-raw-rpc] [--input-stats INPUT_STATS]
+               [--force-readout] [--jobid JOBID] [--job-info JOB_INFO] [--audit]
+               [--event-builder EVENT_BUILDER]
+               [files [files ...]]
+
+This is the main program to run NuWa offline jobs. It provides a job with a minimal, standard setup.
+Non standard behavior can made using command line options or providing additional configuration in
+the form of python files or modules to load. Usage:: nuwa.py --help nuwa.py [options] [-m|--module
+"mod.ule --mod-arg ..."] \ [config1.py config2.py ...] \ [mod.ule1 mod.ule2 ...] \ [[input1.root
+input2.root ...] or [input1.data ...]] \ Python modules can be specified with -m|--module options and
+may include any per-module arguments by enclosing them in shell quotes as in the above usage. Modules
+that do not take arguments may also be listed as non-option arguments. Modules may supply the
+following functions: #. ``configure(argv=[])`` - if exists, executed at configuration time #.
+``run(theApp)`` - if exists, executed at run time with theApp set to the AppMgr. Additionally, python
+job scripts may be specified. Modules and scripts are loaded in the order they are specified on the
+command line. Finally, input ROOT files may be specified. These will be read in the order they are
+specified and will be assigned to supplying streams not specificially specified in any input-stream
+map. The listing of modules, job scripts and/or ROOT files may be interspersed but must follow all
+options. In addition to the command line, arguments can be given in a text file with one line per
+argument. This file can then be given to nuwa.py on the command line prefaced with an '@' or a '+'.
+
+positional arguments:
+  files                 Input data files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -A AES_TRIM_WINDOW, --aes-trim-window AES_TRIM_WINDOW
+                        'None' for no AES. Turn on AES with zero or any positive value and use that
+                        for AES trimming window (in second).
+  -l LOG_LEVEL, --log-level LOG_LEVEL
+                        Set output log level.
+  --pyloglevel PYLOGLEVEL
+                        Set python log level, eg INFO, DEBUG, VERBOSE Default INFO
+  -M MSG_STREAM_LEVEL, --msg-stream-level MSG_STREAM_LEVEL
+                        Set individual MsgStream levels using form: 'StreamName,LevelNumber'
+  -L FILE_LIST, --file-list FILE_LIST
+                        Input file list
+  -C COLOR, --color COLOR
+                        Use colored logs assuming given background ('light' or 'dark')
+  -i, --interactive     Enter interactive ipython shell after the run completes (def is batch).
+  -s, --show-includes   Show printout of included files.
+  -m MODULE, --module MODULE
+                        Load given module and pass optional argument list
+  -n EXECUTIONS, --executions EXECUTIONS
+                        Number of times to execute list of top level algorithms.
+  -o OUTPUT, --output OUTPUT
+                        Output filename
+  -O OUTPUT_STREAMS, --output-streams OUTPUT_STREAMS
+                        Output file map
+  -I INPUT_STREAMS, --input-streams INPUT_STREAMS
+                        Input file map
+  -H HOSTID, --hostid HOSTID
+                        Force given hostid
+  -R RUN, --run RUN     Set run number
+  -T TIME, --time TIME  Set wall time
+  --dbirollback DBIROLLBACK
+                        Configure DBI rollback dates with arguments like '* = 2011-02-17 16:00:00' or
+                        'HardwareID = 2010-02-17 15:00:00' or multiple such arguments.
+  --dbiextracondition DBIEXTRACONDITION
+                        Configure DBI extra condition with arguments like 'CableMap = SEQNO not in
+                        (480,482)' or multiple such arguments.
+  --dbilevel DBILEVEL   Configure DBI output level integer INFO:100,DEBUG1:80,DEBUG3:60,DEBUG2:70,MON
+                        ITOR:90,NEVER:99999,WARNING:110,ERROR:130,FATAL:140,VERBOSE:1
+  --dbiordercontextquery
+                        Ordered context queries are useful for detailed comparisons
+  --dbconf DBCONF       Sets DBCONF envvar identifying section of ~/.my.cnf to use for DB connection
+                        parameters and triggering DBI to use this config (DbiCascader.cxx)
+  -N EXECUTION, --execution EXECUTION
+                        Set the starting execution number
+  -V, --visualize       Run in visualize mode
+  -E EXTERNAL_LOOP, --external-loop EXTERNAL_LOOP
+                        Delegate to an external loop, name a module with a 'start(app)' method
+                        defined.
+  -G DETECTOR, --detector DETECTOR
+                        Specify a non-default, top-level geometry file
+  -K, --leak-check-execute
+                        Use Hephaestus memory tracker
+  --leak-check-method LEAK_CHECK_METHOD
+                        Add a method for the leak checker to focus on
+  --no-history          Same as --history=off
+  --history HISTORY     Control HistorySvc info. 'on'=send to log, 'off'=no history, anything else is
+                        a name of file to which to dump.
+  --daq DAQ             Set DaqFormat usage 'on' or 'off'
+  --repack-rpc REPACK_RPC
+                        Set repack RPC event 'on' or 'off'
+  --time-alignment TIME_ALIGNMENT
+                        Set time alignment 'on' or 'off'
+  --raw-load RAW_LOAD   Optional debug reading of raw data. 'off'=disable, 'packed'=load binary
+                        packed data, 'unpacked'=load unpacked data, 'both'=load both binary packed
+                        and unpacked data.
+  --random RANDOM       Enable source of random numbers. 'off'=disable, 'on'=enable(def).
+  --output-stats OUTPUT_STATS
+                        Output file map for histograms. Ex: {'file1':'histograms.root'}
+  --skip-raw-rpc        Skip raw RPC records, i.e. just process PMT events
+  --input-stats INPUT_STATS
+                        Input file map for histograms. Ex: {'file1':'histograms.root'}
+  --force-readout       Force Readout to be written to output file.
+  --jobid JOBID         Set the job ID for bookkeeping
+  --job-info JOB_INFO   Add or override job bookkeeping information
+  --audit               Turn on default auditing (timing)
+  --event-builder EVENT_BUILDER
+                        Set the event builder algorithm (def: "EventBuilderAlg"

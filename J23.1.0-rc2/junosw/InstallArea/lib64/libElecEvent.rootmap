@@ -1,0 +1,161 @@
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdLpmtElecHeader
+header Event/CdLpmtElecHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdSpmtElecHeader
+header Event/CdSpmtElecHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdWaveformHeader
+header Event/CdWaveformHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpElecHeader
+header Event/WpElecHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpWaveformHeader
+header Event/WpWaveformHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::TtElecHeader
+header Event/TtElecHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdLpmtElecEvt
+header Event/CdLpmtElecEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdSpmtElecEvt
+header Event/CdSpmtElecEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdWaveformEvt
+header Event/CdWaveformEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpElecEvt
+header Event/WpElecEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpWaveformEvt
+header Event/WpWaveformEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::TtElecEvt
+header Event/TtElecEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::SpmtElecAbcBlock
+header Event/SpmtElecAbcBlock.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::SpmtElecDiscrWord
+header Event/SpmtElecDiscrWord.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::SpmtElecSpecialWord
+header Event/SpmtElecSpecialWord.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::ElecWaveform
+header Event/ElecWaveform.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::ElecChannel
+header Event/ElecChannel.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdTriggerHeader
+header Event/CdTriggerHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdTriggerEvt
+header Event/CdTriggerEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpTriggerHeader
+header Event/WpTriggerHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::WpTriggerEvt
+header Event/WpTriggerEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::TtTriggerHeader
+header Event/TtTriggerHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::TtTriggerEvt
+header Event/TtTriggerEvt.h

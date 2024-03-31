@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdTrackRecEvt"/>
+
+        <class name = "CdTrackRecHeader"
+            author = "Teng"
+            desc = "Reconstruction header class for track-like event">
+
+            <base name = "HeaderObject"/>
+            <SmartRelation type = "JM::CdTrackRecEvt"
+                name = "event"
+                desc = "Smart pointer to the CdRecTrackEvt"
+                nonconstaccessor = "TRUE"/>
+
+        </class>
+    </package>
+</xdd>

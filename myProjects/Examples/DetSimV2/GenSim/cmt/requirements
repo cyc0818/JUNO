@@ -1,0 +1,13 @@
+package GenSim
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+library GenSim *.cc
+macro_append GenSim_cppflags " -I$(GENSIMROOT)/../PMTSim/include "
+
+apply_pattern linker_library library=GenSim
+include_dirs "$(GENSIMROOT)/include"
+
+application EnergySpectrum ../apps/EnergySpectrum.cc
+macro_append EnergySpectrum_dependencies GenSim

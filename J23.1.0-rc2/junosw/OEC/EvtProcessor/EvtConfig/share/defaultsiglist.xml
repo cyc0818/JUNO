@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<SIGNATURE_LIST>
+
+  <SIGNATURE signature_id="HIT" prescale="1" forced_accept="2">
+    <CRITERIA behaviour="jump" next="MDC">
+      <ITEM name="nmuc" value="888" type="MAX" />
+    </CRITERIA>
+  </SIGNATURE>
+
+  <SIGNATURE signature_id="EMC" prescale="1" forced_accept="2">
+    <CRITERIA behaviour="jump" next="MDC">
+      <ITEM name="etot" value="0.2" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="GHadron">
+      <ITEM name="ebal" value="0.6" type="MAX" />	
+      <ITEM name="nmuc" value="5" type="MAX" />
+      <ITEM name="etot" value="0.76" type="MAX" />
+      <ITEM name="etot" value="0.325" type="MIN" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="Hadron">
+      <ITEM name="etot" value="0.76" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="Error">
+      <ITEM name="etot" value="1.4" type="MIN" />
+    </CRITERIA>
+  </SIGNATURE>
+
+<SIGNATURE signature_id="MDC" prescale="1" forced_accept="2">
+      <CRITERIA behaviour="accept" mark="Hadron">
+      <ITEM name="nsec" value="888" type="MAX" />
+    </CRITERIA>
+  </SIGNATURE>
+
+</SIGNATURE_LIST>

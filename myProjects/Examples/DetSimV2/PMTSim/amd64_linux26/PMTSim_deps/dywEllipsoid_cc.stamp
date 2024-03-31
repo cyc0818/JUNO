@@ -1,0 +1,1 @@
+dywEllipsoid_cc_dependencies =  ../src/dywEllipsoid.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PMTSim/include/dywEllipsoid.hh  $(bin)PMTSim_deps/dywEllipsoid_cc.stamp

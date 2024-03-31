@@ -1,0 +1,23 @@
+# Voxel Method 
+
+## Data Preparation
+
+### Basic workflow
+* Produce full simulation dataset using Geant4 -> EDM data
+  * Photons with 1MeV Visible Energy 
+* Generate ntuples based on the EDM data -> ntuples, geom-relation.root (optional)
+  * Use script relation_finder.py
+* Generate NPE and hit time distribution respectively
+  * time distribution
+    * Use script timedispatch.C to generate the histograms of hit time distribution.
+  * nPE
+    * Use script npedispatch.C to generate the histograms of nPE distribution.
+* Merge the histograms and put the TAxis objects into the hisograms.
+  * time
+    * Use script saveAxisTime.C
+  * nPE
+    * Use script saveAxisNPE.C
+* Finally, after merge, there are three files:
+  * Gemetry file
+  * nPE distributin file
+  * hit time distributin file

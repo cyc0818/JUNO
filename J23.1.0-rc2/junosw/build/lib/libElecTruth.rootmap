@@ -1,0 +1,105 @@
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::CdLpmtElecTruthHeader
+header Event/CdLpmtElecTruthHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::CdSpmtElecTruthHeader
+header Event/CdSpmtElecTruthHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::WpElecTruthHeader
+header Event/WpElecTruthHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TtElecTruthHeader
+header Event/TtElecTruthHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TrackElecTruthHeader
+header Event/TrackElecTruthHeader.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::CdLpmtElecTruthEvt
+header Event/CdLpmtElecTruthEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::LpmtElecTruth
+header Event/LpmtElecTruth.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::WpElecTruthEvt
+header Event/WpElecTruthEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::WpElecTruth
+header Event/WpElecTruth.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TtElecTruthEvt
+header Event/TtElecTruthEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TtElecTruth
+header Event/TtElecTruth.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::CdSpmtElecTruthEvt
+header Event/CdSpmtElecTruthEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::SpmtElecTruth
+header Event/SpmtElecTruth.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TrackElecTruthEvt
+header Event/TrackElecTruthEvt.h
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::TrackElecTruth
+header Event/TrackElecTruth.h

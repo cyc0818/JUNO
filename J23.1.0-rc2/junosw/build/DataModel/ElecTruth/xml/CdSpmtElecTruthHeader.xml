@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/CdSpmtElecTruthEvt"/>
+
+        <class name="CdSpmtElecTruthHeader"
+            author="Tao Lin"
+            desc="Header for Elec Truth info">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::CdSpmtElecTruthEvt"
+                            name="event"
+                            desc="SmartRef to the SPMT Truth"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

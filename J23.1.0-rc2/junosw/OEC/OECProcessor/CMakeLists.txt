@@ -1,0 +1,14 @@
+PKG(OECProcessor
+    DEPENDS
+    EvtNavigator
+    ElecEvent
+    CalibEvent
+    OecEvent
+    GenEvent
+    SimEvent
+    ElecTruth
+    OECTagSvc
+    JunoTimer
+    BufferMemMgr
+    TQConvertor
+    )

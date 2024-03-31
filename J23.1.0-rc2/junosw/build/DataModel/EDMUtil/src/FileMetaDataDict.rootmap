@@ -1,0 +1,8 @@
+{ decls }
+namespace JM {  }
+
+[ libEDMUtil.so ]
+# List of selected classes
+class JM::FileMetaData
+class JM::TreeMetaData
+header EDMUtil/FileMetaData.h

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<SIGNATURE_LIST>
+
+  <SIGNATURE signature_id="simpleRec" prescale="1" forced_accept="2">
+    <CRITERIA behaviour="accept" mark="singles_LE">
+      <ITEM name="energy" value="0.75" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="singles_ME">
+      <ITEM name="energy" value="0.75" type="MIN" />
+      <ITEM name="energy" value="2" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="singles_HE">
+      <ITEM name="energy" value="2" type="MIN" />
+      <ITEM name="energy" value="10" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="singles_XE">
+      <ITEM name="energy" value="10" type="MIN" />
+      <ITEM name="energy" value="100" type="MAX" />
+    </CRITERIA>
+    <CRITERIA behaviour="jump" next="muonRec">
+      <ITEM name="energy" value="100" type="MIN" />
+    </CRITERIA>
+
+
+  </SIGNATURE>
+
+  <SIGNATURE signature_id="muonRec" prescale="1" forced_accept="2">
+    <CRITERIA behaviour="accept" mark="muSglTrack">
+      <ITEM name="trackNo" value="1" type="True" />
+    </CRITERIA>
+    <CRITERIA behaviour="accept" mark="muDblTrack">
+      <ITEM name="trackNo" value="2" type="True" />
+    </CRITERIA>
+
+  </SIGNATURE>
+
+</SIGNATURE_LIST>

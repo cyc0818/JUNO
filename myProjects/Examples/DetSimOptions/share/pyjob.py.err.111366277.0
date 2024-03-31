@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/junofs/users/yuchincheng/myProjects/Examples/DetSimOptions/share/pyjob.py", line 10, in <module>
+    task.asTop()
+AttributeError: 'Task' object has no attribute 'asTop'

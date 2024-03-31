@@ -1,0 +1,10 @@
+package DAE
+use SniperPolicy v*
+use DetSimPolicy v* Simulation/DetSimV2
+macro_append DAE_cppflags " -D_GEANT4_TMP_GEANT94_ "
+
+library G4DAE *.cc
+apply_pattern linker_library library=G4DAE
+
+include_dirs "${G4INSTALL}"
+include_dirs "$(DAEROOT)/include"

@@ -1,0 +1,33 @@
+# Reconstruct single muon using CdWpMuonRecTool
+`CdWpMuonRecTool` mainly use the first hit time (FHT) of 20-inch PMTs in CD and WP to reconstruct the track of single cosmic muon event. The rec. tool is located in the `junosw/Reconstruction/RecMuonAlg/CdWpMuonRecTool/`
+
+## Algorithm Principle
+The algorithm describe a single muon track with 4 parameters, the thetas & phis of the initial position on the CD and the direction.
+- Obtain the initial fitting parameters by the ealiest hit position of PMT and the charge weight center
+- The FHT of PMTs can be predicted by the fitting parameters.
+- With the predicted FHT and detected FHT, the chi2 can be constructed
+- Minimize the chi2ndf by the method, Minuit2
+
+## How to use
+```bash
+python $TUTORIALROOT/share/tut_calib2rec.py --input calibPath --output recPath --method cdwp-track
+```
+
+## RecMuonAlg
+- `RecMuonAlg` is created based on `RecCdMuonAlg` to obtain the information of PMTs in subdetectors of JUNO (CD, WP, TT), and we left a interface for TT without test.
+- The info. obtained is stored into a PMT table, the structure of the table is
+	* `pos`: the position of the PMT center
+	* `q`: the charge of the PMT
+	* `fht`: the first hit time of the PMT
+	* `res`: the resolution of the PMT
+	* `used`: if the PMT is used
+	* `loc`: the subdetector that the PMT belongs to (CD == 1, WP == 2)
+	* `type`: the type of the PMT (20-inch or 3-inch)
+- The algorithm can obtain the infomation of several subdetectors or a single one by the setting of input parameter "ChosenDetectors". The subdetectors corresponding to the values are shown here
+	* `1`: CD
+	* `2`: WP
+	* `4`: TT
+	* `3`: CD & WP
+	* `5`: CD & TT
+	* `6`: WP & TT
+	* `7`: CD & WP & TT

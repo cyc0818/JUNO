@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="CalibEvent">
+
+        <import name="TObject"/>
+  
+        <class name="CalibTtChannel"
+            author="A.Meregaglia, J.P.A.M. de Andre"
+            desc="Calibration TT header"
+            version="2"
+            >
+
+            <base name="TObject"/>
+
+            <attribute  
+                desc="Number of PE"
+                name="nPE"
+                init="0.0"
+                type="float"
+                />
+            <attribute  
+                desc="Time from trigger"
+                name="time"
+                init="0.0"
+                type="float"
+                />
+            <attribute                   
+                desc="Id of the pmt"
+                name="pmtId"
+                init="0"
+                type="unsigned int"
+                />
+	    <constructor 
+               desc = "constructor with channelid"
+               argList = "unsigned int channelid">
+              <code>
+  m_pmtId = channelid;
+              </code>
+            </constructor>
+        </class>
+    </package>
+</xdd>

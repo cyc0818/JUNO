@@ -1,0 +1,59 @@
+# This is used to merge the contributions of account with different email.
+#
+# git shortlog -se
+
+Iwan Blake <iblake@tcd.ie>
+
+Simon C Blyth <simoncblyth@gmail.com>
+Simon C Blyth <simoncblyth@gmail.com> blyth@ihep.ac.cn <blyth@ihep.ac.cn>
+
+Jie Cheng <chengjie@ncepu.edu.cn>
+
+Artem V. Chukanov <chukanov@jinr.ru>
+
+Marta Colomer <marta.colomer@ulb.ac.be>
+
+Xinhai He <xhhe@ihep.ac.cn>
+
+Huxiang Hu <huyuxiang@ihep.ac.cn>
+Huxiang Hu <huyuxiang@ihep.ac.cn> huyuxiang <huyuxiang@lxslc709.ihep.ac.cn>
+
+Guihong Huang <huanggh@ihep.ac.cn>
+
+Xin Huang <huangxin@ihep.ac.cn>
+
+Wei Jiang <jiangw@ihep.ac.cn>
+
+Rebin Karaparambil <rebin.karaparambil@iphc.cnrs.fr>
+
+Teng Li <tengli@sdu.edu.cn>
+
+Tao Lin <lintao@ihep.ac.cn>
+Tao Lin <lintao@ihep.ac.cn> lintao <lintao51@gmail.com>
+Tao Lin <lintao@ihep.ac.cn> lintao <lintao@aa2a40f7-5b9f-4796-82c0-4247cb6b7b64>
+
+Jiaxi Liu <liujiaxi@ihep.ac.cn>
+
+Zhen Liu <liuzhen@ihep.ac.cn>
+
+Xiaojie Luo <luoxj@ihep.ac.cn>
+
+Zhenning Qu <quzn@ihep.ac.cn>
+
+Mingyuan Wang <mywang@ihep.ac.cn>
+
+Yaoguang Wang <wangyaoguang@ihep.ac.cn>
+
+Diru Wu <wudr@ihep.ac.cn>
+
+Yixiang Yang <yangyixiang@ihep.ac.cn>
+
+Haosen Zhang <zhanghaosen@ihep.ac.cn>
+Haosen Zhang <zhanghaosen@ihep.ac.cn> zhanghaosen <zhanghaosen@lxslc715.ihep.ac.cn>
+
+Xiaomei Zhang <zhangxm@ihep.ac.cn>
+
+Yongpeng Zhang <ypzhang1991@ihep.ac.cn>
+
+Jiaheng Zou <zoujh@ihep.ac.cn>
+

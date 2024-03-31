@@ -1,0 +1,10 @@
+include(PKG)
+PKG(PSDClassification
+    DEPENDS
+      ClassificationTool
+      EvtNavigator
+	  EventRecordSvc
+      ElecEvent
+	  RecEvent
+	  SimEvent
+)

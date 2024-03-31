@@ -1,0 +1,54 @@
+[
+{
+    "sequence_id": "EVtxRec",
+    "algorithms": [
+    {
+        "identifier": "QCtrRecAlg",
+        "properties": {
+            "recMode": "OEC",
+            "recMethod": "sqmle"
+        },
+        "tools": [
+        {
+            "identifier": "QSumTool",
+            "properties": {
+            }
+        },
+        {
+            "identifier": "SQMLE",
+            "properties": {
+            }
+        }
+        ]
+    },
+    {
+        "identifier": "FBRalg",
+        "properties": {
+            "threQ": 3,
+            "Rf": 15000
+        }
+    }
+    ]
+},
+{
+    "sequence_id": "MuonRec",
+    "algorithms": [
+    {
+        "identifier": "RecCdMuonAlg",
+        "properties": {
+            "Use20inchPMT": true,
+            "RecTool": "CdLpmtQSpecMuonRecTool",
+            "recMode": "OEC"
+        },
+        "tools": [
+        {
+            "identifier": "CdLpmtQSpecMuonRecTool",
+            "properties": {
+                "PECut": 1000
+            }
+        }
+        ]
+    }
+    ]
+}
+]

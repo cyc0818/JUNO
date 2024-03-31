@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "../../lib/libRootIOTest.pdb"
+  "../../lib/libRootIOTest.so"
+  "CMakeFiles/RootIOTest.dir/src/DummyEventDict.cxx.o"
+  "CMakeFiles/RootIOTest.dir/src/DummyEventDict.cxx.o.d"
+  "CMakeFiles/RootIOTest.dir/src/DummyHeaderDict.cxx.o"
+  "CMakeFiles/RootIOTest.dir/src/DummyHeaderDict.cxx.o.d"
+  "CMakeFiles/RootIOTest.dir/src/DummyPMTHitDict.cxx.o"
+  "CMakeFiles/RootIOTest.dir/src/DummyPMTHitDict.cxx.o.d"
+  "CMakeFiles/RootIOTest.dir/src/DummyTTHitDict.cxx.o"
+  "CMakeFiles/RootIOTest.dir/src/DummyTTHitDict.cxx.o.d"
+  "CMakeFiles/RootIOTest.dir/src/DummyTrackDict.cxx.o"
+  "CMakeFiles/RootIOTest.dir/src/DummyTrackDict.cxx.o.d"
+  "CMakeFiles/RootIOTest.dir/src/MakeSample.cc.o"
+  "CMakeFiles/RootIOTest.dir/src/MakeSample.cc.o.d"
+  "CMakeFiles/RootIOTest.dir/src/SelectEventData.cc.o"
+  "CMakeFiles/RootIOTest.dir/src/SelectEventData.cc.o.d"
+  "CMakeFiles/RootIOTest.dir/src/TestRecEDM.cc.o"
+  "CMakeFiles/RootIOTest.dir/src/TestRecEDM.cc.o.d"
+  "src/DummyEventDict.cxx"
+  "src/DummyEventDict.rootmap"
+  "src/DummyEventDict_rdict.pcm"
+  "src/DummyHeaderDict.cxx"
+  "src/DummyHeaderDict.rootmap"
+  "src/DummyHeaderDict_rdict.pcm"
+  "src/DummyPMTHitDict.cxx"
+  "src/DummyPMTHitDict.rootmap"
+  "src/DummyPMTHitDict_rdict.pcm"
+  "src/DummyTTHitDict.cxx"
+  "src/DummyTTHitDict.rootmap"
+  "src/DummyTTHitDict_rdict.pcm"
+  "src/DummyTrackDict.cxx"
+  "src/DummyTrackDict.rootmap"
+  "src/DummyTrackDict_rdict.pcm"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/RootIOTest.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

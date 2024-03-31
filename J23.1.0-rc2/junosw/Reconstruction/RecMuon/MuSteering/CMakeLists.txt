@@ -1,0 +1,4 @@
+PKG(MuSteering
+    DEPENDS
+        EvtNavigator 
+)

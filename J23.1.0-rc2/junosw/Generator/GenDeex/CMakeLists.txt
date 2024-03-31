@@ -1,0 +1,9 @@
+include(PKG)
+PKG(GenDeex
+	DEPENDS
+		EG
+    FILES
+        src/deex.cc
+		src/AfterDeexInfo.cc
+)
+add_subdirectory(GenDeexTest)

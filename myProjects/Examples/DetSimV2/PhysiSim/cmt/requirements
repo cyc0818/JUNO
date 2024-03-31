@@ -1,0 +1,30 @@
+package PhysiSim
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+
+library PhysiSim DsG4Scintillation.cc \
+                 LocalG4Cerenkov1042.cc \
+                 DsPhysConsOptical.cc \
+                 DsG4HadronPhysicsQGSP_BERT_HP.cc \
+                 DsG4NeutronPHPBuilder.cc \
+                 DsG410NNDCParticleHPCaptureFS.cc \
+                 DsG410GdParticleHPCaptureFS.cc \
+                 DsG4ParticleHPCapture.cc \
+                 DsG4GdCaptureGammas.cc \
+                 DsG4EmLivermorePhysics.cc \
+                 G4Positronium.cc \
+                 G4PositroniumFormation.cc \
+                 G4PositroniumDecayChannel2G.cc \
+                 G4PositroniumDecayChannel3G.cc \
+                 DsG4NNDCCaptureGammas.cc \ 
+                 DsG4EmLivermorePhysics.cc\
+                 DsG4ScintSimple.cc \
+                 DsG4OpAbsReemit.cc
+                
+
+apply_pattern linker_library library=PhysiSim
+include_dirs "$(PHYSISIMROOT)/include"
+
+set DAYA_DATA_DIR "$(PHYSISIMROOT)/data"
+macro_append PhysiSim_cppflags ""  opticks " -g "

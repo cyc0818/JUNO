@@ -1,0 +1,131 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/EventObject"/>
+
+        <class name = "TtRecEvt"
+            author = ""
+            desc = "Reconstructed TT track event. 
+                    ChangeLog:
+                    v1) original version. 
+                    v2) use float instead of double. "
+            version = "2">
+
+            <base name = "EventObject"/>
+
+            <attribute
+                name="NTotPoints"
+                setMeth="FALSE"
+                desc="total points"
+                init="0"
+                type="int"/>
+
+            <attribute
+                name="PointX"
+                setMeth="FALSE"
+                desc="vector of point x"
+                type="std::vector&lt;float&gt;"/>
+
+            <attribute
+                name="PointY"
+                setMeth="FALSE"
+                desc="vector of point y"
+                type="std::vector&lt;float&gt;"/>
+
+            <attribute
+                name="PointZ"
+                setMeth="FALSE"
+                desc="vector of point z"
+                type="std::vector&lt;float&gt;"/>
+
+            <method
+                name="addPoint"
+                desc="Add a point to this event"
+                argList="float x, float y, float z"
+                type="void">
+                <code>
+  m_PointX.push_back(x);
+  m_PointY.push_back(y);
+  m_PointZ.push_back(z);
+
+  ++m_NTotPoints;
+                </code>
+            </method>
+
+            <attribute
+                name="NTracks"
+                setMeth="FALSE"
+                desc="total points"
+                init="0"
+                type="int"/>
+
+            <attribute
+                name="NPoints"
+                setMeth="FALSE"
+                desc="N points for each track"
+                init="0"
+                type="std::vector&lt;int&gt;"/>
+
+            <attribute
+                name="Coeff0"
+                setMeth="FALSE"
+                desc="vector of Coeff0"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Coeff1"
+                setMeth="FALSE"
+                desc="vector of Coeff1"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Coeff2"
+                setMeth="FALSE"
+                desc="vector of Coeff2"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Coeff3"
+                setMeth="FALSE"
+                desc="vector of Coeff3"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Coeff4"
+                setMeth="FALSE"
+                desc="vector of Coeff4"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Coeff5"
+                setMeth="FALSE"
+                desc="vector of Coeff5"
+                type="std::vector&lt;float&gt;"/>
+            <attribute
+                name="Chi2"
+                setMeth="FALSE"
+                desc="vector of Chi2"
+                type="std::vector&lt;float&gt;"/>
+
+            <method
+                name="addTrack"
+                desc="Add a reconstructed track to this event"
+                argList="int npoints, float coeff[6], float chi2"
+                type="void">
+                <code>
+  m_NPoints.push_back(npoints);
+  m_Coeff0.push_back(coeff[0]);
+  m_Coeff1.push_back(coeff[1]);
+  m_Coeff2.push_back(coeff[2]);
+  m_Coeff3.push_back(coeff[3]);
+  m_Coeff4.push_back(coeff[4]);
+  m_Coeff5.push_back(coeff[5]);
+  m_Chi2.push_back(chi2);
+
+  ++m_NTracks;
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+
+

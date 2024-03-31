@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libElecTruth.so ]
+# List of selected classes
+class JM::SpmtElecTruth
+header Event/SpmtElecTruth.h

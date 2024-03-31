@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="TestEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/BTestEventA"/>
+        <import name="Event/BTestEventB"/>
+
+        <class name="TestHeaderB"
+               author="LI Teng"
+               desc="Test HeaderB Class">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::BTestEventA"
+                            name="eventA"
+                            desc="SmartRef to the BTestEventA"
+                            nonconstaccessor="TRUE"/>
+
+            <SmartRelation  type="JM::BTestEventB"
+                            name="eventB"
+                            desc="SmartRef to the BTestEventB"
+                            nonconstaccessor="TRUE"/>
+
+        </class>
+    </package>
+</xdd>

@@ -1,0 +1,10 @@
+include(PKG)
+PKG(IADUtil
+    DEPENDS
+        IADFormat
+        RootIOSvc
+        EDMUtil
+        JunoTimer
+        IADSvc
+        OecEvent
+)

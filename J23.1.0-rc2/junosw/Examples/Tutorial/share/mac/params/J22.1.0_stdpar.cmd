@@ -1,0 +1,2 @@
+--cerenkov-yield-factor 0.517 
+--replace-param Material.LS.ConstantProperty.ScintillationYield:9846/MeV,Material.LS.ConstantProperty.BirksConstant1:12.05e-3*g/cm2/MeV,Material.LS.ConstantProperty.BirksConstant2:0,Material.LS.scale.LSLY_NewPMTModelScale:1.0

@@ -1,0 +1,8 @@
+#!/bin/bash
+source /junofs/users/yuchincheng/offline/bashrc
+cd /junofs/users/yuchincheng/workdir/radio_test/job 
+date
+(time python $TUTORIALROOT/share/tut_detsim.py  --evtmax 500 --seed 1 --output /junofs/users/yuchincheng/workdir/radio_test/DetSim/det_sampleIBD_1.root --user-output /junofs/users/yuchincheng/workdir/radio_test/DetSim/det_userIBD_1.root gendecay --nuclear U-238 --volume pTarget --material LS) >> /junofs/users/yuchincheng/workdir/radio_test/log/log_1.log 
+(time python $TUTORIALROOT/share/tut_det2elec.py --evtmax 3000 --input /junofs/users/yuchincheng/workdir/radio_test/DetSim/det_sampleIBD_1.root --output /junofs/users/yuchincheng/workdir/radio_test/ElecSim/elec_sampleIBD_1.root --user-output /junofs/users/yuchincheng/workdir/radio_test/ElecSim/elec_userIBD_1.root) >> /junofs/users/yuchincheng/workdir/radio_test/log/log_1.log 
+(time python $TUTORIALROOT/share/tut_elec2calib.py --evtmax 3000 --input /junofs/users/yuchincheng/workdir/radio_test/ElecSim/elec_sampleIBD_1.root --output /junofs/users/yuchincheng/workdir/radio_test/CalibSim/calib_sampleIBD_1.root --user-output /junofs/users/yuchincheng/workdir/radio_test/CalibSim/calib_userIBD_1.root) >> /junofs/users/yuchincheng/workdir/radio_test/log/log_1.log 
+(time python $TUTORIALROOT/share/tut_calib2rec.py --evtmax 3000 --input /junofs/users/yuchincheng/workdir/radio_test/CalibSim/calib_sampleIBD_1.root --output /junofs/users/yuchincheng/workdir/radio_test/Rec/rec_sampleIBD_1.root --user-output /junofs/users/yuchincheng/workdir/radio_test/Rec/rec_userIBD_1.root --elec yes --method energy-point --enableLTSPEs --enableTimeInfo --enableUseEkMap) >> /junofs/users/yuchincheng/workdir/radio_test/log/log_1.log 

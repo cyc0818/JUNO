@@ -1,0 +1,65 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="CLHEP/Vector/LorentzVector"/>
+        <import name="TObject"/>
+        <import name="string" std="TRUE"/>
+
+        <class name = "RecTrack"
+            author = "ZHANG Kun"
+            desc = "Reconstructed track class. 
+                    ChangeLog:
+                    v1) original version.
+                    v2) use float instead of double"
+            version = "2">
+
+            <base name = "TObject"/>
+
+            <constructor
+                desc="Constructor"
+                argList="const CLHEP::HepLorentzVector start, const CLHEP::HepLorentzVector end"
+                initList="m_start(start), m_end(end)"/>
+
+            <attribute
+                name="PESum"
+                init = "0"
+                desc="The total p.e. for the muon track"
+                type="float"/>
+
+
+            <attribute
+                name="quality"
+                desc="Quality of the reconstructed track"
+                type="float"/>
+
+            <attribute
+                name="start"
+                init="0"
+                desc="The start point in center detector of this track"
+                type="CLHEP::HepLorentzVector"/>
+
+            <attribute
+                name="end"
+                init="0"
+                desc="The end point in center detector of this track"
+                type="CLHEP::HepLorentzVector"/>
+
+            <method
+                name="direction"
+                desc="The direction of this track"
+                const="TRUE"
+                type="const CLHEP::HepLorentzVector">
+                <code>
+  CLHEP::HepLorentzVector vDiff = m_end - m_start;
+  vDiff /= vDiff.rho();
+  return vDiff;
+                </code>
+            </method>
+
+
+        </class>
+    </package>
+</xdd>

@@ -1,0 +1,107 @@
+***********all units is mm*********
+
+// ExpHall
+ExpHall.Length.X              56250
+ExpHall.Length.Y              49000
+ExpHall.Length.ZSide          11000
+ExpHall.Length.ZDome          16000
+ExpHall.Length.RDome          26760
+ExpHall.Offset.X               3125
+ExpHall.Offset.Y                  0
+
+
+// WaterPool
+WP.Height                     43500
+WP.Radius                     21750
+
+// CenteralDetector
+CD.LS.Radius                  17700
+CD.Acrylic.Thickness          120
+CD.LS.Chimeny.Radius          400
+CD.InnerWater.Radius          20250
+CD.Reflector.Thickness        2
+CD.ChimWater.Thickness        10
+
+CD.Fasteners.Up_Out.Radius    150
+CD.Fasteners.Up.Length        10
+CD.Fasteners.Up1_In.Radius    41
+CD.Fasteners.Up1_Out.Radius   50
+CD.Fasteners.Up1.Length       25
+CD.Fasteners.Down_In.Radius   80
+CD.Fasteners.Down_Out.Radius  150
+CD.Fasteners.Down.Length      5
+CD.Fasteners.Bolts.Radius     10
+CD.Fasteners.Bolts.Length     70
+
+CD.SteelTube.Height           2000
+CD.SteelTube.Radius           1000
+CD.SteelTube.Thickness        3
+CD.Target.Radius              250
+CD.Target.Chimney.Radius      25
+CD.AcrylicBall.Thickness      12
+CD.Acrylic.Chimney.Radius     37
+CD.Acrylic.Circle.Radius      285
+CD.Acrylic.Circle.Height      20
+
+CD.Strut.In.Radius            39
+CD.Strut.Out.Radius           51
+CD.Strut.Length               600
+CD.Strut.Gap                  1
+
+// Chimney
+// for both upper and lower chimney
+Chim.Tyvek.Thickness           2
+Chim.Tube.InnerRadius          400
+
+// for upper chimney
+Chim.UpperTube.Height          3500
+
+// for lower chimney
+Chim.Steel.Thickness           5
+Chim.Upper.SteelTube.Height    300
+Chim.Lower.SteelTube.Height    100
+
+Chim.Inner.Box.Length          2000
+Chim.Inner.Box.Wideth          1000
+Chim.Inner.Box.Height          210
+Chim.Blocker.Thickness         1
+Chim.Blocker.Length            470
+Chim.Blocker.Width             1000
+
+// TopTracker
+TT.Box.X                       24000
+TT.Box.Y                       24000
+TT.Box.Z                       2500
+TT.Chimney.Radius              500
+TT.Chimney.Z                   2000
+TT.Bar.Length                  3430
+TT.Bar.Thickness               5
+TT.Bar.Width                   13
+TT.Bar.Space                   0.1
+TT.Coating.Length              3430
+TT.Coating.Thickness           5.15
+TT.Coating.Width               13.15
+TT.ModuleTape.Length           3430
+TT.ModuleTape.Thickness        6.05
+TT.ModuleTape.Width            845.65
+TT.Module.Length               3430.6
+TT.Module.Thickness            6.65
+TT.Module.Width                846.25
+TT.Module.Space                0.1
+TT.Plane.Length                3430.6
+TT.Plane.Thickness             6.65
+TT.Plane.Width                 3385.15
+TT.Plane.VSpace                1
+TT.Wall.X                      3430.6
+TT.Wall.Y                      3430.6
+TT.Wall.Z                      13.8
+TT.LowerWall.Z                 -855
+TT.Shift.Z                     50
+TT.Space.Z                     1500
+TT.SpaceChimney.Z              1500
+TT.Space.X                     -150
+TT.Space1.X                    -100
+TT.Space.Y                     -150
+TT.Hole.X                      2000
+TT.LowerWallChimney.Z          500
+

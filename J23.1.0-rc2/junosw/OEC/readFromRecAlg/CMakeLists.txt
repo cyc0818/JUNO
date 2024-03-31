@@ -1,0 +1,9 @@
+PKG(readFromRecAlg
+    DEPENDS
+    EvtNavigator
+    RecEvent
+    OecEvent
+    EvtStore
+    EvtDataTypes
+    CLHEP
+    )

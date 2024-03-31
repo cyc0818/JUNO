@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libElecEvent.so ]
+# List of selected classes
+class JM::CdTriggerHeader
+header Event/CdTriggerHeader.h

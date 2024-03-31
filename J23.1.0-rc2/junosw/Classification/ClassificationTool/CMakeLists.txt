@@ -1,0 +1,4 @@
+PKG(ClassificationTool
+    DEPENDS
+      EvtNavigator
+)

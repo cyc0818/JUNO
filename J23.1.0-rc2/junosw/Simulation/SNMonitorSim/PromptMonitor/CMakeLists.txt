@@ -1,0 +1,9 @@
+PKG(PromptMonitor
+    DEPENDS
+        EvtNavigator
+        ElecEvent
+        ElecTruth
+        CalibEvent
+        SNiPER::RootWriterLib
+        SNiPER::SniperKernel
+)

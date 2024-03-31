@@ -1,0 +1,18 @@
+package PMTSim
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+use SimUtil         v*  Simulation/DetSimV2
+# use GenSim          v*  Simulation/DetSimV2
+use Geometry        v*  Detector
+
+use DetSimAlg       v*  Simulation/DetSimV2
+use IPMTSimParamSvc  v*  Simulation/SimSvc
+
+library PMTSim *.cc
+macro_append PMTSim_cppflags " -I$(PMTSIMROOT)/../SimUtil/include "
+# macro_append PMTSim_cppflags " -I$(PMTSIMROOT)/../GenSim/include "
+
+apply_pattern linker_library library=PMTSim
+include_dirs "$(PMTSIMROOT)/include" 
+macro_append PMTSim_cppflags "" opticks " -g "

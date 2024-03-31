@@ -1,0 +1,11 @@
+package DetSimPolicy
+# source the geant4 script first
+
+use Geant4 v* Externals
+use CLHEP v* Externals
+use Xercesc v* Externals
+
+# The below sets blank macro values unless CMTEXTRATAGS envvar includes opticks, 
+# thus it does no harm when the optional Opticks external is not installed.
+use OpticksG4OK    v* Externals
+

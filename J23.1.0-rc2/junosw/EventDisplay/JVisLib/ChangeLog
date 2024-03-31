@@ -1,0 +1,110 @@
+2022-05-27 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Change default visualization configuration
+    RecConeMode changed from single cone to lines connection vertex and PMTs
+    WaterPool set to visible by default
+    Modified File:
+        src/JVisTop.cc
+
+2022-05-26 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Update Event Tree interface for Sim, Calib, Rec with EDM update
+    Modified File:
+        src/JVisEvtMgr.cc
+
+2019-07-23 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Fix a bug in OP vertex display and set vertex marker style
+    Modified File:
+        src/JVisOpMgr.cc
+
+2017-04-02 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Check whether a PMT is a WP or CD PMT before drawing it
+    Modified File:
+        src/JVisTop.cc
+			
+2017-02-18 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a button for pallette display switch
+    Modified File:
+        JVisLib/JVisTop.h
+        src/JVisTop.cc
+
+2017-02-18 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Change pallette position
+    Modified File:
+        src/JVisTop.cc
+
+2017-01-29 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a function to change RecCone display mode
+    Add pallette for change and time hits display
+    Modified File:
+        src/JVisTop.cc
+
+2017-01-29 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add  event info display on Eve view
+    Added File:
+        JVisLib/JVisTimer.h
+        src/JVisTimer.cc
+    Modified File:
+        JVisLib/JVisTop.h
+        JVisLib/JVisEvtMgr.h
+        src/JVisTop.cc
+        src/JVisEvtMgr.cc
+
+2017-01-27 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add a function to swtich between different eveRecMode
+    Set qtMode as a member of JVisTop
+    Add addtional info between recVtx and this PMT,
+    in multiple line Rec mode, while cursors on a line
+    Modified File:
+        JVisLib/JVisTop.h
+        src/JVisTop.cc
+
+
+2017-01-26 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add Rec display 3rd mode, emitting lines from recVtx to PMTs
+    Modified File:
+        JVisLib/JVisTop.h
+        src/JVisTop.cc
+
+2017-01-26 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add missing JVisOp code
+    Added File:
+        JVisLib/JVisOpMgr.h
+        JVisLib/JVisOpTrack.h
+        src/JVisOpMgr.cc
+	src/JVisOpTrack.cc
+		
+2017-01-25 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add initialization of Wp PMT geometry
+    Modified File:
+        JVisLib/JVisGeom.h
+        JVisLib/JVisTop.h
+        src/JVisGeom.cc
+        src/JVisTop.cc
+
+2017-01-25 Zhengyun You <youzhy5@mail.sysu.edu.cn>
+    Add display of Optical Photons with additonal input detsim_user_op.root
+
+2015-03-08 Zhengyun You <zhengyunyou@gmail.com>
+    Update for 3inch PMT
+
+2014-12-08 Zhengyun You <zhengyunyou@gmail.com>
+    Update with SimEventV2 changes
+
+2014-11-25 Zhengyun You <zhengyunyou@gmail.com>
+    Add ROOT EVE 3D display
+
+2014-06-05 Zhengyun You <zhengyunyou@gmail.com>
+    Add fuctions to draw Q(charge) and T(Time) 2D projection
+    Modified File:
+        JVisLib/JVisTop.h
+        JVisLib/JVisEvtMgr.h
+        src/JVisTop.cc
+        src/JVisEvtMgr.cc
+
+2014-05-27 Zhengyun You <zhengyunyou@gmail.com>
+    Implement event file read in and event management
+    Added File:
+        JVisLib/JVisEvtMgr.h
+        src/JVisEvtMgr.cc
+
+2013-12-25 Zhengyun You <zhengyunyou@gmail.com>
+    First implementaion of Juno Visualization Library

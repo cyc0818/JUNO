@@ -1,0 +1,61 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bab21/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bab21.dir/build.make CMakeFiles/cmTC_bab21.dir/build
+gmake[1]: Entering directory `/junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bab21.dir/src.c.o
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/gcc/11.2.0/bin/gcc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_bab21.dir/src.c.o -c /junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_bab21
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/Pre-Release/J22.2.x/ExternalLibs/Cmake/3.24.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bab21.dir/link.txt --verbose=1
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/gcc/11.2.0/bin/gcc CMakeFiles/cmTC_bab21.dir/src.c.o -o cmTC_bab21 
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: CMakeFiles/cmTC_bab21.dir/src.c.o: in function `main':
+src.c:(.text+0x2d): undefined reference to `pthread_create'
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: src.c:(.text+0x39): undefined reference to `pthread_detach'
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: src.c:(.text+0x45): undefined reference to `pthread_cancel'
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_join'
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: src.c:(.text+0x6a): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_bab21] Error 1
+gmake[1]: Leaving directory `/junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_bab21/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_832b1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_832b1.dir/build.make CMakeFiles/cmTC_832b1.dir/build
+gmake[1]: Entering directory `/junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_832b1.dir/CheckFunctionExists.c.o
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/gcc/11.2.0/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_832b1.dir/CheckFunctionExists.c.o -c /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/Pre-Release/J22.2.x/ExternalLibs/Cmake/3.24.1/share/cmake-3.24/Modules/CheckFunctionExists.c
+Linking C executable cmTC_832b1
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/Pre-Release/J22.2.x/ExternalLibs/Cmake/3.24.1/bin/cmake -E cmake_link_script CMakeFiles/cmTC_832b1.dir/link.txt --verbose=1
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/gcc/11.2.0/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_832b1.dir/CheckFunctionExists.c.o -o cmTC_832b1  -lpthreads 
+/cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc1120/contrib/binutils/2.36/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_832b1] Error 1
+gmake[1]: Leaving directory `/junofs/users/yuchincheng/J23.1.0-rc2/junosw/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_832b1/fast] Error 2
+
+
+

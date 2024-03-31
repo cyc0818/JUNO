@@ -1,0 +1,14 @@
+package DetSimAlg
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+use G4Svc           v*  Simulation/DetSimV2
+
+library DetSimAlg *.cc
+
+apply_pattern install_more_includes more="DetSimAlg"
+
+apply_pattern linker_library library=DetSimAlg
+
+include_dirs "$(DETSIMROOT)"
+macro_append DetSimAlg_cppflags "" opticks " -g "

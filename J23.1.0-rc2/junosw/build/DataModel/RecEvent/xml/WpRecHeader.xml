@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/WpRecEvt"/>
+
+        <class name = "WpRecHeader"
+            author = "ZHANG Kun"
+            desc = "Reconstruction Header Class">
+
+            <base name = "HeaderObject"/>
+
+            <SmartRelation type = "JM::WpRecEvt"
+                name = "event"
+                desc = "Smart pointer to the WpRecEvt (WP)"
+                nonconstaccessor = "TRUE"/>
+
+        </class>
+    </package>
+</xdd>

@@ -1,0 +1,182 @@
+drawDetSim.tasks: 
++drawDetSim.tasks: initXYZ initPXPYPZ
++drawDetSim.tasks: trackLength
++drawDetSim.tasks: edep
++drawDetSim.tasks: edepXYZ
++drawDetSim.tasks: pmtIDPE
++drawDetSim.tasks: hitTimePE
++drawDetSim.tasks: totalPE
++drawDetSim.tasks: totalPEvsEdep
+
+#drawDetSim.input: ../sample_detsim_user.root 
+#drawDetSim.output: sim_plots.root 
+#drawDetSim.labels: LabelA 
+
+#drawDetSim.input_lists: t1.txt t3.txt t5.txt t7.txt
+#drawDetSim.output: sim_plots_u_1.root sim_plots_u_3.root sim_plots_u_5.root sim_plots_u_7.root
+#drawDetSim.labels: u_1 u_3 u_5 u_7
+
+drawDetSim.input_lists: lists_detsim.txt
+drawDetSim.output: detsim_ana/detsim_ana.root
+
+#############################################################################
+# initXYZ
+#############################################################################
+initXYZ: task
+initXYZ.plots: X Y Z
+
+initXYZ.*.tree: geninfo
+initXYZ.*.histogram_opts: (200, -20000, 20000)
+
+LabelB.initXYZ.*.histogram_opts: (200, -10000, 10000)
+
+initXYZ.X.opt: InitX
+initXYZ.X.sel: 
+
+initXYZ.Y.opt: InitY
+initXYZ.Y.sel: 
+
+initXYZ.Z.opt: InitZ
+initXYZ.Z.sel: 
+
+#############################################################################
+# initPXPYPZ
+#############################################################################
+initPXPYPZ: task
+initPXPYPZ.plots: PX PY PZ
+
+initPXPYPZ.*.tree: geninfo
+initPXPYPZ.*.histogram_opts: (100, -100, 100)
+
+initPXPYPZ.PX.opt: InitPX
+initPXPYPZ.PX.sel: 
+
+initPXPYPZ.PY.opt: InitPY
+initPXPYPZ.PY.sel: 
+
+initPXPYPZ.PZ.opt: InitPZ
+initPXPYPZ.PZ.sel: 
+
+#############################################################################
+# trackLength
+#############################################################################
+trackLength: task
+trackLength.plots: trackLength
+
+trackLength.trackLength.tree: geninfo
+trackLength.trackLength.histogram_opts: (1000, 0, 50)
+trackLength.trackLength.opt: TrackLength
+trackLength.trackLength.sel:
+
+#############################################################################
+# edep
+#############################################################################
+edep: task
+edep.plots: Edep
+
+edep.*.tree: evt
+edep.*.histogram_opts: (100, 0, 10)
+
+edep.opt: edep
+edep.sel: 
+
+#############################################################################
+# edepXYZ
+#############################################################################
+edepXYZ: task
+edepXYZ.plots: X Y Z
+
+edepXYZ.*.tree: prmtrkdep
+edepXYZ.*.histogram_opts: (200, -20000, 20000)
+
+edepXYZ.X.opt: edepX
+edepXYZ.X.sel: 
+
+edepXYZ.Y.opt: edepY
+edepXYZ.Y.sel: 
+
+edepXYZ.Z.opt: edepZ
+edepXYZ.Z.sel: 
+
+#############################################################################
+# PMT ID
+#############################################################################
+pmtIDPE: task
+pmtIDPE.plots: pmtIDPE20inch pmtIDPE3inch
+
+pmtIDPE.*.tree: evt
+pmtIDPE.*.opt: pmtID
+
+pmtIDPE.pmtIDPE20inch.sel: pmtID<18000
+pmtIDPE.pmtIDPE20inch.histogram_opts: (17746, 0, 17746)
+
+pmtIDPE.pmtIDPE3inch.sel: pmtID>=300000
+pmtIDPE.pmtIDPE3inch.histogram_opts: (50000, 300000, 350000)
+
+#############################################################################
+# hit time (including 20inch and 3inch PMTs)
+#############################################################################
+hitTimePE: task
+hitTimePE.plots: hitTimePE hitTimePEScript
+
+hitTimePE.hitTimePE.tree: evt
+hitTimePE.hitTimePE.opt: hitTime
+hitTimePE.hitTimePE.sel:
+hitTimePE.hitTimePE.histogram: h_hitTimePE
+hitTimePE.hitTimePE.histogram_opts: (3000, 0, 3000)
+
+# User defined scripts
+# in this script, multiple histograms are generated.
+hitTimePE.hitTimePEScript.tree: evt
+hitTimePE.hitTimePEScript.opt: hitTimeUser.C
+hitTimePE.hitTimePEScript.draw_option: script
+hitTimePE.hitTimePEScript.histogram: h_hitTimePEUser
+hitTimePE.hitTimePEScript.histogram_opts.nbin: 3000
+hitTimePE.hitTimePEScript.histogram_opts.xmin: 0
+hitTimePE.hitTimePEScript.histogram_opts.xmax: 3000
+
+#############################################################################
+# totalPE (including 20inch and 3inch PMTs)
+#############################################################################
+totalPE: task
+totalPE.plots: totalPE totalPE20inch totalPE3inch
+
+totalPE.totalPE.tree: evt
+totalPE.totalPE.opt: totalPE
+totalPE.totalPE.sel:
+totalPE.totalPE.histogram_opts: (1500, 0, 15000)
+
+totalPE.totalPE20inch.tree: evt
+totalPE.totalPE20inch.opt: totalPE_20inch.C
+totalPE.totalPE20inch.sel:
+totalPE.totalPE20inch.draw_option: script
+totalPE.totalPE20inch.histogram: h_totalPE_20inch
+totalPE.totalPE20inch.histogram_opts.nbin: 1500
+totalPE.totalPE20inch.histogram_opts.xmin: 0
+totalPE.totalPE20inch.histogram_opts.xmax: 15000
+
+totalPE.totalPE3inch.tree: evt
+totalPE.totalPE3inch.opt: totalPE_3inch.C
+totalPE.totalPE3inch.sel:
+totalPE.totalPE3inch.draw_option: script
+totalPE.totalPE3inch.histogram: h_totalPE_3inch
+totalPE.totalPE3inch.histogram_opts.nbin: 500
+totalPE.totalPE3inch.histogram_opts.xmin: 0
+totalPE.totalPE3inch.histogram_opts.xmax: 500
+
+#############################################################################
+# totalPEvsEdep (including 20inch and 3inch PMTs)
+#############################################################################
+totalPEvsEdep: task
+totalPEvsEdep.plots: totalPEvsEdepR totalPEvsEdepZ
+
+totalPEvsEdep.totalPEvsEdepR.tree: evt
+# For tuning
+totalPEvsEdep.totalPEvsEdepR.histogram: h_totalPEvsEdepR
+totalPEvsEdep.totalPEvsEdepR.opt: totalPE:((sqrt(edepX**2+edepY**2+edepZ**2)/1e3)**3)
+totalPEvsEdep.totalPEvsEdepR.sel:
+
+totalPEvsEdep.totalPEvsEdepZ.tree: evt
+totalPEvsEdep.totalPEvsEdepZ.histogram: h_totalPEvsEdepZ
+totalPEvsEdep.totalPEvsEdepZ.opt: totalPE:(edepZ/1e3)
+totalPEvsEdep.totalPEvsEdepZ.sel:

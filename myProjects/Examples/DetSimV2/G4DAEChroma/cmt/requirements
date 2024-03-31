@@ -1,0 +1,21 @@
+package G4DAEChroma
+
+use SniperRelease   v*
+use DetSimPolicy    v*  Simulation/DetSimV2
+use PhysiSim        v*  Simulation/DetSimV2
+use DetSimAlg       v*  Simulation/DetSimV2
+
+use cJSON           v*  Utilities
+
+apply_pattern install_more_includes more="G4DAEChroma"
+
+macro_append G4DAEChroma_cppflags " -DUSE_CJSON "
+macro_append G4DAEChroma_use_linkopts " -lssl -lcrypto -lrt "
+
+library G4DAEChroma *.cc phys/*.cc
+apply_pattern linker_library library=G4DAEChroma
+
+include_dirs $(G4DAEChroma_root)/src/phys
+
+application test_dae_cerenkov ../tests/dummy.cc
+macro_append test_dae_cerenkov_dependencies G4DAEChroma

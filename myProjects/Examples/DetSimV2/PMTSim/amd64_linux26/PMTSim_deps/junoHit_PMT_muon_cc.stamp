@@ -1,0 +1,1 @@
+junoHit_PMT_muon_cc_dependencies =  ../src/junoHit_PMT_muon.cc   /cvmfs/juno.ihep.ac.cn/centos7_amd64_gcc830/Pre-Release/J20v2r0-Pre1/offline/Simulation/DetSimV2/PMTSim/include/junoHit_PMT_muon.hh  $(bin)PMTSim_deps/junoHit_PMT_muon_cc.stamp

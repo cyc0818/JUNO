@@ -1,0 +1,4 @@
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyHeader
+header DummyHeader.h

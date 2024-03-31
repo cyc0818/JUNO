@@ -1,0 +1,68 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/EventObject"/>
+        <import name="Event/RecVertex"/>
+
+        <class name = "CdVertexRecEvt"
+            author = "ZHANG Kun"
+            desc = "Reconstruced vertex">
+
+            <base name = "EventObject"/>
+
+            <attribute
+                name="vertices"
+                setMeth="FALSE"
+                desc="Get the Cd reconstructed vertices"
+                type="std::vector&lt;JM::RecVertex*&gt;"/>
+
+            <destructor desc = "destructor">
+                <code>
+  std::vector&lt;RecVertex*&gt;::const_iterator it = m_vertices.begin();
+  std::vector&lt;RecVertex*&gt;::const_iterator end = m_vertices.end();
+  while(it!=end){
+    if(*it) delete  (*it);
+    it++;
+  }
+  m_vertices.clear();
+                </code>
+            </destructor>
+
+            <method
+                name="getVertex"
+                desc="Get a Cd vertex via index"
+                argList="int index"
+                const="TRUE"
+                type="const JM::RecVertex *">
+                <code>
+  return m_vertices.at(index);
+                </code>
+            </method>
+
+            <method
+                name="addVertex"
+                desc="Add a Cd vertex to this event"
+                argList="JM::RecVertex* vertex"
+                type="void">
+                <code>
+  m_vertices.push_back(vertex);
+                </code>
+            </method>
+
+            <method
+                name="nVertices"
+                desc="Get number of vertices"
+                const="TRUE"
+                type="int">
+                <code>
+  return m_vertices.size();;
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

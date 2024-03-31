@@ -1,0 +1,9 @@
+PKG(FBRalg
+    DEPENDS
+    Geometry
+    Identifier
+    EvtNavigator
+    CalibEvent
+    OecEvent
+    JunoTimer
+    )

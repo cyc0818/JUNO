@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+
+        <import name="TObject"/>
+        <import name="vector" std="TRUE"/>
+        <import name="cstdint" std="TRUE"/>
+
+        <class name="ElecChannel"
+            author="J. P. A. M. de Andre"
+            desc="Container for t/q pairs of one PMT">
+
+            <base name="TObject"/>
+
+            <attribute
+                desc="Charge info of t/q pairs"
+                name="charge"
+                type="std::vector&lt;unsigned int&gt;"
+                />
+
+            <attribute
+                desc="Time info of t/q pairs"
+                name="time" 
+                type="std::vector&lt;unsigned int&gt;"
+                getMeth="FALSE"
+                />
+
+            <attribute
+                desc="Waveform channel flag. 0: high/low range. 1-31: TBD"
+                name="channelFlag" 
+                type="uint32_t"
+                />
+
+            <method
+                name="charge"
+                type="std::vector&lt;unsigned int&gt;&amp; "
+                desc=""
+                >
+                <code>
+  return m_charge;
+                </code>
+            </method>
+
+            <method
+                name="time"
+                type="std::vector&lt;unsigned int&gt;&amp; "
+                desc=""
+                >
+                <code>
+  if (m_time.size()==0 || m_time.size()!=m_charge.size()) {
+    m_time.clear();
+
+    for (size_t i = 0; i &lt; m_charge.size(); ++i) {
+      m_time.push_back(i);
+    }
+  }
+  return m_time;
+                </code>
+            </method>
+
+            <method
+                name="isLowRange"
+                type="bool "
+                desc="test if this channel is low range"
+                const="TRUE"
+                >
+                <code>
+  return TESTBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="isHighRange"
+                type="bool "
+                desc="test if this channel is high range"
+                const="TRUE"
+                >
+                <code>
+  return !TESTBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="setLowRange"
+                type="void "
+                desc="set this channel to be low range"
+                const="FALSE"
+                >
+                <code>
+  SETBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+            <method
+                name="setHighRange"
+                type="void "
+                desc="set this channel to be high range"
+                const="FALSE"
+                >
+                <code>
+  CLRBIT(m_channelFlag,0);
+                </code>
+            </method>
+
+        </class>
+    </package>
+</xdd>
+

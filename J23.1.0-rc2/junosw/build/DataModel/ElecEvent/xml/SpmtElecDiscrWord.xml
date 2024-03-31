@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="TObject"/> 
+
+        <class name="SpmtElecDiscrWord"
+            author="Pietro Chimenti"
+            desc="SpmtElec information of Abc Card discriminator word">
+
+            <base name="TObject"/>
+
+            <attribute
+                desc="Channel Number within catiroc"
+                name="ChNb"
+                type="Char_t"
+                />
+
+            <attribute
+                desc="Asic Number within board"
+                name="AsicNb"
+                type="Char_t"
+                />
+
+            <attribute
+                desc="card number"
+                name="CardNb"
+                type="UChar_t"
+                />
+
+            <attribute
+                desc="Edge (rising or lowering)"
+                name="Edge"
+                type="Bool_t"
+                />
+
+            <attribute
+                desc="Event Counter as within Abc Board"
+                name="EvtCounter"
+                type="Int_t"
+                />
+
+            <attribute
+                desc="Time Stamp as within Abc Board"
+                name="Time"
+                type="Int_t"
+                />
+
+            <attribute
+                desc="Fine time of discriminator word"
+                name="FineTime"
+                type="Char_t"
+                />
+
+        </class>
+    </package>
+</xdd>

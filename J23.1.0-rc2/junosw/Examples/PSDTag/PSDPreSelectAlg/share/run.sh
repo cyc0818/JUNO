@@ -1,0 +1,3 @@
+#!/bin/bash
+#python run.py  --evtmax 100 --classifier-prompt  --afterpulse-interval-time 1500 --afterpulse-energy-ratio  0.05  --input /tmp/huyuxiang/n_0.root  --user-output user.root --method-PSD PSDTool_sklearn --PrepareForTraining  --AlignMethod alignPeak2_NotSeparatePMT --Path_Bins $PSDTOOLSROOT/share/Bins_Setting_0-10MeV.txt 
+python run.py  --evtmax 100 --classifier-prompt  --classifier-energy --classifier-radius --radius-max 16000 --radius-min 0  --afterpulse-interval-time 1500 --afterpulse-energy-ratio  0.05 --energy-range-max 5.0 --energy-range-min 0.0 --input n_0.root  --user-output user.root --method-PSD PSDTool_sklearn --PrepareForTraining  --AlignMethod alignPeak2_NotSeparatePMT --Path_Bins $PSDTOOLSROOT/share/Bins_Setting_0-10MeV.txt 

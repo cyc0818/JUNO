@@ -1,0 +1,14 @@
+{ decls }
+namespace JM {  }
+
+[ libGenEvent.so ]
+# List of selected classes
+class JM::GenEvt
+header Event/GenEvt.h
+{ decls }
+namespace JM {  }
+
+[ libGenEvent.so ]
+# List of selected classes
+class JM::GenHeader
+header Event/GenHeader.h

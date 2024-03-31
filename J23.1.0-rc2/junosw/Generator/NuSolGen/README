@@ -1,0 +1,25 @@
+# NuSolGen: Solar neutrino generator
+- Author: Xuefeng Ding (CAS-IHEP, dingxf@ihep.ac.cn)
+- Maintainer: Xuefeng Ding (CAS-IHEP, dingxf@ihep.ac.cn, 2023-Feb-22)
+
+- The generator is designed to generate recoil electrons from solar neutrinos elastic scattering electrons.
+
+- The generator is desgned to produce MC PDF to extract the pp, pep, Be-7, and CNO solar neutrino rates by fitting energy distribution.
+- The generator neglects the matter effect in the Earth, and thus is not suitable for B-8 day-night asymmetry studies.
+- The generator generates recoil electron uniformly in directions, and thus is not suitable for diractionality studies.
+
+- For more details, see technote [DocDB-9549](https://juno.ihep.ac.cn/cgi-bin/Dev_DocDB/ShowDocument?docid=9549).
+
+## If you want to do the full detector simulation
+
+	python tut_detsim.py --loglevel Error --evtmax 5000 --no-gdml -seed 1374 --output nusol-5000.root --user-output user-nusol-5000.root nusol --type Be7 --material LS --volume pTarget
+Use --type to specify what neutrino events type: pp,Be7,N13,O15,F17,pep,hep
+
+## If you just need the elastic scattering spectrum wtihout detector effect
+
+You can use the independent executables, but you need the **root** and **clhep** installed. Usage:
+
+	cd ../app/
+	make
+	source ./setup.sh
+	./NuSolGen.exe -n 100 -source Be7

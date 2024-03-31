@@ -1,0 +1,5 @@
+PKG(OECTutorial
+    DEPENDS
+    Tutorial
+
+)

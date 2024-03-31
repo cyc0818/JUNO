@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "RecEvent">
+
+        <import name="Event/HeaderObject"/>
+        <import name="Event/TtRecEvt"/>
+
+        <class name = "TtRecHeader"
+            author = "ZHANG Kun"
+            desc = "Reconstruction Header Class">
+
+            <base name = "HeaderObject"/>
+
+            <SmartRelation type = "JM::TtRecEvt"
+                name = "event"
+                desc = "Smart pointer to the TtRecEvt"
+                nonconstaccessor = "TRUE"/>
+        </class>
+    </package>
+</xdd>

@@ -1,0 +1,3 @@
+PKG(PuC
+    APPONLY PuC
+)

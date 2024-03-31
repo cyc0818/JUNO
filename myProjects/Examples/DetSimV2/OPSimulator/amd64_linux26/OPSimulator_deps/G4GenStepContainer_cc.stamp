@@ -1,0 +1,1 @@
+G4GenStepContainer_cc_dependencies =  ../src/G4GenStepContainer.cc   ../src/G4GenStepContainer.h  $(bin)OPSimulator_deps/G4GenStepContainer_cc.stamp

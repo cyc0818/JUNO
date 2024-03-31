@@ -1,0 +1,4 @@
+PKG(DBISvc
+    DEPENDS
+        dbi
+)

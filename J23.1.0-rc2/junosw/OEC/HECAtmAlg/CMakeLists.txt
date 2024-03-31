@@ -1,0 +1,10 @@
+PKG(#AtmAlg
+    HECAtmAlg
+    DEPENDS
+    EvtNavigator
+    JunoTimer
+    OECData
+    OecEvent
+    OECConfigSvc
+    XercesC::XercesC
+    )

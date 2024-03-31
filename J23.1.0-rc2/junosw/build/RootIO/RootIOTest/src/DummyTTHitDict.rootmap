@@ -1,0 +1,8 @@
+{ decls }
+namespace std {  }
+
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyTTHit
+class vector<DummyTTHit>
+header DummyTTHit.h

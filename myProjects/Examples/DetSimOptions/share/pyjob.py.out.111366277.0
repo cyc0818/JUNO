@@ -1,0 +1,11 @@
+**************************************************
+***          Welcome to SNiPER Python          ***
+**************************************************
+Running @ jnws040.ihep.ac.cn on Fri Dec 18 15:51:32 2020
+task.terminate                  WARN: invalid state tranform ((Invalid)) => ((EndUp))
+
+**************************************************
+Terminating @ jnws040.ihep.ac.cn on Fri Dec 18 15:51:32 2020
+SNiPER::Context Running Mode = { BASIC }
+SNiPER::Context Terminated Successfully
+

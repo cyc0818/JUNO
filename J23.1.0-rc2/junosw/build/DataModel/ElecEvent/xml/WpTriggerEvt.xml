@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+
+        <import name="Event/EventObject"/> 
+        <import name="Context/TimeStamp.h"/>
+
+        <class name="WpTriggerEvt"
+            author="Teng Li"
+            desc="">
+
+            <base name="EventObject"/>
+
+            <attribute
+                desc="trigger type"
+                name="triggerType"
+                type="std::vector&lt;std::string&gt;"/>
+                
+            <attribute
+                desc="trigger time"
+                name="triggerTime"
+                type="std::vector&lt;TimeStamp&gt;"/>
+
+            <attribute
+                desc="trigger fired pmt number"
+                name="nFiredPmt"
+                type="std::vector&lt;int&gt;"/>
+
+            <attribute
+                desc="triggerd volume id"
+                name="volumeId"
+                type="std::vector&lt;int&gt;"/>
+
+
+        </class>
+
+    </package>
+</xdd>
+

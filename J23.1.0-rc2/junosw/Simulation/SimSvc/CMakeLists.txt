@@ -1,0 +1,5 @@
+
+add_subdirectory(IPMTSimParamSvc)
+add_subdirectory(MultiFilmSimSvc)
+add_subdirectory(PMTSimParamSvc)
+add_subdirectory(SpmtElecConfigSvc)

@@ -1,0 +1,78 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name = "CalibEvent">
+
+        <import name = "Event/EventObject"/>
+        <import name = "CalibTtChannel"/>
+        <import name = "list" std="TRUE"/>
+
+        <class name = "TtCalibEvt"
+            author="A.Meregaglia, J.P.A.M. de Andre"
+            desc = "Calibration event class"
+            version="2"
+            >
+
+            <base name = "EventObject"/>
+            <attribute 
+                name="calibTtCol" 
+                type="std::list&lt;JM::CalibTtChannel*&gt;"
+                desc="Collection of CalibTtChannel in a evt"
+                />
+            <method
+                name="getFirstCalibTtChannel"
+                desc="Get a TT channel via chid"
+                argList="unsigned int chid"
+                const="TRUE"
+                type="const JM::CalibTtChannel*">
+                <code>
+  std::list&lt;JM::CalibTtChannel*&gt;::const_iterator cpIter;
+  std::list&lt;JM::CalibTtChannel*&gt;::const_iterator cpFound = m_calibTtCol.end();
+  cpIter = m_calibTtCol.begin();
+  while(cpIter!=m_calibTtCol.end())
+  {
+    if((*cpIter)-&gt;pmtId()==chid){
+      if(cpFound == m_calibTtCol.end()){
+        cpFound = cpIter;
+      }
+      else{
+        if((*cpFound)-&gt;time() > (*cpIter)-&gt;time()){
+          cpFound = cpIter;
+        }
+      }
+    }
+    cpIter++;
+  }
+  if(cpFound==m_calibTtCol.end()) return 0;
+  return *cpFound;
+                </code>
+            </method>
+            
+            <method
+                name="addCalibTtChannel"
+                desc="Add a Calibrate Tt channel to this event"
+                argList="unsigned int chid"
+                type="JM::CalibTtChannel*">
+                <code>
+  JM::CalibTtChannel* cp = new JM::CalibTtChannel(chid);
+  m_calibTtCol.push_back(cp);
+  return cp;
+                </code>
+            </method>
+
+            <destructor desc="destructor TtCalibEvt.">
+                <code>
+  for (std::list&lt;JM::CalibTtChannel*&gt;::iterator it = m_calibTtCol.begin();
+      it != m_calibTtCol.end(); ++it) {
+    if (*it) {
+      delete (*it);
+    }
+  }
+  m_calibTtCol.clear();
+                </code>
+            </destructor>
+
+        </class>
+    </package>
+</xdd>

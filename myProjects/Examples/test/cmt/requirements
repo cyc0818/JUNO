@@ -1,0 +1,8 @@
+package test
+
+use SniperKernel v*
+use Boost v* Externals
+
+library test testAlg.cc
+apply_pattern linker_library library=test 
+

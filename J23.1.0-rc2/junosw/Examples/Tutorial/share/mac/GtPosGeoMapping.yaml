@@ -1,0 +1,44 @@
+#
+# Description:
+#   This file is used by GtPositioner to mapping a user friendly name to the real G4 volume names. 
+#   The mapping could be 1-1 or 1-N.
+#
+#   The format is defined as following
+#
+#     user-friendly-name1:
+#       real-G4-name1: default-material
+#       real-G4-name2: default-material
+#     user-friendly-name2:
+#       real-G4-name2: default-material
+#     real-G4-name1: default-material
+#
+# Author:
+#   Tao Lin <lintao AT ihep.ac.cn>
+#
+
+LatticedShell:
+  pBtmRock: LatticedShellSteel
+pBar: Scintillator
+pBtmRock: Rock
+pCentralDetector: Steel
+pGT_Source:
+  pSourceEnclosure_cavity: VacuumT
+pSource: Analcime
+
+pTopRock: Rock
+
+PMT_20inch_body_phys: Pyrex
+PMT_3inch_body_phys: Pyrex
+
+# CD:
+pTarget: LS
+pCommissioningWater: Water
+
+# LPMTs in CD
+pLPMT_Hamamatsu_R12860: Pyrex
+pLPMT_NNVT_MCPPMT: Pyrex
+
+LPMT_CD:
+  pLPMT_Hamamatsu_R12860: Pyrex
+  pLPMT_NNVT_MCPPMT: Pyrex
+

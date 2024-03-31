@@ -1,0 +1,9 @@
+PKG(CorAnalysis
+    DEPENDS
+        SimEvent
+        ElecEvent
+        CalibEvent
+        RecEvent
+        BufferMemMgr
+        InputReviser
+)

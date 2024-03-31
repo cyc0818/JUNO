@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecEvent">
+        <import name="Event/HeaderObject"/>
+        <import name="Event/TtTriggerEvt"/>
+
+        <class name="TtTriggerHeader"
+            author="Teng Li"
+            desc="">
+
+            <base name="HeaderObject"/>
+
+            <SmartRelation  type="JM::TtTriggerEvt"
+                            name="event"
+                            desc="SmartRef to the TT Trigger Event"
+                            nonconstaccessor="TRUE"/>
+        </class>
+    </package>
+</xdd>
+

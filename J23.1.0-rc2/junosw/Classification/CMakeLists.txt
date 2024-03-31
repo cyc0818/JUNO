@@ -1,0 +1,9 @@
+
+add_subdirectory(ClassificationTool)
+add_subdirectory(ClassificationAlg)
+add_subdirectory(DetClassification)
+add_subdirectory(MCTruthClassification)
+add_subdirectory(PSDClassification)
+add_subdirectory(nClusterMuonClassificationTool)
+
+

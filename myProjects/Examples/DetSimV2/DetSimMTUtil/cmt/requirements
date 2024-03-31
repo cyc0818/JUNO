@@ -1,0 +1,20 @@
+package DetSimMTUtil
+
+use ROOT v* Externals
+use Geant4 v* Externals
+
+use SniperRelease v*
+use SniperMuster v*
+
+use EvtNavigator v* DataModel
+use GenEventV2   v* DataModel
+use SimEventV2   v* DataModel
+use RootIOSvc    v* RootIO
+
+use DetSimOptions v* Simulation/DetSimV2
+include_dirs "$(DETSIMOPTIONSROOT)/include"
+
+apply_pattern install_python_modules
+library DetSimMTUtil *.cc
+apply_pattern linker_library library=DetSimMTUtil
+

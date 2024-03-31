@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SEQUENCE_LIST>
+  <SEQUENCE sequence_id="HIT">
+    <ESALGORITHM algorithm="EFDetectorHits" />
+  </SEQUENCE>
+ 
+  <SEQUENCE sequence_id="EMC">
+    <ESALGORITHM algorithm="EFDetectorHits" />
+  </SEQUENCE>
+
+  <SEQUENCE sequence_id="MDC">
+    <ESALGORITHM algorithm="EFSectorHits" />
+  </SEQUENCE>
+</resultset>

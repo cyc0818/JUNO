@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libGenEvent.so ]
+# List of selected classes
+class JM::GenHeader
+header Event/GenHeader.h

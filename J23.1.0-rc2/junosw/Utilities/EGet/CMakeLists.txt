@@ -1,0 +1,2 @@
+include(PKG)
+PKG(EGet)

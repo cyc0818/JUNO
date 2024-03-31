@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xdd SYSTEM "xdd.dtd">
+
+<xdd>
+    <package name="ElecTruth">
+        <import name="Event/EventObject"/> 
+        <import name="Context/TimeStamp.h"/>
+
+ 
+        <class name="LpmtElecTruth"
+            author="Yan Zhang"
+            desc="This data model reflects the content of the Pulse class.
+                  ChangeLog:
+                  v1) first version. 
+                  v2) change double to float for amplitude, TTS, time offset."
+            version="2">
+
+            <base name="EventObject"/>
+
+            <attribute
+                 desc="sourse type of the pulse('tag' setting  by user, DN, AP or Unknow)"
+                 name="pulsetype"
+                 type="std::string"
+                 />
+
+            <attribute
+                 desc="pmt id of the pulse"
+                 name="pmtId"
+                 type="int"
+                 />
+
+            <attribute
+                 desc="photo-electron number of the pulse"
+                 name="npe"
+                 type="int"
+                 />
+
+            <attribute
+                 desc="hit time as from detector simulation"
+                 name="hitTime"
+                 type="double"
+                 />
+
+            <attribute
+                 desc="amplitude as from PMT simulation"
+                 name="amplitude"
+                 type="float"
+                 />
+
+            <attribute
+                 desc="transit time of the hit"
+                 name="TTS"
+                 type="float"
+                 />
+
+            <attribute
+                 desc="time offset of the hit"
+                 name="timeoffset"
+                 type="float"
+                 />
+
+            <attribute
+                 desc="TimeStamp of the pulse = event time stamp + transit time + time offset"
+                 name="pulseHitTime"
+                 type="TimeStamp"
+                 />
+
+
+        </class>
+    </package>
+</xdd>
+

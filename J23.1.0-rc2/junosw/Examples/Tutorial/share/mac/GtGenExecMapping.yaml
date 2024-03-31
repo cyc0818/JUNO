@@ -1,0 +1,106 @@
+# This file contains the pre-defined settings of GtGenExecMapping
+#
+# This information is based on the settings in JUNODetSimModule
+#    GENERATOR_EXEC = {"IBD": "IBD.exe -n {EVENT} -seed {SEED}|",
+#                      "IBD-NH": "IBD.exe -n {EVENT} -seed {SEED} -NH|",
+#                      "IBD-IH": "IBD.exe -n {EVENT} -seed {SEED} -IH|",
+#                      "IBD-eplus": "IBD.exe -n {EVENT} -seed {SEED} -eplus_only|",
+#                      "IBD-neutron": "IBD.exe -n {EVENT} -seed {SEED} -neutron_only|",
+#                      "AmC": "AmC.exe -n {EVENT} -seed {SEED}|",
+#                      "AmBe": "AmBe.exe -n {EVENT} -seed {SEED}|",
+#                      "Muon": "Muon.exe -n {EVENT} -seed {SEED} -s juno|",
+#                      "Co60": "Co60.exe -n {EVENT} -seed {SEED}|",
+#                      "Cs137": "Cs137.exe -n {EVENT} -seed {SEED}|",
+#                      "Ge68": "Ge68.exe -n {EVENT} -seed {SEED}|",
+#                      "Ge68-geom": "Ge68.exe -n {EVENT} -seed {SEED} -geom 1|",
+#                      "K40": "K40.exe -n {EVENT} -seed {SEED}|",
+#                      "Mn54": "Mn54.exe -n {EVENT} -seed {SEED}|",
+#                      "AtmNu": "AtmNuGen.exe -n {EVENT} -seed {SEED} |",
+#                      "ReactorNuES": "ReactorNuES.exe -n {EVENT} -seed ${SEED} |",
+#                      }
+# The format is very simple:
+#   label-name:
+#     the real command to be used
+#
+# Please note the end of line should be '|'. Don't confuse with YAML's block scalar.
+#
+# The placeholders:
+# - {EVENT}: number of events to be generated
+# - {SEED}: the initial seed of random number
+
+##############################################################################
+# IBD
+##############################################################################
+UnifiedIBD:
+  UnifiedIBD.exe -n {EVENT} -seed {SEED} |
+
+UnifiedIBD-NH:
+  UnifiedIBD.exe -n {EVENT} -seed {SEED} -NH |
+
+UnifiedIBD-IH:
+  UnifiedIBD.exe -n {EVENT} -seed {SEED} -IH |
+
+UnifiedIBD-eplus:
+  UnifiedIBD.exe -n {EVENT} -seed {SEED} -eplus_only |
+
+UnifiedIBD-neutron:
+  UnifiedIBD.exe -n {EVENT} -seed {SEED} -neutron_only |
+
+
+IBD:
+  IBD.exe -n {EVENT} -seed {SEED} |
+
+IBD-NH:
+  IBD.exe -n {EVENT} -seed {SEED} -NH |
+
+IBD-IH:
+  IBD.exe -n {EVENT} -seed {SEED} -IH |
+
+IBD-eplus:
+  IBD.exe -n {EVENT} -seed {SEED} -eplus_only |
+
+IBD-neutron:
+  IBD.exe -n {EVENT} -seed {SEED} -neutron_only |
+
+ReactorNuES: 
+  ReactorNuES.exe -n {EVENT} -seed ${SEED} |
+
+
+##############################################################################
+# Muon
+##############################################################################
+Muon:
+  Muon.exe -n {EVENT} -seed {SEED} -s juno |
+
+
+AtmNu: 
+  AtmNuGen.exe -n {EVENT} -seed {SEED} |
+
+##############################################################################
+# Calibration sources
+##############################################################################
+
+AmC:
+  AmC.exe -n {EVENT} -seed {SEED} |
+
+AmBe: 
+  AmBe.exe -n {EVENT} -seed {SEED} |
+
+Co60: 
+  Co60.exe -n {EVENT} -seed {SEED} |
+
+Cs137:
+  Cs137.exe -n {EVENT} -seed {SEED} |
+
+Ge68:
+  Ge68.exe -n {EVENT} -seed {SEED} |
+
+Ge68-geom:
+  Ge68.exe -n {EVENT} -seed {SEED} -geom 1 |
+
+K40: 
+  K40.exe -n {EVENT} -seed {SEED} |
+
+Mn54: 
+  Mn54.exe -n {EVENT} -seed {SEED} |
+

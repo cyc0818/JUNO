@@ -1,0 +1,32 @@
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyHeader
+header DummyHeader.h
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyEvent
+header DummyEvent.h
+{ decls }
+namespace std {  }
+
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyPMTHit
+class vector<DummyPMTHit>
+header DummyPMTHit.h
+{ decls }
+namespace std {  }
+
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyTTHit
+class vector<DummyTTHit>
+header DummyTTHit.h
+{ decls }
+namespace std {  }
+
+[ libRootIOTest.so ]
+# List of selected classes
+class DummyTrack
+class vector<DummyTrack>
+header DummyTrack.h

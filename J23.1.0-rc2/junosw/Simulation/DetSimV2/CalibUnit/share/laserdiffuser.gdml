@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://128.30.52.100/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <constant name="ballr" value="15."/>
+	<constant name="tuber" value="7."/>
+	<constant name="tubeh" value="21.19"/>
+	<constant name="tubeposz" value="23.8614991614215981"/>
+	<constant name="nituber" value="4."/>
+	<constant name="nitubeh" value="100.77"/>
+	<constant name="nitubeposz" value="tubeposz+tubeh*0.5+nitubeh*0.5"/>
+	<constant name="niscrewphi" value="31.0027191338739918"/>
+	<constant name="niscrewr" value="7"/>
+	<constant name="niscrewh" value="22"/>
+  </define>
+
+  <materials>
+    <material name="Nickel" Z="28">
+      <D value="8.908" unit="g/cm3"/>
+      <fraction n="1.0" ref="Ni"/>
+    </material>
+  </materials>
+
+  <solids>
+    <sphere aunit="deg" deltaphi="360" deltatheta="180" lunit="mm" name="sdfball" rmax="ballr" rmin="0" startphi="0" starttheta="0"/>
+	<tube aunit="deg" deltaphi="360" lunit="mm" name="sdftube" rmax="tuber" rmin="0." startphi="0" z="tubeh"/>
+	<tube aunit="deg" deltaphi="360" lunit="mm" name="snitube" rmax="nituber" rmin="0." startphi="0" z="nitubeh"/>
+	<tube aunit="deg" startphi="niscrewphi" deltaphi="180-2*niscrewphi" lunit="mm" name="sniscrewtube1" rmax="niscrewr" rmin="0." z="niscrewh"/>
+	<tube aunit="deg" startphi="180.+niscrewphi" deltaphi="180-2*niscrewphi" lunit="mm" name="sniscrewtube2" rmax="niscrewr" rmin="0." z="niscrewh"/>
+    <box lunit="mm" name="sniscrewtube3" x="12." y="7.21" z="niscrewh"/>
+    <box lunit="mm" name="sSourceWorld" x="40" y="20" z="540"/>
+  </solids>
+
+  <structure>
+    <volume name="ldfball">
+	  <materialref ref="Teflon"/>
+	  <solidref ref="sdfball"/>
+	</volume>
+    <volume name="ldftube">
+	  <materialref ref="Teflon"/>
+	  <solidref ref="sdftube"/>
+	</volume>
+    <volume name="lnitube">
+	  <materialref ref="Nickel"/>
+	  <solidref ref="snitube"/>
+	</volume>
+    <volume name="lniscrewtube1">
+	  <materialref ref="Nickel"/>
+	  <solidref ref="sniscrewtube1"/>
+	</volume>
+    <volume name="lniscrewtube2">
+	  <materialref ref="Nickel"/>
+	  <solidref ref="sniscrewtube2"/>
+	</volume>
+    <volume name="lniscrewtube3">
+	  <materialref ref="Nickel"/>
+	  <solidref ref="sniscrewtube3"/>
+	</volume>
+	<volume name="lSourceWorld">
+	  <materialref ref="LS"/>
+	  <solidref ref="sSourceWorld"/>
+	  <physvol name="pdfball">
+	    <volumeref ref="ldfball"/>
+		<position name="pdfball_pos" unit="mm" x="0" y="0" z="0"/>
+      </physvol>
+	  <physvol name="pdftube">
+	    <volumeref ref="ldftube"/>
+		<position name="pdftube_pos" unit="mm" x="0" y="0" z="tubeposz"/>
+	  </physvol>
+	  <physvol name="pnitube">
+	    <volumeref ref="lnitube"/>
+		<position name="pnitube_pos" unit="mm" x="0" y="0" z="nitubeposz"/>
+	  </physvol>
+	  <physvol name="pniscrewtube1">
+	    <volumeref ref="lniscrewtube1"/>
+		<position name="pniscrewtube1_pos" unit="mm" x="0" y="0" z="nitubeposz+nitubeh*0.5+0.5*niscrewh"/>
+	  </physvol>
+	  <physvol name="pniscrewtube2">
+	    <volumeref ref="lniscrewtube2"/>
+		<position name="pniscrewtube2_pos" unit="mm" x="0" y="0" z="nitubeposz+nitubeh*0.5+0.5*niscrewh"/>
+	  </physvol>
+	  <physvol name="pniscrewtube3">
+	    <volumeref ref="lniscrewtube3"/>
+		<position name="pniscrewtube3_pos" unit="mm" x="0" y="0" z="nitubeposz+nitubeh*0.5+0.5*niscrewh"/>
+	  </physvol>
+	</volume>
+
+	<skinsurface name="PTFE_Surface_dfball" surfaceproperty="OpticalTeflonMirror">
+	  <volumeref ref="ldfball"/>
+	</skinsurface>
+	<skinsurface name="PTFE_Surface_dftube" surfaceproperty="OpticalTeflonMirror">
+	  <volumeref ref="ldftube"/>
+	</skinsurface>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="lSourceWorld"/>
+  </setup>
+
+</gdml>

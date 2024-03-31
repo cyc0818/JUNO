@@ -1,0 +1,9 @@
+{ decls }
+namespace std {  }
+namespace JM {  }
+
+[ libSimEvent.so ]
+# List of selected classes
+class JM::SimTTHit
+class vector<JM::SimTTHit>
+header Event/SimTTHit.h

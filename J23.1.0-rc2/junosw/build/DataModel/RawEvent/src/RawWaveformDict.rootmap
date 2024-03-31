@@ -1,0 +1,7 @@
+{ decls }
+namespace JM {  }
+
+[ libRawEvent.so ]
+# List of selected classes
+class JM::RawWaveform
+header Event/RawWaveform.h
